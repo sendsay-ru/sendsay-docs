@@ -1,23 +1,21 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
     title: 'Начало работы',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Короткая обзорная экскурсия по сервису
-      </>
-    ),
+    description: <>Короткая обзорная экскурсия по сервису</>,
   },
   {
     title: 'Работа с подписчиками',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Как импортировать контакты, работать с данными и сегментировать аудиторию
+        Как импортировать контакты, работать с данными и сегментировать
+        аудиторию
       </>
     ),
   },
@@ -26,13 +24,14 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Всё про email-рассылки: как создавать выпуски, персонализировать контент и что нужно настраивать дополнительно
+        Всё про email-рассылки: как создавать выпуски, персонализировать контент
+        и что нужно настраивать дополнительно
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
