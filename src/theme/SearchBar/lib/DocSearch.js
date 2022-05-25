@@ -26,25 +26,19 @@ class DocSearch {
   }) {
     this.input = DocSearch.getInputFromSelector(inputSelector);
     this.queryDataCallback = queryDataCallback || null;
-    const autocompleteOptionsDebug =
-      autocompleteOptions && autocompleteOptions.debug
-        ? autocompleteOptions.debug
-        : false;
+    const autocompleteOptionsDebug = autocompleteOptions && autocompleteOptions.debug
+      ? autocompleteOptions.debug
+      : false;
 
-    // eslint-disable-next-line no-param-reassign
     autocompleteOptions.debug = debug || autocompleteOptionsDebug;
     this.autocompleteOptions = autocompleteOptions;
-    this.autocompleteOptions.cssClasses =
-      this.autocompleteOptions.cssClasses || {};
-    this.autocompleteOptions.cssClasses.prefix =
-      this.autocompleteOptions.cssClasses.prefix || 'ds';
-    const inputAriaLabel =
-      this.input &&
-      typeof this.input.attr === 'function' &&
-      this.input.attr('aria-label');
+    this.autocompleteOptions.cssClasses = this.autocompleteOptions.cssClasses || {};
+    this.autocompleteOptions.cssClasses.prefix = this.autocompleteOptions.cssClasses.prefix || 'ds';
+    const inputAriaLabel = this.input
+      && typeof this.input.attr === 'function'
+      && this.input.attr('aria-label');
 
-    this.autocompleteOptions.ariaLabel =
-      this.autocompleteOptions.ariaLabel || inputAriaLabel || 'search input';
+    this.autocompleteOptions.ariaLabel = this.autocompleteOptions.ariaLabel || inputAriaLabel || 'search input';
 
     this.isSimpleLayout = layout === 'simple';
 
@@ -77,12 +71,12 @@ class DocSearch {
 
     this.autocomplete.on(
       'autocomplete:selected',
-      this.handleSelected.bind(null, this.autocomplete.autocomplete)
+      this.handleSelected.bind(null, this.autocomplete.autocomplete),
     );
 
     this.autocomplete.on(
       'autocomplete:shown',
-      this.handleShown.bind(null, this.input)
+      this.handleShown.bind(null, this.input),
     );
 
     if (enhancedSearchInput) {
@@ -100,7 +94,7 @@ class DocSearch {
   }
 
   static bindSearchBoxEvent() {
-    $('.searchbox [type="reset"]').on('click', function () {
+    $('.searchbox [type="reset"]').on('click', () => {
       $('input#docsearch').focus();
       $(this).addClass('hide');
       autocomplete.autocomplete.setVal('');
@@ -147,8 +141,8 @@ class DocSearch {
       }
       this.client.search(query).then((hits) => {
         if (
-          this.queryDataCallback &&
-          typeof this.queryDataCallback == 'function'
+          this.queryDataCallback
+          && typeof this.queryDataCallback === 'function'
         ) {
           this.queryDataCallback(hits);
         }
@@ -168,7 +162,7 @@ class DocSearch {
         // eslint-disable-next-line no-param-reassign
         hit._highlightResult = utils.mergeKeyWithParent(
           hit._highlightResult,
-          'hierarchy'
+          'hierarchy',
         );
       }
 
@@ -182,7 +176,7 @@ class DocSearch {
       const groupedHitsByLvl1 = utils.groupBy(collection, 'lvl1');
       const flattenedHits = utils.flattenAndFlagFirst(
         groupedHitsByLvl1,
-        'isSubCategoryHeader'
+        'isSubCategoryHeader',
       );
 
       groupedHits[level] = flattenedHits;
@@ -203,21 +197,17 @@ class DocSearch {
           utils.getHighlightedValue(hit, 'lvl6'),
         ])
         .join(
-          '<span class="aa-suggestion-title-separator" aria-hidden="true"> › </span>'
+          '<span class="aa-suggestion-title-separator" aria-hidden="true"> › </span>',
         );
       const text = utils.getSnippetedValue(hit, 'content');
-      const isTextOrSubcategoryNonEmpty =
-        (subcategory && subcategory !== '') ||
-        (displayTitle && displayTitle !== '');
-      const isLvl1EmptyOrDuplicate =
-        !subcategory || subcategory === '' || subcategory === category;
-      const isLvl2 =
-        displayTitle && displayTitle !== '' && displayTitle !== subcategory;
-      const isLvl1 =
-        !isLvl2 &&
-        subcategory &&
-        subcategory !== '' &&
-        subcategory !== category;
+      const isTextOrSubcategoryNonEmpty = (subcategory && subcategory !== '')
+        || (displayTitle && displayTitle !== '');
+      const isLvl1EmptyOrDuplicate = !subcategory || subcategory === '' || subcategory === category;
+      const isLvl2 = displayTitle && displayTitle !== '' && displayTitle !== subcategory;
+      const isLvl1 = !isLvl2
+        && subcategory
+        && subcategory !== ''
+        && subcategory !== category;
       const isLvl0 = !isLvl1 && !isLvl2;
 
       return {
@@ -244,14 +234,14 @@ class DocSearch {
       const containsAnchor = url.indexOf('#') !== -1;
 
       if (containsAnchor) return url;
-      else if (anchor) return `${hit.url}#${hit.anchor}`;
+      if (anchor) return `${hit.url}#${hit.anchor}`;
 
       return url;
-    } else if (anchor) return `#${hit.anchor}`;
-    /* eslint-disable */
+    }
+    if (anchor) return `#${hit.anchor}`;
+
     console.warn('no anchor nor url for : ', JSON.stringify(hit));
 
-    /* eslint-enable */
     return null;
   }
 
@@ -288,14 +278,12 @@ class DocSearch {
       middleOfWindow = 900;
     }
 
-    const alignClass =
-      middleOfInput - middleOfWindow >= 0
-        ? 'algolia-autocomplete-right'
-        : 'algolia-autocomplete-left';
-    const otherAlignClass =
-      middleOfInput - middleOfWindow < 0
-        ? 'algolia-autocomplete-right'
-        : 'algolia-autocomplete-left';
+    const alignClass = middleOfInput - middleOfWindow >= 0
+      ? 'algolia-autocomplete-right'
+      : 'algolia-autocomplete-left';
+    const otherAlignClass = middleOfInput - middleOfWindow < 0
+      ? 'algolia-autocomplete-right'
+      : 'algolia-autocomplete-left';
     const autocompleteWrapper = $('.algolia-autocomplete');
 
     if (!autocompleteWrapper.hasClass(alignClass)) {

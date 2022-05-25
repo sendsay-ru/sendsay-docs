@@ -1,4 +1,4 @@
-import lunr from '@generated/lunr.client'; //eslint-disable-line import/no-unresolved
+import lunr from '@generated/lunr.client';
 lunr.tokenizer.separator = /[\s\-/]+/;
 
 class LunrSearchAdapter {
@@ -8,7 +8,7 @@ class LunrSearchAdapter {
   }
 
   getLunrResult(input) {
-    return this.lunrIndex.query(function (query) {
+    return this.lunrIndex.query((query) => {
       const tokens = lunr.tokenizer(input);
 
       query.term(tokens, {
@@ -29,11 +29,11 @@ class LunrSearchAdapter {
       url: doc.url,
       _snippetResult: formattedContent
         ? {
-            content: {
-              value: formattedContent,
-              matchLevel: 'full',
-            },
-          }
+          content: {
+            value: formattedContent,
+            matchLevel: 'full',
+          },
+        }
         : null,
       _highlightResult: {
         hierarchy: {
@@ -44,21 +44,23 @@ class LunrSearchAdapter {
             doc.type === 0
               ? null
               : {
-                  value: formattedTitle || doc.title,
-                },
+                value: formattedTitle || doc.title,
+              },
         },
       },
     };
   }
+
   getTitleHit(doc, position, length) {
     const start = position[0];
     const end = position[0] + length;
-    let formattedTitle =
-      doc.title.substring(0, start) +
-      '<span class="algolia-docsearch-suggestion--highlight">' +
-      doc.title.substring(start, end) +
-      '</span>' +
-      doc.title.substring(end, doc.title.length);
+    const formattedTitle = `${doc.title.substring(
+      0,
+      start,
+    )}<span class="algolia-docsearch-suggestion--highlight">${doc.title.substring(
+      start,
+      end,
+    )}</span>${doc.title.substring(end, doc.title.length)}`;
 
     return this.getHit(doc, formattedTitle);
   }
@@ -66,15 +68,15 @@ class LunrSearchAdapter {
   getKeywordHit(doc, position, length) {
     const start = position[0];
     const end = position[0] + length;
-    let formattedTitle =
-      doc.title +
-      '<br /><i>Keywords: ' +
-      doc.keywords.substring(0, start) +
-      '<span class="algolia-docsearch-suggestion--highlight">' +
-      doc.keywords.substring(start, end) +
-      '</span>' +
-      doc.keywords.substring(end, doc.keywords.length) +
-      '</i>';
+    const formattedTitle = `${
+      doc.title
+    }<br /><i>Keywords: ${doc.keywords.substring(
+      0,
+      start,
+    )}<span class="algolia-docsearch-suggestion--highlight">${doc.keywords.substring(
+      start,
+      end,
+    )}</span>${doc.keywords.substring(end, doc.keywords.length)}</i>`;
 
     return this.getHit(doc, formattedTitle);
   }
@@ -122,12 +124,12 @@ class LunrSearchAdapter {
     let preview = doc.content.substring(previewStart, start);
 
     if (ellipsesBefore) {
-      preview = '... ' + preview;
+      preview = `... ${preview}`;
     }
-    preview +=
-      '<span class="algolia-docsearch-suggestion--highlight">' +
-      doc.content.substring(start, end) +
-      '</span>';
+    preview += `<span class="algolia-docsearch-suggestion--highlight">${doc.content.substring(
+      start,
+      end,
+    )}</span>`;
     preview += doc.content.substring(end, previewEnd);
     if (ellipsesAfter) {
       preview += ' ...';
@@ -135,6 +137,7 @@ class LunrSearchAdapter {
 
     return this.getHit(doc, null, preview);
   }
+
   search(input) {
     return new Promise((resolve) => {
       const results = this.getLunrResult(input);
@@ -147,7 +150,7 @@ class LunrSearchAdapter {
         const doc = this.searchDocs[result.ref];
         const { metadata } = result.matchData;
 
-        for (let i in metadata) {
+        for (const i in metadata) {
           if (metadata[i].title) {
             if (!this.titleHitsRes.includes(result.ref)) {
               const position = metadata[i].title.position[0];

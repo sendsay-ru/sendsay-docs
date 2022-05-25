@@ -1,10 +1,10 @@
-import { useHistory } from '@docusaurus/router'; //eslint-disable-line import/no-unresolved
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'; //eslint-disable-line import/no-unresolved
-import { usePluginData } from '@docusaurus/useGlobalData'; //eslint-disable-line import/no-unresolved
+import { useHistory } from '@docusaurus/router';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { usePluginData } from '@docusaurus/useGlobalData';
 import classnames from 'classnames';
 import React, { useRef, useCallback, useState } from 'react';
 
-const Search = ({ isSearchBarExpanded, handleSearchBarToggle }) => {
+function Search({ isSearchBarExpanded, handleSearchBarToggle }) {
   const initialized = useRef(false);
   const searchBarRef = useRef(null);
   const [indexReady, setIndexReady] = useState(false);
@@ -34,19 +34,13 @@ const Search = ({ isSearchBarExpanded, handleSearchBarToggle }) => {
   };
 
   const pluginData = usePluginData('docusaurus-lunr-search');
-  const getSearchDoc = () =>
-    process.env.NODE_ENV === 'production'
-      ? fetch(`${baseUrl}${pluginData.fileNames.searchDoc}`).then((content) =>
-          content.json()
-        )
-      : Promise.resolve([]);
+  const getSearchDoc = () => (process.env.NODE_ENV === 'production'
+    ? fetch(`${baseUrl}${pluginData.fileNames.searchDoc}`).then((content) => content.json())
+    : Promise.resolve([]));
 
-  const getLunrIndex = () =>
-    process.env.NODE_ENV === 'production'
-      ? fetch(`${baseUrl}${pluginData.fileNames.lunrIndex}`).then((content) =>
-          content.json()
-        )
-      : Promise.resolve([]);
+  const getLunrIndex = () => (process.env.NODE_ENV === 'production'
+    ? fetch(`${baseUrl}${pluginData.fileNames.lunrIndex}`).then((content) => content.json())
+    : Promise.resolve([]));
 
   const loadAlgolia = () => {
     if (!initialized.current) {
@@ -74,7 +68,7 @@ const Search = ({ isSearchBarExpanded, handleSearchBarToggle }) => {
 
       handleSearchBarToggle && handleSearchBarToggle(!isSearchBarExpanded);
     },
-    [isSearchBarExpanded, handleSearchBarToggle]
+    [isSearchBarExpanded, handleSearchBarToggle],
   );
 
   if (isClient) {
@@ -101,7 +95,7 @@ const Search = ({ isSearchBarExpanded, handleSearchBarToggle }) => {
         className={classnames(
           'navbar__search-input',
           { 'search-bar-expanded': isSearchBarExpanded },
-          { 'search-bar': !isSearchBarExpanded }
+          { 'search-bar': !isSearchBarExpanded },
         )}
         onClick={loadAlgolia}
         onMouseOver={loadAlgolia}
@@ -112,6 +106,6 @@ const Search = ({ isSearchBarExpanded, handleSearchBarToggle }) => {
       />
     </div>
   );
-};
+}
 
 export default Search;
