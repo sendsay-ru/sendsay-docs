@@ -61,11 +61,12 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
             // change this to "integrations/..."
-            docId: 'statistics/where-to-track-statistics',
+            to: 'statistics/where-to-track-statistics',
             position: 'left',
             label: 'Интеграции',
+            // change statistics to integrations
+            activeBaseRegex: 'statistics/*'
           },
           {
             // change this
