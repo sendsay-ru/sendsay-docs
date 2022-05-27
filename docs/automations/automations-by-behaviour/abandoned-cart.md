@@ -6,9 +6,9 @@ import legacyInterface from "./assets/abandoned-cart/legacy-interface.png";
 import howToAddYml from "./assets/abandoned-cart/how-to-add-yml.png";
 import ymlUpdate from "./assets/abandoned-cart/yml-update.png";
 import abandonedCartTemplate from "./assets/abandoned-cart/abandoned-cart-template.png";
-import step1 from "./assets/abandoned-cart/step-1.png";
-import step2 from "./assets/abandoned-cart/step-2.png";
-import step3 from "./assets/abandoned-cart/step-3.png";
+import step1 from "./assets/abandoned-cart/abandoned-cart-step-1.png";
+import step2 from "./assets/abandoned-cart/abandoned-cart-step-2.png";
+import step3 from "./assets/abandoned-cart/abandoned-cart-step-3.png";
 import dataUpdate from "./assets/abandoned-cart/data-update.png";
 import abandonedCartSegment from "./assets/abandoned-cart/abandoned-cart-segment.png";
 
