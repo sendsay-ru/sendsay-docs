@@ -62,15 +62,15 @@ const config = {
         items: [
           {
             // change this to "integrations/..."
-            to: 'statistics/where-to-track-statistics',
+            to: 'integrations/integration-with-tilda',
             position: 'left',
             label: 'Интеграции',
             // change statistics to integrations
-            activeBaseRegex: 'statistics/*'
+            activeBaseRegex: 'integrations/*'
           },
           {
             // change this
-            to: '/blog',
+            to: '/videolessons',
             label: 'Видеоуроки',
             position: 'left'
           },
