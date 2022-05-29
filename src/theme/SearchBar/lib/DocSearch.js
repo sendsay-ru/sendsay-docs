@@ -27,7 +27,7 @@ class DocSearch {
     this.input = DocSearch.getInputFromSelector(inputSelector);
     this.queryDataCallback = queryDataCallback || null;
     const autocompleteOptionsDebug =
-      autocompleteOptions && autocompleteOptions.debug
+        autocompleteOptions && autocompleteOptions.debug
         ? autocompleteOptions.debug
         : false;
 
