@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-git clone git@github.com:sendsay-ru/sendsay-frontend-builds.git /tmp/sendsay-frontend-builds
-
+export BUILD_PATH=build-docs
 export RELEASE_NAME=$(git describe --tags --abbrev=0);
+export MESSAGE=sendsay-docs\ $BUILD_PATH\ $RELEASE_NAME
+
+git clone git@github.com:sendsay-ru/sendsay-frontend-builds.git /tmp/sendsay-frontend-builds
 
 yarn run build
 
-export MESSAGE=sendsay-docs\ build-docs\ $RELEASE_NAME
+rm -rf /tmp/sendsay-frontend-builds/$BUILD_PATH
 
-rm -rf /tmp/sendsay-frontend-builds/build-docs
-
-yes | cp -R build/* /tmp/sendsay-frontend-builds/build-docs
+yes | cp -R build/* /tmp/sendsay-frontend-builds/$BUILD_PATH
 
 cd /tmp/sendsay-frontend-builds
 
-echo $MESSAGE > build/COMMIT
+echo $MESSAGE > $BUILD_PATH/COMMIT
 
 git add .
 git commit -m "$MESSAGE"
