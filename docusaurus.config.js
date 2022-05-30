@@ -27,9 +27,9 @@ const config = {
   plugins: [
     [
       'docusaurus-lunr-search', {
-        languages: ['ru', 'en']
-      }
-    ]
+        languages: ['ru', 'en'],
+      },
+    ],
   ],
 
   presets: [
@@ -61,18 +61,15 @@ const config = {
         },
         items: [
           {
-            // change this to "integrations/..."
-            to: 'integrations/integration-with-tilda',
+            to: '/integrations',
             position: 'left',
             label: 'Интеграции',
-            // change statistics to integrations
-            activeBaseRegex: 'integrations/*'
+            activeBaseRegex: 'integrations/*',
           },
           {
-            // change this
             to: '/videolessons',
             label: 'Видеоуроки',
-            position: 'left'
+            position: 'left',
           },
           {
             href: 'https://app.sendsay.ru',
@@ -99,8 +96,8 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       colorMode: {
-        disableSwitch: true
-      }
+        disableSwitch: true,
+      },
     }),
 };
 
