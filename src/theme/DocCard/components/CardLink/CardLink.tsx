@@ -8,16 +8,11 @@ interface CardLinkProps {
   item: PropSidebarItemLink;
 }
 
-const CardLink = ({ item }: CardLinkProps): JSX.Element => {
+const CardLink = ({ item }: CardLinkProps) => {
   const icon = isInternalUrl(item.href) ? '📄️' : '🔗';
   const doc = useDocById(item.docId ?? undefined);
   return (
-    <CardLayout
-      href={item.href}
-      icon={icon}
-      title={item.label}
-      description={doc?.description}
-    />
+    <CardLayout href={item.href} icon={icon} title={item.label} description={doc?.description} />
   );
 };
 

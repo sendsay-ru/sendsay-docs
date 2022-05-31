@@ -9,7 +9,7 @@ interface CardCategoryProps {
   item: PropSidebarItemCategory;
 }
 
-const CardCategory = ({ item }: CardCategoryProps): JSX.Element | null => {
+const CardCategory = ({ item }: CardCategoryProps) => {
   const href = findFirstCategoryLink(item);
 
   if (!href) {

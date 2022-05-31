@@ -10,21 +10,13 @@ interface CardLayoutProps {
   description: string | null;
 }
 
-const CardLayout = ({
-  href,
-  icon,
-  title,
-  description = null,
-}: CardLayoutProps): JSX.Element => (
+const CardLayout = ({ href, icon, title, description = null }: CardLayoutProps) => (
   <CardWrapper href={href}>
     <h2 className={clsx('text--truncate', styles.cardTitle)} title={title}>
       {icon} {title}
     </h2>
     {description && (
-      <p
-        className={clsx('text--truncate', styles.cardDescription)}
-        title={description}
-      >
+      <p className={clsx('text--truncate', styles.cardDescription)} title={description}>
         {description}
       </p>
     )}

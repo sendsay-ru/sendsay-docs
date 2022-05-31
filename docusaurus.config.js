@@ -30,7 +30,7 @@ const config = {
       'docusaurus-lunr-search',
       {
         languages: ['ru', 'en'],
-        indexBaseUrl: true
+        indexBaseUrl: true,
       },
     ],
     [

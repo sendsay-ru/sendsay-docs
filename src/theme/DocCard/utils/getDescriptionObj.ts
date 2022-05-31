@@ -1,4 +1,6 @@
-import { getTermination } from './getTermination';
+import { getTermination } from '../../utils';
+
+const MESSAGE_FORMS = ['статья', 'статьи', 'статей'];
 
 export interface DescriptionObj {
   id: string;
@@ -6,7 +8,7 @@ export interface DescriptionObj {
 }
 
 export const getDescriptionObj = (count: number): DescriptionObj => {
-  const message = getTermination(count);
+  const message = getTermination(count, MESSAGE_FORMS, true);
   const description =
     count > 1
       ? {

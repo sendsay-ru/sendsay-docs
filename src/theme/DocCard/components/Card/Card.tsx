@@ -3,7 +3,7 @@ import type { Props } from '@theme/DocCard';
 import { CardLink } from '../CardLink';
 import { CardCategory } from '../CardCategory';
 
-const Card = ({ item }: Props): JSX.Element => {
+const Card = ({ item }: Props) => {
   switch (item.type) {
     case 'link':
       return <CardLink item={item} />;

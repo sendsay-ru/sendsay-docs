@@ -1,14 +1,17 @@
 {
   "extends": [
+    "prettier",
     "airbnb",
     "airbnb-typescript",
     "plugin:@typescript-eslint/recommended"
   ],
+  "plugins": ["prettier"],
   "parserOptions": {
     "createDefaultProgram": true,
     "project": "./tsconfig.json"
   },
   "rules": {
+    "prettier/prettier": "error",
     "react/prop-types": "off",
     "react/jsx-filename-extension": "off",
     "import/prefer-default-export": "off",
@@ -20,6 +23,10 @@
         "namedComponents": "arrow-function"
       }
     ],
-    "react/jsx-no-useless-fragment": "off"
+    "react/jsx-no-useless-fragment": "off",
+    "@typescript-eslint/indent": "off",
+    "operator-linebreak": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "object-curly-newline": "off"
   }
 }
