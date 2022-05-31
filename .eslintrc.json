@@ -1,11 +1,4 @@
 {
-  "settings": {
-    "import/resolver": {
-      "alias": [
-        ["@site", "./"]
-      ]
-    }
-  },
   "extends": [
     "airbnb",
     "airbnb-typescript",
@@ -16,6 +9,10 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

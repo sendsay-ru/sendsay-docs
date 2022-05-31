@@ -1,4 +1,5 @@
 import lunr from '@generated/lunr.client';
+
 lunr.tokenizer.separator = /[\s\-/]+/;
 
 class LunrSearchAdapter {
