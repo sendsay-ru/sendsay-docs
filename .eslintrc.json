@@ -27,6 +27,16 @@
     "@typescript-eslint/indent": "off",
     "operator-linebreak": "off",
     "react/jsx-one-expression-per-line": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ]
   }
 }

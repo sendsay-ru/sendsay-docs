@@ -10,7 +10,8 @@ interface CardLinkProps {
 
 const CardLink = ({ item }: CardLinkProps) => {
   const icon = isInternalUrl(item.href) ? '📄️' : '🔗';
-  const doc = useDocById(item.docId ?? undefined);
+  const doc = useDocById(item.docId);
+
   return (
     <CardLayout href={item.href} icon={icon} title={item.label} description={doc?.description} />
   );
