@@ -1,21 +1,8 @@
 ---
-sidebar_position: 2
+hide_title: true
 ---
 
-# Как автоматизировать отправку писем подтверждения (double opt-in)
+import {Redirect} from '@docusaurus/router';
 
-Чтобы повторить действия из видеоурока, нужно перейти [в предыдущий интерфейс](https://sendsay.ru/account/).
+<Redirect to="/404" />;
 
-<iframe
-    width="640"
-    height="480"
-    src="https://www.youtube.com/embed/g2AuYJQQD_E"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
->
-</iframe>
-
-У нас есть отдельная статья про то, как настроить эту автоматизацию в новом интерфейсе:
-
-[Как автоматизировать отправку писем подтверждения](/docs/automations/automations-by-time/how-to-automate-confirmation-emails.md)

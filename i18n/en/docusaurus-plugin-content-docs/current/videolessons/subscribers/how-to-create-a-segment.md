@@ -1,18 +1,8 @@
 ---
-sidebar_position: 3
-description: ''
+hide_title: true
 ---
 
-# Как создать сегмент контактов
+import {Redirect} from '@docusaurus/router';
 
-<iframe
-    width="640"
-    height="480"
-    src="https://www.youtube.com/embed/vNwwNy3kbKo"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
->
-</iframe>
+<Redirect to="/404" />;
 
-**Читайте также:** [Что такое сегмент контактов](/docs/subscribers/lists-and-segments/what-is-segment.md)

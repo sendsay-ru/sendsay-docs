@@ -1,20 +1,8 @@
 ---
-sidebar_position: 2
-description: ''
+hide_title: true
 ---
 
-# Как персонализировать рассылку
+import {Redirect} from '@docusaurus/router';
 
-<iframe
-    width="640"
-    height="480"
-    src="https://www.youtube.com/embed/5NgBw1QNE14"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
->
-</iframe>
+<Redirect to="/404" />;
 
-В базе знаний есть отдельная статья про персонализацию:
-
-[Как персонализировать рассылку](/docs/email-campaigns/personalization/how-to-personalize-campaign.md)

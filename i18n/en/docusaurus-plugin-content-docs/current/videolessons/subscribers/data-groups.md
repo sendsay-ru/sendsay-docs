@@ -1,20 +1,8 @@
 ---
-sidebar_position: 4
-description: ''
+hide_title: true
 ---
 
-# Анкеты и работа с данными
+import {Redirect} from '@docusaurus/router';
 
-<iframe
-    width="640"
-    height="480"
-    src="https://www.youtube.com/embed/PzYoCWiRfvk"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
->
-</iframe>
+<Redirect to="/404" />;
 
-В базе знаний есть отдельная статья про анкеты:
-
-[Анкеты и работа с данными](/docs/subscribers/subscriber-data/data-groups.md)

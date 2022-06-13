@@ -1,18 +1,8 @@
 ---
-sidebar_position: 1
-description: ''
+hide_title: true
 ---
 
-# Как импортировать подписчиков
+import {Redirect} from '@docusaurus/router';
 
-<iframe
-    width="640"
-    height="480"
-    src="https://www.youtube.com/embed/4WKN2CRsiUc"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
->
-</iframe>
+<Redirect to="/404" />;
 
-Этот материал также есть в виде статьи: [Как импортировать подписчиков](/docs/subscribers/import-and-export/how-to-import-subscribers.md)
