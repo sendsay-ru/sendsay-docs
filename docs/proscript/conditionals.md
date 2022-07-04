@@ -55,9 +55,9 @@ sidebar_position: 8
 В некоторых случаях может быть удобнее использовать конструкцию SWITCH/CASE:
 ```
 [% SWITCH anketa.base.city %]
-[%   CASE 'Воронеж' %]
+[%   CASE "Воронеж" %]
        ...
-[%   CASE ['Москва', 'Петербург'] %]   
+[%   CASE ["Москва", "Петербург"] %]   
        ...
 [%   CASE someobject.keys() %]          
        ...
