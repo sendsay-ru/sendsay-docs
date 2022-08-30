@@ -1,6 +1,5 @@
-export const EMBEDDED_QUERY_KEY = 'embedded';
-
-export const enum Embedded {
-  True = 'true',
-  False = 'false',
-}
+export const IFRAME_HIDDEN_CLASSES = [
+  'navbar',
+  'theme-doc-toc-mobile',
+  'theme-doc-sidebar-container',
+];
