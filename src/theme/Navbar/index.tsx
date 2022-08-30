@@ -2,7 +2,7 @@
 import React, { ComponentProps } from 'react';
 import type NavbarType from '@theme/Navbar';
 import Navbar from '@theme-original/Navbar';
-import { isEmbedded } from '../utils';
+import { isEmbedded, withBrowserWrapper } from '../utils';
 
 type Props = ComponentProps<typeof NavbarType>;
 
@@ -18,4 +18,4 @@ const NavbarWrapper = (props: Props): JSX.Element => {
   );
 };
 
-export default NavbarWrapper;
+export default withBrowserWrapper(NavbarWrapper);

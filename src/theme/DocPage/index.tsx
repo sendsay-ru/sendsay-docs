@@ -2,7 +2,7 @@
 import React, { ComponentProps } from 'react';
 import type DocPageType from '@theme/DocPage';
 import DocPage from '@theme-original/DocPage';
-import { isEmbedded, setEmbeddedSession } from '../utils';
+import { isEmbedded, setEmbeddedSession, withBrowserWrapper } from '../utils';
 
 type Props = ComponentProps<typeof DocPageType>;
 
@@ -18,4 +18,4 @@ const DocPageWrapper = (props: Props): JSX.Element => {
   );
 };
 
-export default DocPageWrapper;
+export default withBrowserWrapper(DocPageWrapper);

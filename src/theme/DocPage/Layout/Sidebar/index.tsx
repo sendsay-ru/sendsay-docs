@@ -2,7 +2,7 @@
 import React, { ComponentProps } from 'react';
 import type SidebarType from '@theme/DocPage/Layout/Sidebar';
 import Sidebar from '@theme-original/DocPage/Layout/Sidebar';
-import { isEmbedded } from '../../../utils';
+import { isEmbedded, withBrowserWrapper } from '../../../utils';
 
 type Props = ComponentProps<typeof SidebarType>;
 
@@ -12,4 +12,4 @@ const SidebarWrapper = (props: Props): JSX.Element => {
   return <>{!embedded && <Sidebar {...props} />}</>;
 };
 
-export default SidebarWrapper;
+export default withBrowserWrapper(SidebarWrapper);

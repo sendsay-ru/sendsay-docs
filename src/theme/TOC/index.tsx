@@ -2,7 +2,7 @@
 import React, { ComponentProps } from 'react';
 import type TOCType from '@theme/TOC';
 import TOC from '@theme-original/TOC';
-import { isEmbedded } from '../utils';
+import { isEmbedded, withBrowserWrapper } from '../utils';
 
 type Props = ComponentProps<typeof TOCType>;
 
@@ -12,4 +12,4 @@ const TOCWrapper = (props: Props): JSX.Element => {
   return <>{!embedded && <TOC {...props} />}</>;
 };
 
-export default TOCWrapper;
+export default withBrowserWrapper(TOCWrapper);

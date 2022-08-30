@@ -15,8 +15,5 @@ const getEmbeddedValue = (location: Location): string | undefined => {
   return embedded;
 };
 
-export const isEmbedded = (location: Location): boolean => {
-  const embedded = getEmbeddedValue(location);
-
-  return embedded === Embedded.True;
-};
+export const isEmbedded = (location: Location): boolean =>
+  getEmbeddedValue(location) === Embedded.True;
