@@ -25,7 +25,7 @@ const useIframeState = ({ content }) => {
     if (isBrowser && isInIframe()) {
       hideBlocks();
     }
-  }, [content]);
+  }, [content, isBrowser]);
 };
 
 export default useIframeState;

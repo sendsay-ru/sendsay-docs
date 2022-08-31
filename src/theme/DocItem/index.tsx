@@ -8,11 +8,7 @@ type Props = ComponentProps<typeof DocItemType>;
 const DocItemWrapper = (props: Props): JSX.Element => {
   useIframeState(props);
 
-  return (
-    <>
-      <DocItem {...props} />
-    </>
-  );
+  return <DocItem {...props} />;
 };
 
 export default DocItemWrapper;
