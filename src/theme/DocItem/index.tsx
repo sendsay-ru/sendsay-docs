@@ -1,16 +1,18 @@
 import React, { ComponentProps } from 'react';
 import type DocItemType from '@theme/DocItem';
 import DocItem from '@theme-original/DocItem';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-import RemoveHeaderInIframe from '../../components/RemoveHeaderInIframe';
+import useIframeState from '../../hooks/useIframeState';
 
 type Props = ComponentProps<typeof DocItemType>;
 
-const DocItemWrapper = (props: Props): JSX.Element => (
-  <>
-    <BrowserOnly>{() => <RemoveHeaderInIframe {...props} />}</BrowserOnly>
-    <DocItem {...props} />
-  </>
-);
+const DocItemWrapper = (props: Props): JSX.Element => {
+  useIframeState(props);
+
+  return (
+    <>
+      <DocItem {...props} />
+    </>
+  );
+};
 
 export default DocItemWrapper;
