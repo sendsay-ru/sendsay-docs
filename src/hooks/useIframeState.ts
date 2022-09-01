@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { IFRAME_HIDDEN_CLASSES } from '../constants';
 
@@ -21,7 +21,7 @@ const hideBlocks = () => {
 const useIframeState = ({ content }) => {
   const isBrowser = useIsBrowser();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isBrowser && isInIframe()) {
       hideBlocks();
     }
