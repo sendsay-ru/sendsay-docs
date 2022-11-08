@@ -1,4 +1,6 @@
 ---
+title: how to create sublogin
+slug: account-settings/how-to-create-sublogin
 sidebar_position: 1
 ---
 
