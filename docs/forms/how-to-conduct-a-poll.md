@@ -34,7 +34,7 @@ import formId from "/img/forms/how-to-conduct-a-poll/form-id.png";
 1. Зайдите в раздел **Анкеты → Опросы и формы** и выберите «Конструктор форм» (если вы до этого не создавали форм) или «Создать форму» (если уже создавали).
 2. Введите название и добавьте нужные поля. В каждую форму автоматически добавляется поле «Email» (оно скроется, если респондент перейдёт в опрос по ссылке из письма).
 
-![Add questions into the form](/img/forms\how-to-conduct-a-poll/add-questions-into-the-form.gif) <br/>
+   ![Add questions into the form](/img/forms\how-to-conduct-a-poll/add-questions-into-the-form.gif) <br/>
 
 При настройке формы можно редактировать названия полей — для этого нажмите на карандашик рядом с названием вопроса. Если поле используется в других формах, там оно останется без изменений.
 
@@ -119,7 +119,7 @@ import formId from "/img/forms/how-to-conduct-a-poll/form-id.png";
 4. Добавьте остальные поля.
 5. Нажмите «Сохранить».
 
-![Output format](/img/forms\how-to-conduct-a-poll/output-format.gif) <br/>
+   ![Output format](/img/forms\how-to-conduct-a-poll/output-format.gif) <br/>
 
 ### Как выгрузить данные
 
@@ -130,4 +130,4 @@ import formId from "/img/forms/how-to-conduct-a-poll/form-id.png";
 5. Выберите способ вывода данных: показать сейчас, сохранить на сервере или выслать на email. Вариант «Показать сейчас» обычно используется для тестирования опроса (проверить, записались ли первые ответы) или для небольших групп на несколько десятков адресов — иначе получится огромная таблица, которую нельзя скачать.
 6. Нажмите «Вывести список подписчиков».
 
-![How to download poll data](/img/forms\how-to-conduct-a-poll/how-to-download-poll-data.gif) <br/>
+   ![How to download poll data](/img/forms\how-to-conduct-a-poll/how-to-download-poll-data.gif) <br/>
