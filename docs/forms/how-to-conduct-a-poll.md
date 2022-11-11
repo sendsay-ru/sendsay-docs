@@ -79,9 +79,9 @@ import formId from "/img/forms/how-to-conduct-a-poll/form-id.png";
 
 1. На странице формы нажмите на «Получить форму» и скопируйте код (убедитесь, что код формы выбран стандартный, а не Email).
 
-<p align="center">
+    <p align="center">
     <img src={addPollToTheWebsite} alt="Add poll to the website" />
-</p>
+    </p>
 
 2. Вставьте код на нужную страницу вашего сайта.
 
