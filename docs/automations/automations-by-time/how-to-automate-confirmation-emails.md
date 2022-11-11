@@ -23,7 +23,7 @@ import segmentId from "/img/automations/automations-by-time/how-to-automate-conf
 
    Чтобы в блочном редакторе прикрепить ссылку к фрагменту текста, в протоколе ссылки выберите пункт `<другой>`:
 
-![Confirmation email template](/img/automations/automations-by-time\how-to-automate-confirmation-emails/confirmation-email-template.gif) <br/>
+  ![Confirmation email template](/img/automations/automations-by-time\how-to-automate-confirmation-emails/confirmation-email-template.gif) <br/>
 
 3. Скопируйте ID шаблона — это число в адресной строке браузера:
 
@@ -33,7 +33,7 @@ import segmentId from "/img/automations/automations-by-time/how-to-automate-conf
 
 ## 2. Создайте сегмент
 
-Создайте сегмент для неподтверждённых подписчиков, которые не получали ваши письма подтверждения:
+Создайте сегмент для неподтверждeнных подписчиков, которые не получали ваши письма подтверждения:
 
 1. Зайдите в раздел **Подписчики → Сегменты** и создайте сегмент. В поле «Тип» укажите «Email» для почты.
 2. В новом сегменте перейдите во вкладку **Настройка условий**. В редакторе условий нажмите на плюсик и поставьте следующие значения:
@@ -45,7 +45,7 @@ import segmentId from "/img/automations/automations-by-time/how-to-automate-conf
 
 3. Нажмите «Сохранить».
 
-![Create a segment for confirmation emails](/img/automations/automations-by-time/how-to-automate-confirmation-emails/create-a-segment-for-confirmation-emails.gif) <br/>
+  ![Create a segment for confirmation emails](/img/automations/automations-by-time/how-to-automate-confirmation-emails/create-a-segment-for-confirmation-emails.gif) <br/>
 
 4. Скопируйте ID сегмента в адресной строке браузера:
 
@@ -74,4 +74,4 @@ import segmentId from "/img/automations/automations-by-time/how-to-automate-conf
 
 4. Нажмите «Сохранить и активировать».
 
-![Create automation by time](/img/automations/automations-by-time/how-to-automate-confirmation-emails/create-automation-by-time.gif)
+  ![Create automation by time](/img/automations/automations-by-time/how-to-automate-confirmation-emails/create-automation-by-time.gif)
