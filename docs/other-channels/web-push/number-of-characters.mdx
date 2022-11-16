@@ -2,15 +2,15 @@
 sidebar_position: 3
 ---
 
-import character from '/img/other-channels/web-push/number-of-characters/web-push-character-length.png';
-import number from '/img/other-channels/web-push/number-of-characters/number-of-characters.png';
+import notificationAppearance from '/img/other-channels/web-push/number-of-characters/web-push-character-length.png';
+import characterLength from '/img/other-channels/web-push/number-of-characters/number-of-characters.png';
 
 # Ограничение символов в веб-пушах
 
 Внешний вид веб-пуша и длина самого сообщения зависит от браузера и операционной системы получателя. То есть одно и то же уведомление может выглядеть у подписчиков по-разному. Вот наглядный пример:
 
 <p align="center">
-  <img src={character} alt="Web push" />
+  <img src={notificationAppearance} alt="Notification Appearance" />
 </p>
 
 Браузеры и операционные системы постоянно обновляются, поэтому с каждым новым релизом зачастую меняется и внешний вид уведомлений. Ниже приведены приблизительные данные о том, сколько символов может отображаться в веб-пушах в зависимости от платформы (по состоянию на ноябрь 2022 года).
@@ -37,7 +37,7 @@ import number from '/img/other-channels/web-push/number-of-characters/number-of-
 Самостоятельно считать количество символов перед отправкой веб-пуша не нужно. При создании выпуска система подскажет, сколько символов введено в поля «Заголовок» и «Сообщение»:
 
 <p align="center">
-  <img src={number} alt="number of characters" />
+  <img src={characterLength} alt="Character Length" />
 </p>
 
 [Как отправить пуш-рассылку](./how-to-create-web-push-campaign.md)
