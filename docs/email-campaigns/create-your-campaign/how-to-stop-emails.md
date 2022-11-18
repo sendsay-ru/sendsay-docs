@@ -38,10 +38,10 @@ sidebar_position: 11
 
 **На&nbsp;паузе&nbsp;**&mdash; рассылка остановлена по&nbsp;инициативе пользователя.
 
-## Получить подробности о рассылке
+### Получить подробности о рассылке
 
 Это пригодится, чтобы узнать время отправки или изменения рассылки, аудиторию, тему и&nbsp;другие детали. Если во&nbsp;время отправки рассылки произошли какие-то ошибки, их&nbsp;можно увидеть во&nbsp;вкладке **Ответ сервера**.
 
-![Details](/img/email-campaigns/create-your-campaign/how-to-stop-emails/details.jpg/) <br/>
+![Details](/img/email-campaigns/create-your-campaign/how-to-stop-emails/details.jpg) <br/>
 
 ![Server response](/img/email-campaigns/create-your-campaign/how-to-stop-emails/server-response.jpg) <br/>
