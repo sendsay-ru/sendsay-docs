@@ -8,7 +8,7 @@ sidebar_position: 11
 
 Статус, дату и&nbsp;время отправки, список контактов и&nbsp;другую подробную информацию об&nbsp;исходящих можно посмотреть в&nbsp;разделе **Рассылки &rarr; Исходящие** или в&nbsp;**Журнале заданий**.
 
-![Outgoing mail](/img/email-campaigns/create-your-campaign/how-to-stop-emails/outgoing-mail.jpg) <br/>
+![Outgoing mails](/img/email-campaigns/create-your-campaign/how-to-stop-emails/outgoing-mails.jpg) <br/>
 
 Чтобы приостановить, выпустить целиком или отменить рассылку, перейдите в&nbsp;раздел **Рассылки &rarr; Исходящие**. Далее справа от&nbsp;рассылки нажмите на&nbsp;выпадающий список у&nbsp;кнопки **Отчет** и&nbsp;выберите нужное действие.
 
