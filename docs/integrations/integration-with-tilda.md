@@ -11,10 +11,10 @@ import howToPublushTildaForm from "/img/integrations/integration-with-tilda/how-
 
 ## 1. Создайте интеграцию в Sendsay
 
-1. Перейдите [в предыдущий интерфейс](https://sendsay.ru/account/).
+1. Перейдите [в предыдущий интерфейс](https://sendsay.ru/account/): откройте меню аккаунта в правом верхнем углу и выберите пункт **Предыдущий интерфейс**.
 2. Откройте раздел **Подписчики → Интеграции** и выберите пункт **Tilda**.
 
-![How to create integration with Tilda](/img/integrations\integration-with-tilda/how-to-create-integration-with-tilda.gif) <br/>
+   ![How to create integration with Tilda](/img/integrations/integration-with-tilda/how-to-create-integration-with-tilda.gif) <br/>
 
 ## 2. Выберите настройки интеграции и получите ссылку
 
