@@ -26,7 +26,7 @@ The date format is YYYY.MM.DD. Phone numbers should consist of 10 or 11 digits. 
 If subscriber contacts contain typos or the field value does not correspond to the field format (e. g. the text is inserted in the numeric field), the subscriber will not be imported. Later, you can view an error list in the import report. If you do not want to import a particular subscriber, type # at the beginning of the line. For example:
 
 ```
-#email5@gmail.com, Andrew, Prats, New York, 01.01.1989
+#email5@gmail.com, Andrew, Prats, New York, 1989.01.01
 ```
 
 When email addresses are uploaded, click **Continue**.
