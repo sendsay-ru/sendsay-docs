@@ -4,6 +4,7 @@ sidebar_position: 2
 
 import webpushElements from "/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-elements.png";
 import verticalImage from "/img/other-channels/web-push/how-to-create-web-push-campaign/vertical-image-for-webpush.png";
+import WebPushPreviewMode from "/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-preview-mode.gif"
 
 # Как отправить пуш-рассылку
 
@@ -25,7 +26,9 @@ import verticalImage from "/img/other-channels/web-push/how-to-create-web-push-c
 
 При создании пуш-рассылки важно учитывать, что все браузеры и операционные системы по-разному показывают уведомления — например, отличается количество символов, картинок и кнопок. С помощью режимов предпросмотра можно проверить, как рассылку увидят пользователи Windows, macOS и Android в браузерах Chrome и Firefox:
 
-![Web push preview mode](/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-preview-mode.gif) <br/>
+<p align="center">
+    <img src={WebPushPreviewMode} alt="Web push preview mode" />
+</p>
 
 Веб-пуш состоит из следующих элементов:
 
@@ -72,9 +75,13 @@ import verticalImage from "/img/other-channels/web-push/how-to-create-web-push-c
 - пуш будет показываться фиксированное время (от 8 до 20 секунд в зависимости от браузера),
 - пуш будет висеть на экране, пока пользователь его не закроет (вариант по умолчанию).
 
-### Отслеживание кликов в Google Analytics и Яндекс.Метрике
+### Отслеживание кликов
 
-Клики отслеживаются с помощью UTM-меток — они нужны для анализа поведения подписчиков, карты кликов и эффективности рассылки в Google Analytics и Яндекс.Метрике.
+Отчёт по доставке, открытиям и кликам каждого выпуска можно посмотреть в разделе **Статистика → Массовые рассылки**.
+
+[Где следить за статистикой](/docs/statistics/where-to-track-statistics.md)
+
+Также клики можно отслеживать с помощью UTM-меток в Google Analytics и Яндекс.Метрике.
 
 [Как добавить UTM-метки в письмо](/docs/email-campaigns/settings/how-to-add-utm.md)
 
