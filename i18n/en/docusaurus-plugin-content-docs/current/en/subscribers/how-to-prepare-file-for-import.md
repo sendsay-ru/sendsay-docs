@@ -74,7 +74,7 @@ If you import subscribers without the list, select the primary contact in the im
 
 ## 5. Date and phone number formatting
 
-Dates are entered in YYYYY-MM-DD format. For example, for the date "July 1, 1993" the entry would be:
+Dates are entered in YYYYY.MM.DD format. For example, for the date "July 1, 1993" the entry would be:
 
 ```
 1993.07.01
