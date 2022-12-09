@@ -27,7 +27,7 @@ import webPushPreviewMode from "/img/other-channels/web-push/how-to-create-web-p
 При создании пуш-рассылки важно учитывать, что все браузеры и операционные системы по-разному показывают уведомления — например, отличается количество символов, картинок и кнопок. С помощью режимов предпросмотра можно проверить, как рассылку увидят пользователи Windows, macOS и Android в браузерах Chrome и Firefox:
 
 <p align="center">
-    <img src={WebPushPreviewMode} alt="Web push preview mode" />
+    <img src={webPushPreviewMode} alt="Web push preview mode" />
 </p>
 
 Веб-пуш состоит из следующих элементов:
