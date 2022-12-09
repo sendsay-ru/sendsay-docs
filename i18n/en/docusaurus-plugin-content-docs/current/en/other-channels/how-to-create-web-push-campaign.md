@@ -30,8 +30,6 @@ When you create your push campaign, keep in mind that all browsers and operating
     <img src={webPushPreviewMode} alt="Web push preview mode" />
 </p>
 
-![How to create a push campaign](/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-preview-mode-en.gif) <br/>
-
 A web push notification consists of the following elements:
 
 <p align="center">
