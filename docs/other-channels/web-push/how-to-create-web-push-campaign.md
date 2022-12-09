@@ -4,7 +4,7 @@ sidebar_position: 2
 
 import webpushElements from "/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-elements.png";
 import verticalImage from "/img/other-channels/web-push/how-to-create-web-push-campaign/vertical-image-for-webpush.png";
-import WebPushPreviewMode from "/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-preview-mode.gif"
+import webPushPreviewMode from "/img/other-channels/web-push/how-to-create-web-push-campaign/webpush-preview-mode.gif"
 
 # Как отправить пуш-рассылку
 
@@ -12,7 +12,7 @@ import WebPushPreviewMode from "/img/other-channels/web-push/how-to-create-web-p
 
 [Как подключить веб-пуши на сайт](./how-to-connect-web-push.mdx)
 
-Чтобы создать выпуск, зайдите в раздел **Рассылки → Выпуски**, нажмите «Создать выпуск» и выберите тип «Web Push».
+Чтобы создать выпуск, зайдите в раздел **Рассылки → Выпуски**, нажмите «Создать выпуск» и выберите пункт «Web Push».
 
 ![How to create a push campaign](/img/other-channels/web-push/how-to-create-web-push-campaign/how-to-create-a-push-campaign.gif) <br/>
 
