@@ -2,8 +2,6 @@
 sidebar_position: 11
 ---
 
-import mobilePreheadersImage from '/img/email-campaigns/create-your-campaign/preheader/mobile-preheaders.jpg';
-
 # Прехедер письма: что это, какие бывают и как их создать
 
 Прехедер — небольшой текстовый блок, который видит получатель в почтовом ящике после имени отправителя и темы письма.
@@ -82,9 +80,7 @@ import mobilePreheadersImage from '/img/email-campaigns/create-your-campaign/pre
 
 Если ваши подписчики в&nbsp;основном открывают письма с&nbsp;мобильных устройств, то&nbsp;прехедер лучше сделать короче и&nbsp;написать важную информацию в&nbsp;начале.
 
-<p align="center">
-  <img src={mobilePreheadersImage} alt="Mobile preheaders" />
-</p>
+![Mobile-preheaders](\img\email-campaigns\create-your-campaign\preheader\mobile-preheaders.jpg) <br/>
 
 ### 2. Прехедер с&nbsp;призывом
 
