@@ -49,3 +49,23 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 <p align="center">
     <img src={deleteBot} alt="How to delete a bot" />
 </p>
+
+## Как объединить в&nbsp;карточке подписчика email и&nbsp;контакт в&nbsp;Телеграме
+
+Объединение контактов&nbsp;&mdash; это возможность дополнить анкетные данные подписчика для того, чтобы связываться по&nbsp;еще одному каналу и&nbsp;персонализировать рассылки.
+
+Чтобы объединить email и&nbsp;контакт в&nbsp;Телеграме в&nbsp;одной карточке, нужно чтобы подписчик перешел в&nbsp;бот по&nbsp;специальной ссылке. Когда подписчик перейдет из&nbsp;письма в&nbsp;бот и&nbsp;подпишется на&nbsp;него, контакты свяжутся. Если это произойдет, в&nbsp;карточке подписчика появится отметка о&nbsp;подписке на&nbsp;указанный бот в&nbsp;Телеграме.
+
+![Telegram bot](\img\other-channels\telegram\how-to-connect-a-bot\telegram-bot.jpg) <br/>
+
+Для этого отправьте email-рассылку и&nbsp;добавьте в&nbsp;письмо ссылку с&nbsp;дополнительными параметрами, в&nbsp;которых стоят нужные команды подстановки:
+
+```
+?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]
+```
+
+В&nbsp;итоге ссылка на&nbsp;бот в&nbsp;Телеграме будет выглядеть так:
+
+```
+https://t.me/example_bot?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]
+```
