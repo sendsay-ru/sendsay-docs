@@ -96,4 +96,4 @@ pochta2@gmail.com, , Фёдоров, , 1980.02.14
 Страны надо указывать только на русском языке, иначе они не будут загружены
 :::
 
-**Читайте также:** [Как настроить параметры импорта](https://docs.sendsay.ru/automations/autoimport/how-to-set-autoimport#2-настройте-параметры-импорта)
+**Читайте также:** [Как настроить параметры импорта](https://docs.sendsay.ru/subscribers/import-and-export/how-to-import-subscribers#2-настройте-параметры-импорта)
