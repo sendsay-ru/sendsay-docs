@@ -59,7 +59,7 @@ const config = {
           anonymizeIP: true,
         },
         gtag: {
-          trackingID: 'G-J9J5B5KXY8',
+          trackingID: 'G-DQGSK1RV7G',
           anonymizeIP: true,
         },
       }),
