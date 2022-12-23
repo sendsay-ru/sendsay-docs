@@ -1,0 +1,1 @@
+export { useFirstPagePath } from './useFirstPagePath';

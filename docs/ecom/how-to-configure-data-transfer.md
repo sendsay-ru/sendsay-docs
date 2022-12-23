@@ -83,43 +83,43 @@ sidebar_position: 1
 
 Ssec-события всегда передаются в Sendsay как массив объектов. Если вам надо передать одно событие, то это будет массив с одним объектом.
 
-```
+```js
 [
-			{
-	         "id": < product_id1 >,  //обязательно
-					 "description": "description",
-	         "is_available": 1|0,
-	         "model": "model",
-	         "name": "name",
-	         "old_price": "old_price",
-	         "picture_url": [""],
-	         "price": "price",
-	         "url": "url",
-	         "vendor": "vendor"
-					 "event_type": 1,
-           "event_site": 1,
-					 ...
-			}
-	]
+  {
+    "id": < product_id1 >,  //обязательно
+    "description": "description",
+    "is_available": 1|0,
+    "model": "model",
+    "name": "name",
+    "old_price": "old_price",
+    "picture_url": [""],
+    "price": "price",
+    "url": "url",
+    "vendor": "vendor",
+    "event_type": 1,
+    "event_site": 1,
+    ...
+  }
+]
 ```
 
 Так как в заказе или корзине может быть более одного товара, то структура передачи к нам таких событий отличается от стандартной. Это все так же массив объектов, но все сведения о товарах содержатся в массиве `items` :
 
-```
-
+```js
 [
-		{
-		"transaction_id": < transaction_id > , // обязательно
-		"transaction_dt": < transaction_dt > , // необязательно
-		"payment_dt": < payment_dt > , //необязательно
-		"delivery_dt": < delivery_dt > , //необязательно
-		"update": 1|0, //необязательно
-		"items": [{ //необязательно
-			"id": < product_id1 > , //обязательно
-			"qnt": < quantity1 > , //обязательно
-			"price": < price1 > , //обязательно
-		}
-	]
+  {
+    "transaction_id": < transaction_id >, // обязательно
+    "transaction_dt": < transaction_dt >, // необязательно
+    "payment_dt": < payment_dt >, //необязательно
+    "delivery_dt": < delivery_dt >, //необязательно
+    "update": 1|0, //необязательно
+    "items": [{ //необязательно
+      "id": < product_id1 >, //обязательно
+      "qnt": < quantity1 >, //обязательно
+      "price": < price1 >, //обязательно
+    }]
+  }
+]
 ```
 
 ### Добавление событий через JS-cкрипт
@@ -136,11 +136,9 @@ Ssec-события всегда передаются в Sendsay как масс
 
 Размещение кода напрямую в HTML-странице:
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {
-
-		sndsyApi.ssecEvent(<event_type>, <[ items_array ]>, { email: 'name@domain.ru' });
-
+  sndsyApi.ssecEvent(<event_type>, <[ items_array ]>, { email: 'name@domain.ru' });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
@@ -154,103 +152,87 @@ Ssec-события всегда передаются в Sendsay как масс
 
 #### Добавление событий по одному (member.set)
 
-```
+```js
 {
-    "action": "member.set",
-    "email": "АДРЕС_ПОДПИСЧИКА",
-    "addr_type": "email",
-    "datakey": [
-        [
-            "ssec",
-            "set",
-            [
-                {
-							  ...
-                }
-            ]
-        ]
+  "action": "member.set",
+  "email": "АДРЕС_ПОДПИСЧИКА",
+  "addr_type": "email",
+  "datakey": [
+    [
+      "ssec",
+      "set",
+      [
+        {...}
+      ]
     ]
+  ]
 }
 ```
 
 #### Добавление заказа через member.set
 
-```
+```js
 {
-    "action": "member.set",
-    "email": "АДРЕС_ПОДПИСЧИКА",
-    "addr_type": "email",
-    "datakey": [
-        [
-            "ssec",
-            "set",
-            [
-                {
-                    "transaction_id": "x1",
-                    "transaction_dt": "2022-07-25 23:25:13",
-                    "transaction_sum": 11.98,
-                    "transaction_discount": 1.59,
-                    "transaction_status":1,
-                    "items": [
-                        {
-                            "id": 50,
-                            "name":"Artefact 1.9",
-                            "price": 5.99,
-                            "qnt": 2
-                        }
-                        ,{
-                            "id": 52,
-                            "name":"Renegat 12.1",
-                            "price": 7.65,
-                            "qnt": 2
-                        }
-                    ],
-                    "event_type": 1,
-                    "update":1
-                }
-            ]
-        ]
+  "action": "member.set",
+  "email": "АДРЕС_ПОДПИСЧИКА",
+  "addr_type": "email",
+  "datakey": [
+    [
+      "ssec",
+      "set",
+      [
+        {
+          "transaction_id": "x1",
+          "transaction_dt": "2022-07-25 23:25:13",
+          "transaction_sum": 11.98,
+          "transaction_discount": 1.59,
+          "transaction_status":1,
+          "items": [
+            {
+              "id": 50,
+              "name": "Artefact 1.9",
+              "price": 5.99,
+              "qnt": 2
+            },
+            {
+              "id": 52,
+              "name": "Renegat 12.1",
+              "price": 7.65,
+              "qnt": 2
+            }
+          ],
+          "event_type": 1,
+          "update": 1
+        }
+      ]
     ]
+  ]
 }
 ```
 
 #### Добавление событий пачкой (member.import)
 
-```
+```js
 {
-    "action": "member.import",
-    "users.list": {
-        "caption": [
-            {
-                "datakey": "member.email",
-                "mode": "set"
-            },
-            {
-                "datakey": "ssec",
-                "mode": "set"
-            }
-        ],
-        "rows": [
-            [
-                "адрес_подписчика",
-                [
-                    {
-                        ...
-                    }
-                ]
-            ],
-						[
-                "адрес_подписчика",
-                [
-                    {
-                        ...
-                    }
-                ]
-            ]
-        ]
-    },
-    "charset": "utf-8",
-    "addr_type": "email"
+  "action": "member.import",
+  "users.list": {
+    "caption": [
+      {
+        "datakey": "member.email",
+        "mode": "set"
+      },
+      {
+        "datakey": "ssec",
+        "mode": "set"
+      }
+    ],
+    "rows": [
+      [ "адрес_подписчика", [{ ... }] ],
+      [ "адрес_подписчика", [{ ... }] ]
+    ]
+  },
+  "charset": "utf-8",
+  "addr_type": "email"
 }
 ```
 
@@ -269,28 +251,24 @@ https://api.sendsay.ru/general/ssec/v100/json/ACCOUNT_ID
 
 Пример API-запроса:
 
-```
-
+```bash
 curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACCOUNT_ID' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: sendsay apikey=API_KEY' \
---data-raw '[
-			{
-	         "id": 1111,
-			     "description": "description",
-	         "is_available": 1,
-	         "model": "model",
-	         "name": "name",
-	         "old_price": "old_price",
-	         "picture_url": ["https://domain.com/image.jpg"],
-	         "price": "price",
-	         "url": "url",
-	         "vendor": "vendor",
-			     "event_type": 13,
-           "event_site": 1
-			}
-	]'
-
+--data-raw '[{
+  "id": 1111,
+  "description": "description",
+  "is_available": 1,
+  "model": "model",
+  "name": "name",
+  "old_price": "old_price",
+  "picture_url": ["https://domain.com/image.jpg"],
+  "price": "price",
+  "url": "url",
+  "vendor": "vendor",
+  "event_type": 13,
+  "event_site": 1
+}]'
 ```
 
 ### Доступ к событиям через Sendsay API
@@ -322,37 +300,37 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 
 #### Передача события в Sendsay
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {
-	sndsyApi.ssecEvent('VIEW_PRODUCT',[
-			{
-	         "id": < product_id1 >,  //обязательно
-					 "description": "description",
-	         "is_available": "available",
-	         "model": "model",
-	         "name": "name",
-	         "old_price": "old_price",
-	         "picture_url": [],
-	         "price": "price",
-	         "url": "url",
-	         "vendor": "vendor"
-			}
-	]);
-	// или с доп. параметрами
-	sndsyApi.ssecEvent('VIEW_PRODUCT',[
-			{
-	         "id": < product_id1 >,  //обязательно
-					 "description": "description",
-	         "is_available": "available",
-	         "model": "model",
-	         "name": "name",
-	         "old_price": "old_price",
-	         "picture_url": [],
-	         "price": "price",
-	         "url": "url",
-	         "vendor": "vendor"
-			}
-	], { email: 'name@domain.ru' });
+  sndsyApi.ssecEvent('VIEW_PRODUCT', [
+    {
+      "id": < product_id1 >,  //обязательно
+      "description": "description",
+      "is_available": "available",
+      "model": "model",
+      "name": "name",
+      "old_price": "old_price",
+      "picture_url": [],
+      "price": "price",
+      "url": "url",
+      "vendor": "vendor"
+    }
+  ]);
+  // или с доп. параметрами
+  sndsyApi.ssecEvent('VIEW_PRODUCT', [
+    {
+      "id": < product_id1 >,  //обязательно
+      "description": "description",
+      "is_available": "available",
+      "model": "model",
+      "name": "name",
+      "old_price": "old_price",
+      "picture_url": [],
+      "price": "price",
+      "url": "url",
+      "vendor": "vendor"
+    }
+  ], { email: 'name@domain.ru' });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
@@ -362,16 +340,20 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 
 Информация о данном событии используется в сценарии «Брошенный просмотр категории», в рекомендационной системе, а также при сегментации пользователей на основе их интересов.
 
-```
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('VIEW_CATEGORY',[
-		{
-				"category":"",	//Cтрока - путь до товарных категорий для события просмотр категории
-				"category_id":INT	//Число идентификатор из YML
-		}
-	], { email: 'name@domain.ru' });
-
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent(
+    'VIEW_CATEGORY',
+    [
+      {
+        category: '', //Cтрока - путь до товарных категорий для события просмотр категории
+        category_id: INT, //Число идентификатор из YML
+      },
+    ],
+    { email: 'name@domain.ru' }
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 ### Действия с корзиной
@@ -382,52 +364,52 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 
 В данных должно прийти полное состояние корзины на момент вызова запроса.
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('BASKET_ADD',[{
-		"transaction_id": < transaction_id > , //необязательно
-		"transaction_dt": < transaction_dt > , //необязательно
-		"items": [{ //обязательно
-			"id": < product_id1 > , //обязательно
-			"qnt": < quantity1 > , //обязательно
-			"price": < price1 > , //обязательно
-		}]
-	}, { email: 'name@domain.ru' });
-
-
+  sndsyApi.ssecEvent('BASKET_ADD', [
+    {
+      "transaction_id": < transaction_id >, //необязательно
+      "transaction_dt": < transaction_dt >, //необязательно
+      "items": [{ //обязательно
+        "id": < product_id1 >, //обязательно
+        "qnt": < quantity1 >, //обязательно
+        "price": < price1 >, //обязательно
+      }]
+    }
+  ], { email: 'name@domain.ru' });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 #### Очистка корзины
 
-```
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('BASKET_CLEAR', { "email": "some@domain.com" });
-
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent('BASKET_CLEAR', { email: 'some@domain.com' });
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 В случае поступления информации о заказе при наличии неочищенной корзины, корзина очищается автоматически.
 
 ### Действия с заказом
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	// Call methods with params
-	sndsyApi.ssecEvent('ORDER',[
-		{
-		"transaction_id": < transaction_id > , // обязательно
-		"transaction_dt": < transaction_dt > , // необязательно
-		"payment_dt": < payment_dt > , //необязательно
-		"delivery_dt": < delivery_dt > , //необязательно
-		"update": 1|0, //необязательно
-		"items": [{ //необязательно
-			"id": < product_id1 > , //обязательно
-			"qnt": < quantity1 > , //обязательно
-			"price": < price1 > , //обязательно
-		}
-	], { email: 'name@domain.ru' });
-
+  // Call methods with params
+  sndsyApi.ssecEvent('ORDER', [
+    {
+      "transaction_id": < transaction_id >, // обязательно
+      "transaction_dt": < transaction_dt >, // необязательно
+      "payment_dt": < payment_dt >, //необязательно
+      "delivery_dt": < delivery_dt >, //необязательно
+      "update": 1|0, //необязательно
+      "items": [{ //необязательно
+        "id": < product_id1 >, //обязательно
+        "qnt": < quantity1 >, //обязательно
+        "price": < price1 >, //обязательно
+      }]
+    }
+  ], { email: 'name@domain.ru' });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
@@ -437,199 +419,207 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 
 ### Использование поиска по сайту
 
-```
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('SEARCH_PRODUCT',[
-		{
-		"description":"поисковая строка"
-		}
-	], { email: 'name@domain.ru' });
-
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent(
+    'SEARCH_PRODUCT',
+    [
+      {
+        description: 'поисковая строка',
+      },
+    ],
+    { email: 'name@domain.ru' }
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 ### Подписка на изменение стоимости
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	var productData = [{
-					"description": "description",
-					"id": < product_id1 >,  //обязательно
-					"available": "available",
-					"model": "model",
-					"name": "name",
-					"old_price": "old_price",
-					"picture": [],
-					"price": "price",
-					"url": "url",
-					"vendor": "vendor"
-			}],
-			extraData = {
-					"email": "some@domain.com"
-			};
+  var productData = [{
+    "description": "description",
+    "id": < product_id1 >,  //обязательно
+    "available": "available",
+    "model": "model",
+    "name": "name",
+    "old_price": "old_price",
+    "picture": [],
+    "price": "price",
+    "url": "url",
+    "vendor": "vendor"
+  }],
+  extraData = {
+    "email": "some@domain.com"
+  };
 
-	sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
-			add: productData
-	}, extraData);
+  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
+    add: productData
+  }, extraData);
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление подписок на изменение стоимости товара:
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
-			delete: '41' или ['41','54','71']
-	});
+  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
+    delete: '41' или ['41','54','71']
+  });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всех подписок на изменение стоимости товара:
 
-```
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
-			clear: 1
-	});
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
+    clear: 1,
+  });
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 ### Подписка на информирование о появлении товара в продаже
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	var productData = [{
-					"description": "description",
-					"id": < product_id1 >,  //обязательно
-					"available": "available",
-					"model": "model",
-					"name": "name",
-					"old_price": "old_price",
-					"picture": [],
-					"price": "price",
-					"url": "url",
-					"vendor": "vendor"
-			}],
-			extraData = {
-					"email": "some@domain.com"
-			};
+  var productData = [{
+    "description": "description",
+    "id": < product_id1 >,  //обязательно
+    "available": "available",
+    "model": "model",
+    "name": "name",
+    "old_price": "old_price",
+    "picture": [],
+    "price": "price",
+    "url": "url",
+    "vendor": "vendor"
+  }],
+  extraData = {
+    "email": "some@domain.com"
+  };
 
-	sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
-			add: productData
-	}, extraData);
+  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
+    add: productData
+  }, extraData);
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление подписок о появлении товара в продаже:
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
-			delete: '41' или ['41','54','71']
-	});
+  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
+    delete: '41' или ['41','54','71']
+  });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всех подписок о появлении товара в продаже:
 
-```
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
-			clear: 1
-	});
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
+    clear: 1,
+  });
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 ### Управление избранным
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	var productData = [{
-					"description": "description",
-					"id": < product_id1 >,  //обязательно
-					"available": "available",
-					"model": "model",
-					"name": "name",
-					"old_price": "old_price",
-					"picture": [],
-					"price": "price",
-					"url": "url",
-					"vendor": "vendor"
-			}],
-			extraData = {
-					"email": "some@domain.com"
-			};
+  var productData = [{
+    "description": "description",
+    "id": < product_id1 >,  //обязательно
+    "available": "available",
+    "model": "model",
+    "name": "name",
+    "old_price": "old_price",
+    "picture": [],
+    "price": "price",
+    "url": "url",
+    "vendor": "vendor"
+  }],
+  extraData = {
+    "email": "some@domain.com"
+  };
 
-	sndsyApi.ssecEvent('FAVORITE', {
-			add: productData
-	}, extraData);
+  sndsyApi.ssecEvent('FAVORITE', {
+    add: productData
+  }, extraData);
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление «Избранного»:
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('FAVORITE', {
-			delete: '41' или ['41','54','71']
-	});
+  sndsyApi.ssecEvent('FAVORITE', {
+    delete: '41' или ['41','54','71']
+  });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всего содержимого в «Избранном»:
 
-```
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('FAVORITE', {
-			clear: 1
-	});
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent('FAVORITE', {
+    clear: 1,
+  });
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 ### Оформление предварительного заказа
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	var productData = [{
-					"description": "description",
-					"id": < product_id1 >,  //обязательно
-					"available": "available",
-					"model": "model",
-					"name": "name",
-					"old_price": "old_price",
-					"picture": [],
-					"price": "price",
-					"url": "url",
-					"vendor": "vendor"
-			}],
-			extraData = {
-					"email": "some@domain.com"
-			};
+  var productData = [{
+    "description": "description",
+    "id": < product_id1 >,  //обязательно
+    "available": "available",
+    "model": "model",
+    "name": "name",
+    "old_price": "old_price",
+    "picture": [],
+    "price": "price",
+    "url": "url",
+    "vendor": "vendor"
+  }],
+  extraData = {
+    "email": "some@domain.com"
+  };
 
-	sndsyApi.ssecEvent('PREORDER', {
-			add: productData
-	}, extraData);
+  sndsyApi.ssecEvent('PREORDER', {
+    add: productData
+  }, extraData);
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление предзаказа:
 
-```
+```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('PREORDER', {
-			delete: '41' или ['41','54','71']
-	});
+  sndsyApi.ssecEvent('PREORDER', {
+    delete: '41' или ['41','54','71']
+  });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всех предзаказов:
 
-```
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-	sndsyApi.ssecEvent('PREORDER', {
-			clear: 1
-	});
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent('PREORDER', {
+    clear: 1,
+  });
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 ## События триггерных последовательностей
@@ -646,16 +636,16 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 
 Данные о корзине придут в шаблонизатор в объекте:
 
-```
-
+```json
 {
- "transaction_id" => <transaction.id>
-,"transaction_dt" => <transaction.dt>
-,'items' => [
-             { запись ssec }
-            ,{ запись ssec }
-            ,{ запись ssec }
-            ]
+ "transaction_id": <transaction.id>,
+ "transaction_dt": <transaction.dt>,
+ "items":
+    [
+      { запись ssec },
+      { запись ssec },
+      { запись ssec }
+    ]
 }
 ```
 
