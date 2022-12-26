@@ -86,14 +86,14 @@ Ssec-события всегда передаются в Sendsay как масс
 ```js
 [
   {
-    "id": < product_id1 >,  //обязательно
+    "id": "product1",  //обязательно
     "description": "description",
     "is_available": 1|0,
     "model": "model",
     "name": "name",
-    "old_price": "old_price",
+    "old_price": 5.99,
     "picture_url": [""],
-    "price": "price",
+    "price":  7.88,
     "url": "url",
     "vendor": "vendor",
     "event_type": 1,
@@ -108,18 +108,21 @@ Ssec-события всегда передаются в Sendsay как масс
 ```js
 [
   {
-    "transaction_id": < transaction_id >, // обязательно
-    "transaction_dt": < transaction_dt >, // необязательно
-    "payment_dt": < payment_dt >, //необязательно
-    "delivery_dt": < delivery_dt >, //необязательно
-    "update": 1|0, //необязательно
-    "items": [{ //необязательно
-      "id": < product_id1 >, //обязательно
-      "qnt": < quantity1 >, //обязательно
-      "price": < price1 >, //обязательно
-    }]
-  }
-]
+    transaction_id: 'x1', // обязательно
+    transaction_dt: '2022-07-25 23:25:13', // необязательно
+    payment_dt: '2022-07-25 23:25:13', //необязательно
+    delivery_dt: '2022-07-25 23:25:13', //необязательно
+    update: 1 | 0, //необязательно
+    items: [
+      {
+        //необязательно
+        id: 'product1', //обязательно
+        qnt: 2, //обязательно
+        price: 5.88, //обязательно
+      },
+    ],
+  },
+];
 ```
 
 ### Добавление событий через JS-cкрипт
@@ -186,7 +189,7 @@ Ssec-события всегда передаются в Sendsay как масс
           "transaction_dt": "2022-07-25 23:25:13",
           "transaction_sum": 11.98,
           "transaction_discount": 1.59,
-          "transaction_status":1,
+          "transaction_status": 1,
           "items": [
             {
               "id": 50,
@@ -261,9 +264,9 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
   "is_available": 1,
   "model": "model",
   "name": "name",
-  "old_price": "old_price",
+  "old_price": 5.99,
   "picture_url": ["https://domain.com/image.jpg"],
-  "price": "price",
+  "price":  7.88,
   "url": "url",
   "vendor": "vendor",
   "event_type": 13,
@@ -301,37 +304,42 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 #### Передача события в Sendsay
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent('VIEW_PRODUCT', [
     {
-      "id": < product_id1 >,  //обязательно
-      "description": "description",
-      "is_available": "available",
-      "model": "model",
-      "name": "name",
-      "old_price": "old_price",
-      "picture_url": [],
-      "price": "price",
-      "url": "url",
-      "vendor": "vendor"
-    }
+      id: 'product1', //обязательно
+      description: 'description',
+      is_available: 1 | 0,
+      model: 'model',
+      name: 'name',
+      old_price: 5.99,
+      picture_url: [],
+      price: 7.88,
+      url: 'url',
+      vendor: 'vendor',
+    },
   ]);
   // или с доп. параметрами
-  sndsyApi.ssecEvent('VIEW_PRODUCT', [
-    {
-      "id": < product_id1 >,  //обязательно
-      "description": "description",
-      "is_available": "available",
-      "model": "model",
-      "name": "name",
-      "old_price": "old_price",
-      "picture_url": [],
-      "price": "price",
-      "url": "url",
-      "vendor": "vendor"
-    }
-  ], { email: 'name@domain.ru' });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+  sndsyApi.ssecEvent(
+    'VIEW_PRODUCT',
+    [
+      {
+        id: 'product1', //обязательно
+        description: 'description',
+        is_available: 1 | 0,
+        model: 'model',
+        name: 'name',
+        old_price: 5.99,
+        picture_url: [],
+        price: 7.88,
+        url: 'url',
+        vendor: 'vendor',
+      },
+    ],
+    { email: 'name@domain.ru' }
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 ### Просмотр категории
@@ -365,19 +373,27 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 В данных должно прийти полное состояние корзины на момент вызова запроса.
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-  sndsyApi.ssecEvent('BASKET_ADD', [
-    {
-      "transaction_id": < transaction_id >, //необязательно
-      "transaction_dt": < transaction_dt >, //необязательно
-      "items": [{ //обязательно
-        "id": < product_id1 >, //обязательно
-        "qnt": < quantity1 >, //обязательно
-        "price": < price1 >, //обязательно
-      }]
-    }
-  ], { email: 'name@domain.ru' });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent(
+    'BASKET_ADD',
+    [
+      {
+        transaction_id: 'x1', //необязательно
+        transaction_dt: '2022-07-25 23:25:13', //необязательно
+        items: [
+          {
+            //обязательно
+            id: 'product1', //обязательно
+            qnt: 2, //обязательно
+            price: 5.88, //обязательно
+          },
+        ],
+      },
+    ],
+    { email: 'name@domain.ru' }
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 #### Очистка корзины
@@ -394,28 +410,36 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ### Действия с заказом
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   // Call methods with params
-  sndsyApi.ssecEvent('ORDER', [
-    {
-      "transaction_id": < transaction_id >, // обязательно
-      "transaction_dt": < transaction_dt >, // необязательно
-      "payment_dt": < payment_dt >, //необязательно
-      "delivery_dt": < delivery_dt >, //необязательно
-      "update": 1|0, //необязательно
-      "items": [{ //необязательно
-        "id": < product_id1 >, //обязательно
-        "qnt": < quantity1 >, //обязательно
-        "price": < price1 >, //обязательно
-      }]
-    }
-  ], { email: 'name@domain.ru' });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+  sndsyApi.ssecEvent(
+    'ORDER',
+    [
+      {
+        transaction_id: 'x1', // обязательно
+        transaction_dt: '2022-07-25 23:25:13', // необязательно
+        payment_dt: '2022-07-25 23:25:13', //необязательно
+        delivery_dt: '2022-07-25 23:25:13', //необязательно
+        update: 1 | 0, //необязательно
+        items: [
+          {
+            //необязательно
+            id: 'product1', //обязательно
+            qnt: 2, //обязательно
+            price: 5.88, //обязательно
+          },
+        ],
+      },
+    ],
+    { email: 'name@domain.ru' }
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Ключ `"update": 1` действует только для существующего заказа с номером `transaction_id`. Если такого заказа нет, запрос вернёт сообщение об ошибке.
 
-Если с `update==1` не передан массив `items`, то данные о товарах заказа берутся из последней записи о заказе c указанным в запросе `transaction_id`.
+Если с `update == 1` не передан массив `items`, то данные о товарах заказа берутся из последней записи о заказе c указанным в запросе `transaction_id`.
 
 ### Использование поиска по сайту
 
@@ -437,37 +461,45 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ### Подписка на изменение стоимости
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-  var productData = [{
-    "description": "description",
-    "id": < product_id1 >,  //обязательно
-    "available": "available",
-    "model": "model",
-    "name": "name",
-    "old_price": "old_price",
-    "picture": [],
-    "price": "price",
-    "url": "url",
-    "vendor": "vendor"
-  }],
-  extraData = {
-    "email": "some@domain.com"
-  };
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  var productData = [
+      {
+        description: 'description',
+        id: 'product1', //обязательно
+        is_available: 1 | 0,
+        model: 'model',
+        name: 'name',
+        old_price: 5.99,
+        picture: [],
+        price: 7.88,
+        url: 'url',
+        vendor: 'vendor',
+      },
+    ],
+    extraData = {
+      email: 'some@domain.com',
+    };
 
-  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
-    add: productData
-  }, extraData);
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+  sndsyApi.ssecEvent(
+    'SUBSCRIBE_PRODUCT_PRICE',
+    {
+      add: productData,
+    },
+    extraData
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление подписок на изменение стоимости товара:
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_PRICE', {
-    delete: '41' или ['41','54','71']
+    delete: '41', // или ['41','54','71']
   });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всех подписок на изменение стоимости товара:
@@ -484,37 +516,45 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ### Подписка на информирование о появлении товара в продаже
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-  var productData = [{
-    "description": "description",
-    "id": < product_id1 >,  //обязательно
-    "available": "available",
-    "model": "model",
-    "name": "name",
-    "old_price": "old_price",
-    "picture": [],
-    "price": "price",
-    "url": "url",
-    "vendor": "vendor"
-  }],
-  extraData = {
-    "email": "some@domain.com"
-  };
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  var productData = [
+      {
+        description: 'description',
+        id: 'product1', //обязательно
+        is_available: 1 | 0,
+        model: 'model',
+        name: 'name',
+        old_price: 5.99,
+        picture: [],
+        price: 7.88,
+        url: 'url',
+        vendor: 'vendor',
+      },
+    ],
+    extraData = {
+      email: 'some@domain.com',
+    };
 
-  sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
-    add: productData
-  }, extraData);
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+  sndsyApi.ssecEvent(
+    'SUBSCRIBE_PRODUCT_ISA',
+    {
+      add: productData,
+    },
+    extraData
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление подписок о появлении товара в продаже:
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent('SUBSCRIBE_PRODUCT_ISA', {
-    delete: '41' или ['41','54','71']
+    delete: '41', // или ['41','54','71']
   });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всех подписок о появлении товара в продаже:
@@ -531,37 +571,45 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ### Управление избранным
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-  var productData = [{
-    "description": "description",
-    "id": < product_id1 >,  //обязательно
-    "available": "available",
-    "model": "model",
-    "name": "name",
-    "old_price": "old_price",
-    "picture": [],
-    "price": "price",
-    "url": "url",
-    "vendor": "vendor"
-  }],
-  extraData = {
-    "email": "some@domain.com"
-  };
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  var productData = [
+      {
+        description: 'description',
+        id: 'product1', //обязательно
+        is_available: 1 | 0,
+        model: 'model',
+        name: 'name',
+        old_price: 5.99,
+        picture: [],
+        price: 7.88,
+        url: 'url',
+        vendor: 'vendor',
+      },
+    ],
+    extraData = {
+      email: 'some@domain.com',
+    };
 
-  sndsyApi.ssecEvent('FAVORITE', {
-    add: productData
-  }, extraData);
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+  sndsyApi.ssecEvent(
+    'FAVORITE',
+    {
+      add: productData,
+    },
+    extraData
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление «Избранного»:
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent('FAVORITE', {
-    delete: '41' или ['41','54','71']
+    delete: '41', // или ['41','54','71']
   });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всего содержимого в «Избранном»:
@@ -578,37 +626,45 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ### Оформление предварительного заказа
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
-  var productData = [{
-    "description": "description",
-    "id": < product_id1 >,  //обязательно
-    "available": "available",
-    "model": "model",
-    "name": "name",
-    "old_price": "old_price",
-    "picture": [],
-    "price": "price",
-    "url": "url",
-    "vendor": "vendor"
-  }],
-  extraData = {
-    "email": "some@domain.com"
-  };
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  var productData = [
+      {
+        description: 'description',
+        id: 'product1', //обязательно
+        is_available: 1 | 0,
+        model: 'model',
+        name: 'name',
+        old_price: 5.99,
+        picture: [],
+        price: 7.88,
+        url: 'url',
+        vendor: 'vendor',
+      },
+    ],
+    extraData = {
+      email: 'some@domain.com',
+    };
 
-  sndsyApi.ssecEvent('PREORDER', {
-    add: productData
-  }, extraData);
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+  sndsyApi.ssecEvent(
+    'PREORDER',
+    {
+      add: productData,
+    },
+    extraData
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Удаление предзаказа:
 
 ```js
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function(){
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent('PREORDER', {
-    delete: '41' или ['41','54','71']
+    delete: '41', // или ['41','54','71']
   });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
 Очистка всех предзаказов:
@@ -636,10 +692,10 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 Данные о корзине придут в шаблонизатор в объекте:
 
-```json
+```js
 {
- "transaction_id": <transaction.id>,
- "transaction_dt": <transaction.dt>,
+ "transaction_id": "x1",
+ "transaction_dt": "2022-07-25 23:25:13",
  "items":
     [
       { запись ssec },
