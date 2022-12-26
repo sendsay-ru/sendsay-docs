@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
-sidebar_label: 'Шаблонизатор ProScript'
+sidebar_label: 'Шаблонизатор PROScript'
 ---
 
-# Шаблонизатор ProScript
+# Шаблонизатор PROScript
 
 ## Брошенная корзина
 
