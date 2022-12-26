@@ -84,12 +84,12 @@ sidebar_label: 'Инструкция для разработчиков'
 
 Ssec-события всегда передаются в Sendsay как массив объектов. Если вам надо передать одно событие, то это будет массив с одним объектом.
 
-```js
+```json
 [
   {
     "id": "product1",  //обязательно
     "description": "description",
-    "is_available": 1|0,
+    "is_available": 1 | 0,
     "model": "model",
     "name": "name",
     "old_price": 5.99,
@@ -98,32 +98,31 @@ Ssec-события всегда передаются в Sendsay как масс
     "url": "url",
     "vendor": "vendor",
     "event_type": 1,
-    "event_site": 1,
+    "event_site": 1
     ...
   }
 ]
 ```
 
-Так как в заказе или корзине может быть более одного товара, то структура передачи к нам таких событий отличается от стандартной. Это все так же массив объектов, но все сведения о товарах содержатся в массиве `items` :
+Так как в заказе или корзине может быть более одного товара, то структура передачи к нам таких событий отличается от стандартной. Это все так же массив объектов, но все сведения о товарах содержатся в массиве `items`:
 
-```js
+```json
 [
   {
-    transaction_id: 'x1', // обязательно
-    transaction_dt: '2022-07-25 23:25:13', // необязательно
-    payment_dt: '2022-07-25 23:25:13', //необязательно
-    delivery_dt: '2022-07-25 23:25:13', //необязательно
-    update: 1 | 0, //необязательно
-    items: [
+    "transaction_id": "x1", // обязательно
+    "transaction_dt": "2022-07-25 23:25:13", // необязательно
+    "payment_dt": "2022-07-25 23:25:13", //необязательно
+    "delivery_dt": "2022-07-25 23:25:13", //необязательно
+    "update": 1 | 0, //необязательно
+    "items": [  //необязательно
       {
-        //необязательно
-        id: 'product1', //обязательно
-        qnt: 2, //обязательно
-        price: 5.88, //обязательно
-      },
-    ],
-  },
-];
+        "id": "product1", //обязательно
+        "qnt": 2, //обязательно
+        "price": 5.88 //обязательно
+      }
+    ]
+  }
+]
 ```
 
 ### Добавление событий через JS-cкрипт
@@ -156,7 +155,7 @@ Ssec-события всегда передаются в Sendsay как масс
 
 #### Добавление событий по одному (member.set)
 
-```js
+```json
 {
   "action": "member.set",
   "email": "АДРЕС_ПОДПИСЧИКА",
@@ -175,7 +174,7 @@ Ssec-события всегда передаются в Sendsay как масс
 
 #### Добавление заказа через member.set
 
-```js
+```json
 {
   "action": "member.set",
   "email": "АДРЕС_ПОДПИСЧИКА",
@@ -216,7 +215,7 @@ Ssec-события всегда передаются в Sendsay как масс
 
 #### Добавление событий пачкой (member.import)
 
-```js
+```json
 {
   "action": "member.import",
   "users.list": {
@@ -304,38 +303,39 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 
 #### Передача события в Sendsay
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent('VIEW_PRODUCT', [
     {
-      id: 'product1', //обязательно
-      description: 'description',
-      is_available: 1 | 0,
-      model: 'model',
-      name: 'name',
-      old_price: 5.99,
-      picture_url: [],
-      price: 7.88,
-      url: 'url',
-      vendor: 'vendor',
-    },
+      "id": "product1", //обязательно
+      "description": "description",
+      "is_available": 1 | 0,
+      "model": "model",
+      "name": "name",
+      "old_price": 5.99,
+      "picture_url": [],
+      "price": 7.88,
+      "url": "url",
+      "vendor": "vendor"
+    }
   ]);
   // или с доп. параметрами
   sndsyApi.ssecEvent(
     'VIEW_PRODUCT',
     [
       {
-        id: 'product1', //обязательно
-        description: 'description',
-        is_available: 1 | 0,
-        model: 'model',
-        name: 'name',
-        old_price: 5.99,
-        picture_url: [],
-        price: 7.88,
-        url: 'url',
-        vendor: 'vendor',
-      },
+        "id": "product1", //обязательно
+        "description": "description",
+        "is_available": 1 | 0,
+        "model": "model",
+        "name": "name",
+        "old_price": 5.99,
+        "picture_url": [],
+        "price": 7.88,
+        "url": "url",
+        "vendor": "vendor"
+      }
     ],
     { email: 'name@domain.ru' }
   );
@@ -349,15 +349,16 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 Информация о данном событии используется в сценарии «Брошенный просмотр категории», в рекомендационной системе, а также при сегментации пользователей на основе их интересов.
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent(
     'VIEW_CATEGORY',
     [
       {
-        category: '', //Cтрока - путь до товарных категорий для события просмотр категории
-        category_id: INT, //Число идентификатор из YML
-      },
+        "category": "", //Cтрока - путь до товарных категорий для события просмотр категории
+        "category_id": INT, //Число идентификатор из YML
+      }
     ],
     { email: 'name@domain.ru' }
   );
@@ -373,23 +374,24 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 В данных должно прийти полное состояние корзины на момент вызова запроса.
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent(
     'BASKET_ADD',
     [
       {
-        transaction_id: 'x1', //необязательно
-        transaction_dt: '2022-07-25 23:25:13', //необязательно
-        items: [
+        "transaction_id": "x1", //необязательно
+        "transaction_dt": "2022-07-25 23:25:13", //необязательно
+        "items": [
           {
             //обязательно
-            id: 'product1', //обязательно
-            qnt: 2, //обязательно
-            price: 5.88, //обязательно
-          },
-        ],
-      },
+            "id": "product1", //обязательно
+            "qnt": 2, //обязательно
+            "price": 5.88 //обязательно
+          }
+        ]
+      }
     ],
     { email: 'name@domain.ru' }
   );
@@ -410,6 +412,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 ### Действия с заказом
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   // Call methods with params
@@ -417,20 +420,20 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
     'ORDER',
     [
       {
-        transaction_id: 'x1', // обязательно
-        transaction_dt: '2022-07-25 23:25:13', // необязательно
-        payment_dt: '2022-07-25 23:25:13', //необязательно
-        delivery_dt: '2022-07-25 23:25:13', //необязательно
-        update: 1 | 0, //необязательно
-        items: [
+        "transaction_id": "x1", // обязательно
+        "transaction_dt": "2022-07-25 23:25:13", // необязательно
+        "payment_dt": "2022-07-25 23:25:13", //необязательно
+        "delivery_dt": "2022-07-25 23:25:13", //необязательно
+        "update": 1 | 0, //необязательно
+        "items": [
           {
             //необязательно
-            id: 'product1', //обязательно
-            qnt: 2, //обязательно
-            price: 5.88, //обязательно
-          },
-        ],
-      },
+            "id": "product1", //обязательно
+            "qnt": 2, //обязательно
+            "price": 5.88 //обязательно
+          }
+        ]
+      }
     ],
     { email: 'name@domain.ru' }
   );
@@ -444,14 +447,15 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 ### Использование поиска по сайту
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent(
     'SEARCH_PRODUCT',
     [
       {
-        description: 'поисковая строка',
-      },
+        "description": "поисковая строка",
+      }
     ],
     { email: 'name@domain.ru' }
   );
@@ -461,21 +465,22 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 ### Подписка на изменение стоимости
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   var productData = [
       {
-        description: 'description',
-        id: 'product1', //обязательно
-        is_available: 1 | 0,
-        model: 'model',
-        name: 'name',
-        old_price: 5.99,
-        picture: [],
-        price: 7.88,
-        url: 'url',
-        vendor: 'vendor',
-      },
+        "description": "description",
+        "id": "product1", //обязательно
+        "is_available": 1 | 0,
+        "model": "model",
+        "name": "name",
+        "old_price": 5.99,
+        "picture": [],
+        "price": 7.88,
+        "url": "url",
+        "vendor": "vendor"
+      }
     ],
     extraData = {
       email: 'some@domain.com',
@@ -516,21 +521,22 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 ### Подписка на информирование о появлении товара в продаже
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   var productData = [
       {
-        description: 'description',
-        id: 'product1', //обязательно
-        is_available: 1 | 0,
-        model: 'model',
-        name: 'name',
-        old_price: 5.99,
-        picture: [],
-        price: 7.88,
-        url: 'url',
-        vendor: 'vendor',
-      },
+        "description": "description",
+        "id": "product1", //обязательно
+        "is_available": 1 | 0,
+        "model": "model",
+        "name": "name",
+        "old_price": 5.99,
+        "picture": [],
+        "price": 7.88,
+        "url": "url",
+        "vendor": "vendor"
+      }
     ],
     extraData = {
       email: 'some@domain.com',
@@ -571,21 +577,22 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 ### Управление избранным
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   var productData = [
       {
-        description: 'description',
-        id: 'product1', //обязательно
-        is_available: 1 | 0,
-        model: 'model',
-        name: 'name',
-        old_price: 5.99,
-        picture: [],
-        price: 7.88,
-        url: 'url',
-        vendor: 'vendor',
-      },
+        "description": "description",
+        "id": "product1", //обязательно
+        "is_available": 1 | 0,
+        "model": "model",
+        "name": "name",
+        "old_price": 5.99,
+        "picture": [],
+        "price": 7.88,
+        "ur"l: "url",
+        "vendor": "vendor"
+      }
     ],
     extraData = {
       email: 'some@domain.com',
@@ -626,21 +633,22 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 
 ### Оформление предварительного заказа
 
+<!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   var productData = [
       {
-        description: 'description',
-        id: 'product1', //обязательно
-        is_available: 1 | 0,
-        model: 'model',
-        name: 'name',
-        old_price: 5.99,
-        picture: [],
-        price: 7.88,
-        url: 'url',
-        vendor: 'vendor',
-      },
+        "description": "description",
+        "id": "product1", //обязательно
+        "is_available": 1 | 0,
+        "model": "model",
+        "name": "name",
+        "old_price": 5.99,
+        "picture": [],
+        "price": 7.88,
+        "url": "url",
+        "vendor": "vendor"
+      }
     ],
     extraData = {
       email: 'some@domain.com',
