@@ -15,16 +15,16 @@ sidebar_label: 'Шаблонизатор PROScript'
 
 Данные о корзине придут в шаблонизатор в объекте:
 
+<!-- prettier-ignore -->
 ```js
 {
- "transaction_id": "x1",
- "transaction_dt": "2022-07-25 23:25:13",
- "items":
-    [
-      { запись ssec },
-      { запись ssec },
-      { запись ssec }
-    ]
+ "transaction_id" => "x1",
+ "transaction_dt" => "2022-07-25 23:25:13",
+ "items" => [
+    { запись ssec },
+    { запись ssec },
+    { запись ssec }
+ ]
 }
 ```
 
