@@ -1,1 +1,2 @@
-export { useFirstPagePath } from './useFirstPagePath';
+export { useResctrictedPath } from './useResctrictedPath';
+export { useRouteAllowance } from './useRouteAllowance';

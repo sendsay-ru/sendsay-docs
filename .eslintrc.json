@@ -29,6 +29,8 @@
     ],
     "react/jsx-no-useless-fragment": "off",
     "@typescript-eslint/indent": "off",
+    "no-confusing-arrow": "off",
+    "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
     "operator-linebreak": "off",
     "react/jsx-one-expression-per-line": "off",
     "object-curly-newline": "off",

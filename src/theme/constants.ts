@@ -1,0 +1,1 @@
+export const RESCTRICTED_ACCESS_KEY = 'HAS_ACCESS';

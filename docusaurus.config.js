@@ -3,12 +3,13 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { SEOIgnorePatterns, BASE_URL } = require('./config');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'База знаний Sendsay',
   tagline: 'Советы и ответы от команды Sendsay',
-  url: 'https://sendsay.ru',
+  url: BASE_URL,
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
@@ -53,6 +54,9 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        sitemap: {
+          ignorePatterns: SEOIgnorePatterns,
         },
       }),
     ],

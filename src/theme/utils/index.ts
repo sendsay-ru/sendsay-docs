@@ -1,2 +1,8 @@
 export { getTermination } from './getTermination';
-export { checkHiddenCategory } from './checkHiddenCategory';
+export {
+  checkHiddenSidebarItem,
+  checkNewAccessToRoute,
+  getAllowedRoutes,
+  checkAllowedRoutes,
+} from './routeAcessUtils';
+export { ResctrictedAccessStorage } from './ResctrictedAccessStorage';
