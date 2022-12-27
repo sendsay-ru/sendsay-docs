@@ -1,6 +1,6 @@
 {
     "label": "Продажи",
-    "position": 10,
+    "position": 14,
     "customProps": {
       "restrictedAccessHref": "ecom"
     }
