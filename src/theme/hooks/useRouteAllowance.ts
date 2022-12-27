@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useHistory } from '@docusaurus/router';
 import { checkNewAccessToRoute, getAllowedRoutes } from '../utils';
 import { RestrictedHref } from '../types';
@@ -14,11 +13,8 @@ export const useRouteAllowance = (routeHref: RestrictedHref, isStorageAllowed: b
     isStorageAllowed,
   });
 
-  return useMemo(
-    () => ({
-      isNewAccessToRoute,
-      allowedRoutes,
-    }),
-    []
-  );
+  return {
+    isNewAccessToRoute,
+    allowedRoutes,
+  };
 };

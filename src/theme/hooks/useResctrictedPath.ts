@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo } from 'react';
+import { useLayoutEffect } from 'react';
 import { PropSidebarItem } from '@docusaurus/plugin-content-docs';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { checkAllowedRoutes, ResctrictedAccessStorage, checkHiddenSidebarItem } from '../utils';
@@ -17,10 +17,7 @@ export const useResctrictedPath = (item: PropSidebarItem) => {
     }
   }, [isBrowser]);
 
-  return useMemo(
-    () => ({
-      isRestricted: checkHiddenSidebarItem(item) || !checkAllowedRoutes(allowedRoutes, routeHref),
-    }),
-    []
-  );
+  return {
+    isRestricted: checkHiddenSidebarItem(item) || !checkAllowedRoutes(allowedRoutes, routeHref),
+  };
 };
