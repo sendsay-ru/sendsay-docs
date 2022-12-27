@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'База знаний Sendsay',
   tagline: 'Советы и ответы от команды Sendsay',
-  url: 'https://sendsay.ru/',
+  url: 'https://sendsay.ru',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
