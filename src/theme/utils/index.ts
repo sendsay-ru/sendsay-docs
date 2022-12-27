@@ -4,5 +4,5 @@ export {
   checkNewAccessToRoute,
   getAllowedRoutes,
   checkAllowedRoutes,
-} from './routeAcessUtils';
+} from './routeAccessUtils';
 export { ResctrictedAccessStorage } from './ResctrictedAccessStorage';
