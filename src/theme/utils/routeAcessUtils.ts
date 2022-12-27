@@ -7,8 +7,7 @@ import {
   RestrictedHref,
 } from '../types';
 import { ResctrictedAccessStorage } from './ResctrictedAccessStorage';
-
-const HIDDEN_CATEGORIES_LABELS = ['en'];
+import { HIDDEN_CATEGORIES_LABELS } from '../constants'
 
 const getRoutesFromStorage = (): ResctrictedAccessItems =>
   ResctrictedAccessStorage.getJSON<ResctrictedAccessItems>() ?? {};
