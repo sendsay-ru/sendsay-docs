@@ -13,8 +13,16 @@ const HIDDEN_CATEGORIES_LABELS = ['en'];
 const getRoutesFromStorage = (): ResctrictedAccessItems =>
   ResctrictedAccessStorage.getJSON<ResctrictedAccessItems>() ?? {};
 
-export const getAllowedRoutes = (routeHref: string, isNewAccessToRoute: boolean) => {
-  const previouslyAccessed = getRoutesFromStorage();
+interface AllowedRoutesOptions {
+  isNewAccessToRoute: boolean;
+  isStorageAllowed: boolean;
+}
+
+export const getAllowedRoutes = (
+  routeHref: string,
+  { isNewAccessToRoute, isStorageAllowed }: AllowedRoutesOptions
+) => {
+  const previouslyAccessed: ResctrictedAccessItems = isStorageAllowed ? getRoutesFromStorage() : {};
 
   if (!isNewAccessToRoute) {
     return previouslyAccessed;
@@ -23,7 +31,7 @@ export const getAllowedRoutes = (routeHref: string, isNewAccessToRoute: boolean)
   return {
     ...previouslyAccessed,
     categories: {
-      ...previouslyAccessed.categories,
+      ...(previouslyAccessed.categories ?? {}),
       [routeHref]: ResctrictedAccessStatus.Allowed,
     },
   };
