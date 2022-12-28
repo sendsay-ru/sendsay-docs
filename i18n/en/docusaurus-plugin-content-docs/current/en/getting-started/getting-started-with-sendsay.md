@@ -52,6 +52,8 @@ You can also сonfigure integration with any other system via API instead of cre
 
 **Read also:**
 
+<a href='https://docs.sendsay.ru/en/subscribers/import-and-export/how-to-import-subscribers' target='_blank'>How to import subscribers</a>
+
 [How to import subscribers](https://docs.sendsay.ru/en/subscribers/import-and-export/how-to-import-subscribers)<br/>
 
 [How to create a regular email campaign](https://docs.sendsay.ru/en/email-campaigns/create-your-campaign/how-to-send-email-campaign)<br/>
