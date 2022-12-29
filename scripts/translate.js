@@ -1,39 +1,105 @@
 const fs = require('fs')
+const path = require('path')
 const glob = require('glob')
 
 const TEMPLATE_PATH = 'config/templates/redirectTemplate.md'
 const TRANSLATED_DOCS_PATH = 'i18n/en/docusaurus-plugin-content-docs/current/'
 const DOCS_ORIGIN_PATH = 'docs/'
 
+const EXTENSIONS = ['md', 'mdx']
+const REG_EXP_EXTENSIONS = `.{${EXTENSIONS.join(',')}}`
+
 const compose = (...fns) => x => fns.reduceRight((y, f) => f(y), x);
 
-const copyTemplateToPath = (destinations) => {
-  destinations.forEach((dest => {
-    try {
-      fs.copyFileSync(TEMPLATE_PATH, dest, fs.constants.COPYFILE_EXCL)
-
-      console.log("\x1b[32m", `add translation:\x1b[0m ${dest}`)
-    } catch (err) {
-      if (err.code !== 'EEXIST') {
-        console.error(err)
-      }
-    }
-  }))
+const parseFilePath = (filePath) => {
+  try {
+    return path.parse(filePath)
+  } catch (err) {
+    return {}
+  }
 }
 
-const getFilesToTranslate = (extensions) => extensions.reduce((files, ext) => {
-  const newFiles = glob.sync(`${DOCS_ORIGIN_PATH}**/*.${ext}`)
+const createNewDir = (filePath) => {
+  const { dir } = parseFilePath(filePath)
 
-  return [...files, ...newFiles]
-}, [])
+  fs.mkdirSync(dir, { recursive: true });
+}
 
-const getDestinationPath = (sourcePathes) =>
-  sourcePathes.map((item) => item.replace(DOCS_ORIGIN_PATH, TRANSLATED_DOCS_PATH))
+const copyFileToPath = (src, dest) => {
+  try {
+    createNewDir(dest)
+    fs.copyFileSync(src, dest, fs.constants.COPYFILE_EXCL)
 
-const translate = () => compose(
-  copyTemplateToPath,
-  getDestinationPath,
-  getFilesToTranslate
-)(['md', 'mdx'])
+    console.log("\x1b[32m", `add translation:\x1b[0m ${dest}`)
+  } catch (err) {
+    if (err.code !== 'EEXIST') {
+      console.error(err)
+    }
+  }
+}
+
+const deleteUnusedTranslation = (filePath) => {
+  try {
+    fs.unlinkSync(filePath)
+
+    console.log("\x1b[32m", `delete unused translation:\x1b[0m ${filePath}`);
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+const getFilesByFolder = (originFolder) => {
+  const targetPath = `${originFolder}**/*${REG_EXP_EXTENSIONS}`
+
+  return glob.sync(targetPath)
+}
+
+const getTranslationFile = (originPath) => {
+  const targetPath = getDestinationPath(originPath.replace(/\.\w*/, REG_EXP_EXTENSIONS))
+
+  return glob.sync(targetPath)[0]
+}
+
+const getDestinationPath = (sourcePath) => sourcePath.replace(DOCS_ORIGIN_PATH, TRANSLATED_DOCS_PATH)
+
+const removeUnusedTranslations = (files) => {
+  files.forEach(({ enExt, ruExt, enFilePath }) => {
+    if (enExt !== ruExt && enFilePath) {
+      deleteUnusedTranslation(enFilePath)
+    }
+  })
+}
+
+const makeTranslations = (files) => {
+  files.forEach(({ enExt, ruExt, enFilePath, filePath }) => {
+    if (enExt === ruExt) {
+      return
+    }
+
+    const fileSrc = !enExt ? TEMPLATE_PATH : enFilePath
+
+    copyFileToPath(fileSrc, getDestinationPath(filePath))
+  })
+
+  return files
+}
+
+const getArticlesFiles = (originFiles) => originFiles.map((filePath) => {
+  const translatedFile = getTranslationFile(filePath)
+
+  return {
+    filePath,
+    ruExt: parseFilePath(filePath).ext,
+    enFilePath: translatedFile,
+    enExt: parseFilePath(translatedFile).ext,
+  }
+})
+
+const translate = compose(
+  removeUnusedTranslations,
+  makeTranslations,
+  getArticlesFiles,
+  getFilesByFolder.bind(this, DOCS_ORIGIN_PATH)
+)
 
 translate()
