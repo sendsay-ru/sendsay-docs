@@ -58,7 +58,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 
 ![Telegram bot](\img\other-channels\telegram\how-to-connect-a-bot\telegram-bot.jpg) <br/>
 
-Для этого отправьте email-рассылку и&nbsp;добавьте в&nbsp;письмо ссылку с&nbsp;дополнительными параметрами, в&nbsp;которых стоят нужные команды подстановки:
+Для этого отправьте email-рассылку и&nbsp;добавьте в&nbsp;письмо ссылку с&nbsp;дополнительными параметрами:
 
 ```
 ?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]
@@ -67,5 +67,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 В&nbsp;итоге ссылка на&nbsp;бот в&nbsp;Телеграме будет выглядеть так:
 
 ```
-https://t.me/example_bot?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]
+<a href=”https://t.me/example_bot?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]”>Подписаться в Telegram</a>
 ```
+
+Вместо `example_bot` впишите название нужного бота.
