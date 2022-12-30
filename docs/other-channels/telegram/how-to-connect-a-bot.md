@@ -67,7 +67,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 В&nbsp;итоге ссылка на&nbsp;бот в&nbsp;Телеграме будет выглядеть так:
 
 ```
-<a href=”https://t.me/example_bot?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]”>Подписаться в Telegram</a>
+<a href="https://t.me/example_bot?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]">Подписаться в Telegram</a>
 ```
 
 Вместо `example_bot` впишите название нужного бота.
