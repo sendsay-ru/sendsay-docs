@@ -6,7 +6,7 @@ import botToken from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-c
 import connectBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-connect-a-bot.gif";
 import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-delete-a-bot.png";
 
-# Как подключить бот в Телеграме
+# Как подключить бота в Телеграме
 
 В Sendsay можно отправлять рассылки в Телеграме через бота. Сообщения придут тем подписчикам, которые начали диалог с ботом после его подключения к Sendsay. Бот можно подключить только к одному аккаунту Sendsay.
 
@@ -24,7 +24,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 
 Напишите нам, что хотите перенести базу подписчиков телеграм-бота в Sendsay, к сообщению приложите файл с контактами.
 
-## Как подключить бот
+## Как подключить бота
 
 ### 1. Скопируйте токен для доступа к боту в Телеграме
 
@@ -45,7 +45,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
     <img src={connectBot} alt="How to connect a bot" />
   </p>
 
-## Как удалить бот
+## Как удалить бота
 
 Откройте раздел **Подписчики → Telegram**. Рядом с ботом откройте выпадающий список и нажмите «Удалить».
 
