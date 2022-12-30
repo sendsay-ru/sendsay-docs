@@ -3,6 +3,7 @@ sidebar_position: 1
 ---
 
 import botToken from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-copy-the-token.png";
+import connectBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-connect-a-bot.gif";
 import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-delete-a-bot.png";
 
 # Как подключить бот в Телеграме
@@ -40,7 +41,9 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 1. Откройте раздел **Подписчики → Telegram** и нажмите на синюю кнопку «Подключить бота».
 2. В появившемся окне вставьте токен и нажмите «Подключить».
 
-![How to connect a bot](/img/other-channels/telegram/how-to-connect-a-bot/how-to-connect-a-bot.gif) <br/>
+  <p align="center">
+    <img src={connectBot} alt="How to connect a bot" />
+  </p>
 
 ## Как удалить бот
 
