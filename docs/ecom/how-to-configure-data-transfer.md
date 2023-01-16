@@ -76,7 +76,7 @@ sidebar_label: 'Инструкция для разработчиков'
 | 7   | Доставка: отправлен                                 | Delivery: shipped                                                     |
 | 8   | Доставка: поступил в пункт-выдачи / передан курьеру | Delivery: received at the point of issue / handed over to the courier |
 | 9   | Доставка: получен                                   | Delivery: received                                                    |
-| 10   | Заказ Отменен: отмена заказа                        | Order Canceled: order cancellation                                    |
+| 10  | Заказ Отменен: отмена заказа                        | Order Canceled: order cancellation                                    |
 | 11  | Заказ Отменен: возврат заказа                       | Order Canceled: return order                                          |
 | 12  | Заказ Изменен: обновление заказа                    | Order Changed: order update                                           |
 
