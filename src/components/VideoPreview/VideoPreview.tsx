@@ -1,13 +1,13 @@
 import React from 'react';
-import { VIDEO_MAX_WIDTH } from './constants';
 import { useVideo } from './useVideo';
+import './VideoPreview.css';
 
-const Video = ({ src, width = VIDEO_MAX_WIDTH }) => {
+const VideoPreview = ({ src }) => {
   const { videoRef } = useVideo();
 
   return (
     <video
-      style={{ width: `${width}px` }}
+      className="VideoPreview"
       ref={videoRef}
       controls
       disablePictureInPicture
@@ -19,4 +19,4 @@ const Video = ({ src, width = VIDEO_MAX_WIDTH }) => {
   );
 };
 
-export default Video;
+export default VideoPreview;
