@@ -30,7 +30,7 @@ There are three ways to create an email:
 - compose HTML code in the HTML editor
 - use template or upload an HTML file in the template gallery
 
-[How to create an email in the drag-and-drop editor](./drag-and-drop-editor.md)
+[How to create an email in the drag-and-drop editor](https://docs.sendsay.ru/en/email-campaigns/create-your-campaign/drag-and-drop-editor)
 
 ![How to design an email](/img/email-campaigns/create-your-campaign/how-to-send-email-campaign/how-to-design-an-email-en.png) <br/>
 
@@ -70,4 +70,4 @@ To enable the optimization function, contact us in the chat
 
 **Gradual send.** The campaign is sent in batches at equal intervals. This helps to warm up the sender domain for a new IP address or to distribute the load on the call center.
 
-Campaigns are automatically checked before delivery and may be transferred to human moderation. The first several campaigns sent from your account always undergo human moderation. You can track the delivery status in the **Task journal**.
+Campaigns are automatically checked before delivery and may be transferred to human moderation. The first several campaigns sent from your account always undergo human moderation. You can track the delivery status on the **Campaigns page → Running** or in the **Task journal**.
