@@ -36,7 +36,7 @@ import emailInParts from '/img/email-campaigns/settings/warming-up-IP-address/ho
 
 Пропишите [ключ DKIM, SPF-записи и&nbspDMARC-политику](https://docs.sendsay.ru/email-campaigns/settings/email-authentication/). Вы&nbsp;можете сделать это как самостоятельно, так и&nbsp;заказать полную настройку у&nbsp;специалистов Sendsay.
 
-[Как настроить email-аутентификацию](https://docs.sendsay.ru/email-campaigns/settings/how-to-connect-domain#%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D1%8B-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8-email-%D0%B0%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8)
+[Как настроить email-аутентификацию](https://docs.sendsay.ru/email-campaigns/settings/how-to-connect-domain/#способы-настройки-email-аутентификации)
 
 ### 2. Актуализируйте базу контактов
 
@@ -72,11 +72,15 @@ import emailInParts from '/img/email-campaigns/settings/warming-up-IP-address/ho
 
 Чтобы прогрев был плавным, ежедневно увеличивайте объём рассылок не&nbsp;более чем на&nbsp;50% к&nbsp;предыдущему дню. Например, вы&nbsp;начинаете с&nbsp;1&nbsp;000 писем в&nbsp;день&nbsp;&mdash; тогда формула для второго дня отправки будет выглядеть так:
 
-**1&nbsp;000 + (1&nbsp;000 \* 0,5) = 1&nbsp;500**
+```
+1 000 + (1 000 * 0,5) = 1 500
+```
 
 А&nbsp;для третьего дня&nbsp;&mdash; так:
 
-**1&nbsp;500 + (1&nbsp;500 \* 0,5) = 2&nbsp;250**
+```
+1 500 + (1 500 * 0,5) = 2 250
+```
 
 И&nbsp;так далее. График отправки получится таким:
 
@@ -129,6 +133,6 @@ import emailInParts from '/img/email-campaigns/settings/warming-up-IP-address/ho
 
 [Где следить за&nbsp;статистикой](https://docs.sendsay.ru/statistics/where-to-track-statistics)
 
-[Основные метрики в отчётах](https://docs.sendsay.ru/statistics/all-about-campaign-reports/#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA%D0%B8-%D0%B2-%D0%BE%D1%82%D1%87%D1%91%D1%82%D0%B0%D1%85)
+[Основные метрики в отчётах](https://docs.sendsay.ru/statistics/all-about-campaign-reports/#основные-метрики-в-отчётах)
 
 Если вы смогли достичь высокой доставляемости, можно ускорить процесс прогрева, увеличив объём рассылок к предыдущему дню. Если у писем с нового IP-адреса мало открытий и много отписок — лучше снизить темп, уменьшив объём отправлений.
