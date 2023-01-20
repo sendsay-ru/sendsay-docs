@@ -52,7 +52,7 @@ You can also сonfigure integration with any other system via API instead of cre
 
 ## Sendsay application for Windows
 
-Sendsay has a desktop application with full functionality of the service to work in the Windows operating system - you can download and install it free of charge on your computer. Go to [installation page] (https://sendsay.ru/about/ustanovka-sendsay) — there you will also find the installation guide.
+Sendsay has a desktop application with full functionality of the service to work in the Windows operating system - you can download and install it free of charge on your computer. Go to [installation page](https://sendsay.com/about/ustanovka-sendsay) — there you will also find the installation guide.
 
 **Read also:**
 
