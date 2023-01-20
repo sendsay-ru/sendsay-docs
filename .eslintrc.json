@@ -20,14 +20,18 @@
     "import/prefer-default-export": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
+    "implicit-arrow-linebreak": "off",
     "react/function-component-definition": [
       2,
       {
         "namedComponents": "arrow-function"
       }
     ],
+    "no-restricted-exports": "off",
     "react/jsx-no-useless-fragment": "off",
     "@typescript-eslint/indent": "off",
+    "no-confusing-arrow": "off",
+    "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
     "operator-linebreak": "off",
     "react/jsx-one-expression-per-line": "off",
     "object-curly-newline": "off",
