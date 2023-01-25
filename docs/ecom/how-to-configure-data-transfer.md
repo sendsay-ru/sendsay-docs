@@ -422,7 +422,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
       {
         "transaction_id": "x1", // обязательно
         "transaction_status": 1, // обязательно
-        "transaction_dt": "2022-07-25 23:25:13", // необязательно
+        "transaction_dt": "2022-07-25 23:25:13", // обязательно YYYY-MM-DD hh:mm:ss
         "payment_dt": "2022-07-25 23:25:13", //необязательно
         "delivery_dt": "2022-07-25 23:25:13", //необязательно
         "update": 1 | 0, //необязательно
