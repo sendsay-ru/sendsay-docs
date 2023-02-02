@@ -1,105 +1,117 @@
-const fs = require('fs')
-const path = require('path')
-const glob = require('glob')
+const fs = require('fs');
+const path = require('path');
+const glob = require('glob');
+const logger = require('./logger');
 
-const TEMPLATE_PATH = 'config/templates/redirectTemplate.md'
-const TRANSLATED_DOCS_PATH = 'i18n/en/docusaurus-plugin-content-docs/current/'
-const DOCS_ORIGIN_PATH = 'docs/'
+const TEMPLATE_PATH = 'config/templates/redirectTemplate.md';
+const TRANSLATED_DOCS_PATH = 'i18n/en/docusaurus-plugin-content-docs/current/';
+const DOCS_ORIGIN_PATH = 'docs/';
 
-const EXTENSIONS = ['md', 'mdx']
-const REG_EXP_EXTENSIONS = `.{${EXTENSIONS.join(',')}}`
+const EXTENSIONS = ['md', 'mdx'];
+const REG_EXP_EXTENSIONS = `.{${EXTENSIONS.join(',')}}`;
 
-const compose = (...fns) => x => fns.reduceRight((y, f) => f(y), x);
+const compose =
+  (...fns) =>
+  (x) =>
+    fns.reduceRight((y, f) => f(y), x);
 
 const parseFilePath = (filePath) => {
   try {
-    return path.parse(filePath)
+    return path.parse(filePath);
   } catch (err) {
-    return {}
+    return {};
   }
-}
+};
 
 const createNewDir = (filePath) => {
-  const { dir } = parseFilePath(filePath)
+  const { dir } = parseFilePath(filePath);
 
   fs.mkdirSync(dir, { recursive: true });
-}
+};
 
 const copyFileToPath = (src, dest) => {
   try {
-    createNewDir(dest)
-    fs.copyFileSync(src, dest, fs.constants.COPYFILE_EXCL)
+    createNewDir(dest);
+    fs.copyFileSync(src, dest, fs.constants.COPYFILE_EXCL);
 
-    console.log("\x1b[32m", `add translation:\x1b[0m ${dest}`)
+    logger({
+      success: 'add translation:',
+      primary: dest,
+    });
   } catch (err) {
     if (err.code !== 'EEXIST') {
-      console.error(err)
+      console.error(err);
     }
   }
-}
+};
 
 const deleteUnusedTranslation = (filePath) => {
   try {
-    fs.unlinkSync(filePath)
+    fs.unlinkSync(filePath);
 
-    console.log("\x1b[32m", `delete unused translation:\x1b[0m ${filePath}`);
+    logger({
+      success: 'delete unused translation:',
+      primary: filePath,
+    });
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};
 
 const getFilesByFolder = (originFolder) => {
-  const targetPath = `${originFolder}**/*${REG_EXP_EXTENSIONS}`
+  const targetPath = `${originFolder}**/*${REG_EXP_EXTENSIONS}`;
 
-  return glob.sync(targetPath)
-}
+  return glob.sync(targetPath);
+};
 
 const getTranslationFile = (originPath) => {
-  const targetPath = getDestinationPath(originPath.replace(/\.\w*/, REG_EXP_EXTENSIONS))
+  const targetPath = getDestinationPath(originPath.replace(/\.\w*/, REG_EXP_EXTENSIONS));
 
-  return glob.sync(targetPath)[0]
-}
+  return glob.sync(targetPath)[0];
+};
 
-const getDestinationPath = (sourcePath) => sourcePath.replace(DOCS_ORIGIN_PATH, TRANSLATED_DOCS_PATH)
+const getDestinationPath = (sourcePath) =>
+  sourcePath.replace(DOCS_ORIGIN_PATH, TRANSLATED_DOCS_PATH);
 
 const removeUnusedTranslations = (files) => {
   files.forEach(({ enExt, ruExt, enFilePath }) => {
     if (enExt !== ruExt && enFilePath) {
-      deleteUnusedTranslation(enFilePath)
+      deleteUnusedTranslation(enFilePath);
     }
-  })
-}
+  });
+};
 
 const makeTranslations = (files) => {
   files.forEach(({ enExt, ruExt, enFilePath, filePath }) => {
     if (enExt === ruExt) {
-      return
+      return;
     }
 
-    const fileSrc = !enExt ? TEMPLATE_PATH : enFilePath
+    const fileSrc = !enExt ? TEMPLATE_PATH : enFilePath;
 
-    copyFileToPath(fileSrc, getDestinationPath(filePath))
-  })
+    copyFileToPath(fileSrc, getDestinationPath(filePath));
+  });
 
-  return files
-}
+  return files;
+};
 
-const getArticlesFiles = (originFiles) => originFiles.map((filePath) => {
-  const translatedFile = getTranslationFile(filePath)
+const getArticlesFiles = (originFiles) =>
+  originFiles.map((filePath) => {
+    const translatedFile = getTranslationFile(filePath);
 
-  return {
-    filePath,
-    ruExt: parseFilePath(filePath).ext,
-    enFilePath: translatedFile,
-    enExt: parseFilePath(translatedFile).ext,
-  }
-})
+    return {
+      filePath,
+      ruExt: parseFilePath(filePath).ext,
+      enFilePath: translatedFile,
+      enExt: parseFilePath(translatedFile).ext,
+    };
+  });
 
 const translate = compose(
   removeUnusedTranslations,
   makeTranslations,
   getArticlesFiles,
   getFilesByFolder.bind(this, DOCS_ORIGIN_PATH)
-)
+);
 
-translate()
+translate();
