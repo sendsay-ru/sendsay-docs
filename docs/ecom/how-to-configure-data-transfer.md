@@ -42,7 +42,7 @@ sidebar_label: 'Инструкция для разработчиков'
 | :------------------------------- | :--------------------- | :--------------------- | :------------- | :----------- |
 | id                               | product.id             | String                 |                |              |
 | name                             | product.name           | String                 |                |              |
-| picture_url                      | product.picture_url    | Array(String)          |                |              |
+| picture                          | product.picture        | Array(String)          |                |              |
 | url                              | product.url            | String                 |                |              |
 | is_available                     | product.is_available   | UInt8                  |                |              |
 | category_paths                   | product.category_paths | Array(String)          |                |              |
