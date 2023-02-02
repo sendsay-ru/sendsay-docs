@@ -51,6 +51,7 @@ sidebar_label: 'Инструкция для разработчиков'
 | vendor                           | product.vendor         | String                 |                |              |
 | model                            | product.model          | String                 |                |              |
 | type                             | product.type           | String                 |                |              |
+| price                            | product.price          | Nullable(Decimal64(2)) |                |              |
 | old_price                        | product.old_price      | Nullable(Decimal64(2)) |                |              |
 | category                         | category               | String                 |                |              |
 | transaction_id                   | transaction.id         | String                 | Заказ, корзина |              |
