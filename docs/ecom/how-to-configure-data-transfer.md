@@ -90,11 +90,11 @@ Ssec-события всегда передаются в Sendsay как масс
   {
     "id": "product1",  //обязательно
     "description": "description",
-    "is_available": 1 | 0,
+    "available": 1 | 0,
     "model": "model",
     "name": "name",
     "old_price": 5.99,
-    "picture_url": [""],
+    "picture": [""],
     "price":  7.88,
     "url": "url",
     "vendor": "vendor",
@@ -262,11 +262,11 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
 --data-raw '[{
   "id": 1111,
   "description": "description",
-  "is_available": 1,
+  "available": 1,
   "model": "model",
   "name": "name",
   "old_price": 5.99,
-  "picture_url": ["https://domain.com/image.jpg"],
+  "picture": ["https://domain.com/image.jpg"],
   "price":  7.88,
   "url": "url",
   "vendor": "vendor",
@@ -311,11 +311,11 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
     {
       "id": "product1", //обязательно
       "description": "description",
-      "is_available": 1 | 0,
+      "available": 1 | 0,
       "model": "model",
       "name": "name",
       "old_price": 5.99,
-      "picture_url": [],
+      "picture": [],
       "price": 7.88,
       "url": "url",
       "vendor": "vendor"
@@ -328,11 +328,11 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
       {
         "id": "product1", //обязательно
         "description": "description",
-        "is_available": 1 | 0,
+        "available": 1 | 0,
         "model": "model",
         "name": "name",
         "old_price": 5.99,
-        "picture_url": [],
+        "picture": [],
         "price": 7.88,
         "url": "url",
         "vendor": "vendor"
@@ -477,7 +477,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
       {
         "description": "description",
         "id": "product1", //обязательно
-        "is_available": 1 | 0,
+        "available": 1 | 0,
         "model": "model",
         "name": "name",
         "old_price": 5.99,
@@ -533,7 +533,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
       {
         "description": "description",
         "id": "product1", //обязательно
-        "is_available": 1 | 0,
+        "available": 1 | 0,
         "model": "model",
         "name": "name",
         "old_price": 5.99,
@@ -589,7 +589,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
       {
         "description": "description",
         "id": "product1", //обязательно
-        "is_available": 1 | 0,
+        "available": 1 | 0,
         "model": "model",
         "name": "name",
         "old_price": 5.99,
@@ -645,7 +645,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
       {
         "description": "description",
         "id": "product1", //обязательно
-        "is_available": 1 | 0,
+        "available": 1 | 0,
         "model": "model",
         "name": "name",
         "old_price": 5.99,
