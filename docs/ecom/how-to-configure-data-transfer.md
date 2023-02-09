@@ -194,7 +194,6 @@ curl --location --request GET 'https://api.sendsay.ru/general/ssec/v100/json/ACC
       ]'
 ```
 
-
 ### Добавление обезличенных событий
 
 | ID  | Константа события     | Событие                     |
