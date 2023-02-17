@@ -158,11 +158,12 @@ Ssec-события всегда передаются в Sendsay как масс
 ```
 https://ssec.sendsay.ru/general/ssec/v100/json/ACCOUNT_ID
 ```
+ACCOUNT_ID надо заменить идентификатор (логин) вашего аккаунта Sendsay (не email).
 
 Пример API-запроса:
 
 ```bash
-curl --location --request GET 'https://ssec.sendsay.ru/general/ssec/v100/json/ACCOUNT_ID' \
+curl --location --request POST 'https://ssec.sendsay.ru/general/ssec/v100/json/ACCOUNT_ID' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: sendsay apikey=API_KEY' \
 --data-raw '[
