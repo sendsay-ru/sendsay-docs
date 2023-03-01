@@ -5,6 +5,8 @@ import { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import { filterSearchExcludeOptions } from '../utils/filterSearchExcludeOptions';
+
 const Search = (props) => {
   const initialized = useRef(false);
   const searchBarRef = useRef(null);
@@ -54,10 +56,19 @@ const Search = (props) => {
         import('./DocSearch'),
         import('./algolia.css'),
       ]).then(([searchDocs, searchIndex, { default: DocSearch }]) => {
-        if (searchDocs.length === 0) {
+        const filteredSearchDocs = filterSearchExcludeOptions(searchDocs, isBrowser);
+        console.log(
+          '!!filteredSearchDocs',
+          searchDocs.length,
+          filteredSearchDocs.length,
+          searchIndex
+        );
+
+        if (filteredSearchDocs.length === 0) {
           return;
         }
-        initAlgolia(searchDocs, searchIndex, DocSearch);
+
+        initAlgolia(filteredSearchDocs, searchIndex, DocSearch);
         setIndexReady(true);
       });
       initialized.current = true;

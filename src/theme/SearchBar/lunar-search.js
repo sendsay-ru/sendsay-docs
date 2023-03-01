@@ -51,15 +51,20 @@ class LunrSearchAdapter {
     };
   }
   getTitleHit(doc, position, length) {
-    const start = position[0];
-    const end = position[0] + length;
-    let formattedTitle =
-      doc.title.substring(0, start) +
-      '<span class="algolia-docsearch-suggestion--highlight">' +
-      doc.title.substring(start, end) +
-      '</span>' +
-      doc.title.substring(end, doc.title.length);
-    return this.getHit(doc, formattedTitle);
+    try {
+      const start = position[0];
+      const end = position[0] + length;
+      let formattedTitle =
+        doc.title.substring(0, start) +
+        '<span class="algolia-docsearch-suggestion--highlight">' +
+        doc.title.substring(start, end) +
+        '</span>' +
+        doc.title.substring(end, doc.title.length);
+
+      return this.getHit(doc, formattedTitle);
+    } catch (err) {
+      console.log('!!err', doc, position, length);
+    }
   }
 
   getKeywordHit(doc, position, length) {

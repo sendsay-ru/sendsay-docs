@@ -1,8 +1,4 @@
 export { getTermination } from './getTermination';
-export {
-  checkHiddenSidebarItem,
-  checkNewAccessToRoute,
-  getAllowedRoutes,
-  checkAllowedRoutes,
-} from './routeAccessUtils';
+export * from './routeAccessUtils';
+export { filterSearchExcludeOptions } from './filterSearchExcludeOptions';
 export { ResctrictedAccessStorage } from './ResctrictedAccessStorage';

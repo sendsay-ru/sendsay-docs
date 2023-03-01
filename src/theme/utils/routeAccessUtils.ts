@@ -14,10 +14,8 @@ import { HIDDEN_CATEGORIES_LABELS } from '../constants';
 const getRoutesFromStorage = (): ResctrictedAccessItems =>
   ResctrictedAccessStorage.getJSON<ResctrictedAccessItems>() ?? {};
 
-export const getAllowedRoutes = (
-  newRouteHref: string,
-  { isStorageAllowed, type, isNewAccessToRoute }: AllowedRoutesOptions
-) => {
+export const getAllowedRoutes = (options?: AllowedRoutesOptions) => {
+  const { isStorageAllowed, type, isNewAccessToRoute, newRouteHref } = options ?? {};
   const previouslyAccessed: ResctrictedAccessItems = isStorageAllowed ? getRoutesFromStorage() : {};
 
   if (!isNewAccessToRoute) {
@@ -37,6 +35,9 @@ export const getAllowedRoutes = (
     },
   };
 };
+
+export const flatRoutesResponse = (routesByTypes: ResctrictedAccessItems) =>
+  Object.values(routesByTypes).flatMap((routes) => Object.keys(routes));
 
 export const checkAllowedRoutes = (allowedRoutes: ResctrictedAccessItems, routeHref: string) => {
   if (!routeHref) {

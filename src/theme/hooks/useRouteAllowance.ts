@@ -2,13 +2,14 @@ import { useHistory } from '@docusaurus/router';
 import { checkNewAccessToRoute, getAllowedRoutes } from '../utils';
 import { RestrictedHref, AllowedRoutesOptions } from '../types';
 
-export const useRouteAllowance = (routeHref: RestrictedHref, options: AllowedRoutesOptions) => {
+export const useRouteAllowance = (newRouteHref: RestrictedHref, options: AllowedRoutesOptions) => {
   const {
     location: { pathname: path },
   } = useHistory();
 
-  const isNewAccessToRoute = checkNewAccessToRoute(routeHref, path);
-  const allowedRoutes = getAllowedRoutes(routeHref, {
+  const isNewAccessToRoute = checkNewAccessToRoute(newRouteHref, path);
+  const allowedRoutes = getAllowedRoutes({
+    newRouteHref,
     ...options,
     isNewAccessToRoute,
   });
