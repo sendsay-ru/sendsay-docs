@@ -53,10 +53,6 @@ export const checkAllowedRoutes = (allowedRoutes: ResctrictedAccessItems, routeH
 export const checkNewAccessToRoute = (routeHref: RestrictedHref, path: string) =>
   path.includes(routeHref);
 
-// export const getRouteWithNewAccess = (routeHrefs: RestrictedHref, path: string) => routeHrefs
-//   .filter((route) => path.includes(route))
-//   .sort((a, b) => a.length - b.length)[0];
-
 export const checkHiddenSidebarItem = (item: PropSidebarItem) =>
   item.type === PropSidebarItemType.Category
     ? HIDDEN_CATEGORIES_LABELS.includes(item.label)
