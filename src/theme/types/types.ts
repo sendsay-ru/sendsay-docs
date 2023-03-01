@@ -1,4 +1,8 @@
-import { ResctrictedAccessStatus, ResctrictedAccessStorageKeys, PropSidebarItemType } from './enums';
+import {
+  ResctrictedAccessStatus,
+  ResctrictedAccessStorageKeys,
+  PropSidebarItemType,
+} from './enums';
 
 export type RestrictedHref = string | undefined;
 
@@ -12,5 +16,5 @@ export interface ResctrictedAccessItems {
 export interface AllowedRoutesOptions {
   isStorageAllowed: boolean;
   type: PropSidebarItemType;
-  isNewAccessToRoute?: boolean
+  isNewAccessToRoute?: boolean;
 }
