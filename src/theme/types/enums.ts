@@ -7,3 +7,8 @@ export const enum PropSidebarItemType {
   Category = 'category',
   Link = 'link',
 }
+
+export const enum ResctrictedAccessStorageKeys {
+  Categories = 'categories',
+  Articles = 'articles'
+}
