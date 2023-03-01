@@ -1,5 +1,8 @@
 ---
 sidebar_position: 2
+sidebar_custom_props: {
+  restrictedAccessHref: "automations-by-event/welcome-series"
+}
 ---
 
 # Как настроить приветственную серию писем

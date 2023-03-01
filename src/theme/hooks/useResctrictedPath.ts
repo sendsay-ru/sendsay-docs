@@ -5,17 +5,24 @@ import { checkAllowedRoutes, ResctrictedAccessStorage, checkHiddenSidebarItem } 
 import { RestrictedHref } from '../types';
 import { useRouteAllowance } from './useRouteAllowance';
 
-export const useResctrictedPath = (item: PropSidebarItem) => {
-  const isBrowser = useIsBrowser();
-  const routeHref = item.customProps?.restrictedAccessHref as RestrictedHref;
+export const useResctrictedPath = (item: PropSidebarItem | any) => {
+  const isStorageAllowed = useIsBrowser();
+  const routeHref = (item.customProps?.restrictedAccessHref) as RestrictedHref
 
-  const { allowedRoutes, isNewAccessToRoute } = useRouteAllowance(routeHref, isBrowser);
+  const { allowedRoutes, isNewAccessToRoute } = useRouteAllowance(routeHref, {
+    isStorageAllowed,
+    type: item.type
+  });
 
   useLayoutEffect(() => {
-    if (isNewAccessToRoute && isBrowser) {
+    if (isNewAccessToRoute && isStorageAllowed) {
       ResctrictedAccessStorage.setJSON(allowedRoutes);
     }
-  }, [isBrowser]);
+  }, [isStorageAllowed, isNewAccessToRoute]);
+
+  if (item.type === 'link') {
+    console.log('!!', item.label, !checkAllowedRoutes(allowedRoutes, routeHref), allowedRoutes)
+  }
 
   return {
     isRestricted: checkHiddenSidebarItem(item) || !checkAllowedRoutes(allowedRoutes, routeHref),
