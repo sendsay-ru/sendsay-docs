@@ -1,5 +1,11 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5d9b784f-1275-4258-9d5d-48d411a3b243/deploy-status)](https://app.netlify.com/sites/sendsay-docs/deploys)
 
+# Links
+
+[List of changes in swizzled components](https://sendsay.fibery.io/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0_app/Swizzled-Components-630)
+
+<br>
+
 # How to translate a new article
 
 There is a couple of pathes for each translated file:
@@ -79,6 +85,15 @@ This [doc](https://docusaurus.io/docs/sidebar/items#category-shorthand) might he
 ```
 
 <br>
+
+# List of changes in swizzled components
+
+| Name | Pattern | Usage |
+|--- |--- |--- |
+| SearchBar | change locale of a placeholder text  | docs/ |
+| Actual shorten url | /folder-path/file-name | i18n/ |
+| Actual full url | `/en`/folder-path/file-name | config/|
+| Sidebar file id | `en`/shorten-folder-path/`en-`file-name | sidebars.js |
 
 # Website
 
