@@ -6,7 +6,7 @@ import {
   RestrictedHref,
   ResctrictedAccessItem,
   ResctrictedAccessStorageKeys,
-  AllowedRoutesOptions
+  AllowedRoutesOptions,
 } from '../types';
 import { ResctrictedAccessStorage } from './ResctrictedAccessStorage';
 import { HIDDEN_CATEGORIES_LABELS } from '../constants';
@@ -24,9 +24,10 @@ export const getAllowedRoutes = (
     return previouslyAccessed;
   }
 
-  const storeKey = type === PropSidebarItemType.Category
-    ? ResctrictedAccessStorageKeys.Categories
-    : ResctrictedAccessStorageKeys.Articles
+  const storeKey =
+    type === PropSidebarItemType.Category
+      ? ResctrictedAccessStorageKeys.Categories
+      : ResctrictedAccessStorageKeys.Articles;
 
   return {
     ...previouslyAccessed,
@@ -49,7 +50,8 @@ export const checkAllowedRoutes = (allowedRoutes: ResctrictedAccessItems, routeH
   );
 };
 
-export const checkNewAccessToRoute = (routeHref: RestrictedHref, path: string) => path.includes(routeHref)
+export const checkNewAccessToRoute = (routeHref: RestrictedHref, path: string) =>
+  path.includes(routeHref);
 
 // export const getRouteWithNewAccess = (routeHrefs: RestrictedHref, path: string) => routeHrefs
 //   .filter((route) => path.includes(route))

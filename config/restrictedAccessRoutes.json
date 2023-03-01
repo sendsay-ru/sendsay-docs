@@ -1,4 +1,1 @@
-[
-  "ecom/**",
-  "automations/automations-by-event/welcome-series"
-]
+["ecom/**", "automations/automations-by-event/welcome-series"]
