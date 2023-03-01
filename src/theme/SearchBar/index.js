@@ -1,6 +1,7 @@
 import React, { useRef, useCallback, useState } from 'react';
 import classnames from 'classnames';
 import { useHistory } from '@docusaurus/router';
+import { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import useIsBrowser from '@docusaurus/useIsBrowser';

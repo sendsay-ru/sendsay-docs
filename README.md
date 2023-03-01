@@ -86,15 +86,6 @@ This [doc](https://docusaurus.io/docs/sidebar/items#category-shorthand) might he
 
 <br>
 
-# List of changes in swizzled components
-
-| Name | Pattern | Usage |
-|--- |--- |--- |
-| SearchBar | change locale of a placeholder text  | docs/ |
-| Actual shorten url | /folder-path/file-name | i18n/ |
-| Actual full url | `/en`/folder-path/file-name | config/|
-| Sidebar file id | `en`/shorten-folder-path/`en-`file-name | sidebars.js |
-
 # Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
