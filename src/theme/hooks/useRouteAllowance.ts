@@ -8,9 +8,9 @@ export const useRouteAllowance = (routeHref: RestrictedHref, options: AllowedRou
   } = useHistory();
 
   const isNewAccessToRoute = checkNewAccessToRoute(routeHref, path);
-  const allowedRoutes = getAllowedRoutes(routeHref, {
+  const allowedRoutes = getAllowedRoutes({
     ...options,
-    isNewAccessToRoute,
+    newRouteHref: isNewAccessToRoute ? routeHref : null,
   });
 
   return {

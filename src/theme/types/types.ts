@@ -15,6 +15,6 @@ export interface ResctrictedAccessItems {
 
 export interface AllowedRoutesOptions {
   isStorageAllowed: boolean;
-  type: PropSidebarItemType;
-  isNewAccessToRoute?: boolean;
+  type?: PropSidebarItemType;
+  newRouteHref?: string;
 }
