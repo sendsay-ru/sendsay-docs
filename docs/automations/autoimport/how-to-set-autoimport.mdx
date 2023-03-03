@@ -5,6 +5,7 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import autoimportParameters from '/img/automations/autoimport/how-to-set-autoimport/autoimport-parameters.png';
+import fileToPrivateStorage from '/img/automations/autoimport/how-to-set-autoimport/how-to-upload-file-to-private-storage.gif';
 
 # Как настроить автоматический импорт из файла по расписанию
 
@@ -40,13 +41,19 @@ import autoimportParameters from '/img/automations/autoimport/how-to-set-autoimp
    - ссылка на защищённый файл в формате ftp://логин:пароль@ftp.путь.ru/директория,
    - ссылка на файл в приватном хранилище Sendsay в формате rfs://upload/путь-до-файла.
 
+{' '}
+<br />
+
 :::tip Важно
 Система не принимает Google-файлы для импорта.
-
-Чтобы загрузить файл в приватное хранилище, перейдите [в предыдущий интерфейс](https://sendsay.ru/account/), откройте раздел **Система → Файлы** и выберите вкладку «Загрузки».
 :::
 
-[Как подготовить файл для импорта](https://docs.sendsay.ru/subscribers/import-and-export/how-to-prepare-file-for-import)
+    Чтобы загрузить файл в приватное хранилище, нажмите «Выбрать файл», а затем «Загрузить» в появившемся окне:
+    <p align="center">
+      <img src={fileToPrivateStorage} alt="How to upload file to private storage" />
+    </p>
+
+    [Как подготовить файл для импорта](https://docs.sendsay.ru/subscribers/import-and-export/how-to-prepare-file-for-import)
 
 2. Укажите список для добавления новых подписчиков.
 
