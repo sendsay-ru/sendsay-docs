@@ -1,0 +1,213 @@
+---
+sidebar_position: 3
+---
+
+import launchEvent from '/img/automations/automation-with-workflows/workflow-events/launch-event.png';
+import launchEvent1 from '/img/automations/automation-with-workflows/workflow-events/launch-event-1.png';
+import subscriberOpenedEmail from '/img/automations/automation-with-workflows/workflow-events/subscriber-opened-the-email.png';
+import changeOfSubscriberData from '/img/automations/automation-with-workflows/workflow-events/change-of-subscriber-data.png';
+import clickOnTheLink from '/img/automations/automation-with-workflows/workflow-events/click-on-the-link.png';
+import subscriptionConfirmation from '/img/automations/automation-with-workflows/workflow-events/subscription-confirmation.png';
+import subscriberAddedUnconfirmed from '/img/automations/automation-with-workflows/workflow-events/subscriber-added-unconfirmed.png';
+import subscriberAddedConfirmed from '/img/automations/automation-with-workflows/workflow-events/subscriber-added-confirmed.png';
+import targetPageOpening from '/img/automations/automation-with-workflows/workflow-events/target-page-opening.png';
+import formConfirmation from '/img/automations/automation-with-workflows/workflow-events/form-confirmation.png';
+import formFilling from '/img/automations/automation-with-workflows/workflow-events/form-filling.png';
+import unsubscribeFromEverything from '/img/automations/automation-with-workflows/workflow-events/unsubscribe-from-everything.png';
+import unsubscribeFromTheSender from '/img/automations/automation-with-workflows/workflow-events/unsubscribe-from-the-sender.png';
+import howToTrackAnEvent from '/img/automations/automation-with-workflows/workflow-events/how-to-track-an-event.png';
+import sequenceOfEvents from '/img/automations/automation-with-workflows/workflow-events/how-to-add-a-sequence-of-events.png';
+import turnOffTheFallback from '/img/automations/automation-with-workflows/workflow-events/turn-off-the-fallback.png';
+
+# События в редакторе сценариев
+
+Событие — это действие, которое система может отследить. События наступают в&nbsp;результате действий подписчика: если он&nbsp;открыл письмо, кликнул по&nbsp;ссылке или достиг целевой страницы на&nbsp;сайте. Сценарий реагирует на&nbsp;События: они могут запускать его или быть одним из&nbsp;шагов.
+
+[Что такое сценарий и&nbsp;как его создать ](https://docs.sendsay.ru/automations/automation-with-workflows/workflow-creation)
+
+## Стартовые события
+
+Каждый сценарий начинается со&nbsp;Стартового события, которое запускает в&nbsp;работу всю цепочку: как только подписчик выполнит Стартовое событие, он&nbsp;попадёт в&nbsp;сценарий. В&nbsp;визуальном редакторе сценариев этот блок появляется автоматически, его нельзя удалить или заменить другим:
+
+<p align="center">
+  <img width="50%" src={launchEvent} alt="Launch Event" />
+</p>
+
+Какие бывают Стартовые события:
+
+- подписчик открыл email,
+- изменение данных подписчика,
+- клик по&nbsp;ссылке,
+- подтверждение подписки,
+- подписчик добавлен неподтверждённым,
+- подписчик добавлен подтверждённым,
+- открытие целевой страницы,
+- подтверждение формы,
+- заполнение формы,
+- отписка от&nbsp;всего,
+- отписка от&nbsp;отправителя.
+
+Не&nbsp;все Стартовые события могут быть обычными шагами в&nbsp;сценарии. Например, События **Подписчик добавлен неподтверждённым** и&nbsp;**Подписчик добавлен подтверждённым** можно найти только в&nbsp;блоке Стартового события:
+
+<p align="center">
+  <img width="50%" src={launchEvent1} alt="Launch Event" />
+</p>
+
+## Виды Событий в&nbsp;сценариях
+
+**Подписчик открыл email** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Чтения-письма))&nbsp;&mdash; подписчик открыл письмо, отправленное по&nbsp;любому или указанному шаблону.
+
+При выборе этого События можно создать шаблон письма, не&nbsp;выходя из&nbsp;редактора: для этого в&nbsp;списке шаблонов выберите пункт **Создать шаблон**:
+
+<p align="center">
+  <img width="50%" src={subscriberOpenedEmail} alt="Subscriber opened the email" />
+</p>
+
+Здесь есть две группы шаблонов: можно указать, что сценарий будет реагировать на&nbsp;открытие письма, отправленного в&nbsp;качестве [массовой рассылки](https://docs.sendsay.ru/email-campaigns/create-your-campaign/how-to-send-email-campaign). Либо сценарий будет реагировать только на&nbsp;письма, участвующие в&nbsp;текущем сценарии. При наведении курсора на&nbsp;шаблон вы&nbsp;увидите его превью.
+
+Также здесь есть чекбокс, который позволяет отслеживать открытия указанного письма в&nbsp;других сценариях.
+
+:::tip Важно
+Если Событие **Подписчик открыл email** указано Стартовым, в&nbsp;качестве шаблона можно выбрать только письмо, отправленное вне сценария обычным способом.
+:::
+
+**Изменение данных подписчика** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Изменение-данных))&nbsp;&mdash; Событие сработает, когда изменятся данные подписчика. Здесь есть три варианта:
+
+<p align="center">
+  <img width="50%" src={changeOfSubscriberData} alt="Change of subscriber data" />
+</p>
+
+- **Список**&nbsp;&mdash; Событие наступит, когда подписчик покинет или присоединится к&nbsp;любому или&nbsp;указанному списку в&nbsp;результате изменения данных. При выборе этого варианта можно создать список, не&nbsp;выходя из&nbsp;редактора: для этого выберите пункт **Создать список**.
+- **Значение поля анкеты**&nbsp;&mdash; сработает, если изменились данные в&nbsp;анкете подписчика. При этом неважно, что именно изменилось&nbsp;&mdash; главное, что новые данные отличаются от&nbsp;предыдущих.
+- **Значения поля и&nbsp;данные анкеты (точное)**&nbsp;&mdash; произойдёт, когда данные в&nbsp;анкете подписчика изменятся на&nbsp;указанное значение.
+
+  [Анкеты и работа с данными](https://docs.sendsay.ru/subscribers/subscriber-data/data-groups)
+
+**Клик по&nbsp;ссылке** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Клик-по-ссылке))&nbsp;&mdash; Событие наступит, когда подписчик кликнет по&nbsp;указанной ссылке в&nbsp;письме, отправленном в&nbsp;сценарии.
+
+<p align="center">
+  <img width="50%" src={clickOnTheLink} alt="Click on the link" />
+</p>
+
+Если это Событие добавлено в&nbsp;качестве Стартового, то&nbsp;оно отреагирует на&nbsp;клик по&nbsp;ссылке в&nbsp;массовой рассылке, отправленной обычным способом,&nbsp;&mdash; после этого подписчик попадет в&nbsp;сценарий.
+
+**Подтверждение подписки** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Подтверждение-регистрации))&nbsp;&mdash; произойдёт, когда пользователь подтвердит свою подписку через письмо-подтверждения Double Opt-In.
+
+<p align="center">
+  <img width="50%" src={subscriptionConfirmation} alt="Subscription Confirmation" />
+</p>
+
+:::tip Важно
+Неподтверждённым адресам можно отправлять только письма подтверждения, однако в&nbsp;интерфейсе редактора сценариев такое письмо нельзя отправить.
+
+[Как активировать неподтверждённые адреса](https://docs.sendsay.ru/subscribers/contacts/how-to-activate-inactive-contacts)
+:::
+
+**Подписчик добавлен неподтверждённым** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Новая-регистрация-без-подтверждения))&nbsp;&mdash; наступит, когда пользователь попадёт в&nbsp;базу контактов без согласия на&nbsp;рассылку&nbsp;&mdash; например, через импорт. Это Событие можно добавить в&nbsp;сценарий только как Стартовое.
+
+<p align="center">
+  <img width="50%" src={subscriberAddedUnconfirmed} alt="Subscriber added unconfirmed" />
+</p>
+
+**Подписчик добавлен подтверждённым** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Новая-регистрация-с-подтверждением))&nbsp;&mdash; сработает, когда подписчика добавят в&nbsp;базу контактов уже подтверждённым — с&nbsp;согласием на&nbsp;рассылку.
+
+<p align="center">
+  <img width="50%" src={subscriberAddedConfirmed} alt="Subscriber added confirmed" />
+</p>
+
+Событие **Подписчик добавлен подтверждённым** можно указать только в&nbsp;блоке Стартовое событие&nbsp;&mdash; например, в&nbsp;сценарии приветственной цепочки.
+
+[Как настроить приветственную серию писем: пошаговая инструкция](https://docs.sendsay.ru/automations/automation-with-workflows/welcome-series-with-workflow)
+
+**Открытие целевой страницы** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Целевая-страница-достигнута))&nbsp;&mdash; Событие произойдёт, если подписчик посетит страницу сайта, на&nbsp;которой размещен код универсального счётчика. С&nbsp;помощью такого счётчика можно отслеживать посетителей сайта и&nbsp;путь подписчиков, которые перешли на&nbsp;сайт из&nbsp;email-рассылок.
+
+<p align="center">
+  <img width="50%" src={targetPageOpening} alt="Target page opening" />
+</p>
+
+**Подтверждение формы** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Форма-подтверждена))&nbsp;&mdash; Событие сработает, когда пользователь перейдёт по&nbsp;ссылке из&nbsp;письма-подтверждения, подтвердив тем самым заполнение указанной формы подписки на&nbsp;сайте.
+
+<p align="center">
+  <img width="50%" src={formConfirmation} alt="Form confirmation" />
+</p>
+
+**Заполнение формы** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Форма-заполнена))&nbsp;&mdash; произойдёт, если посетитель сайта заполнит указанную форму и&nbsp;отправит свои данные в&nbsp;систему.
+
+<p align="center">
+  <img width="50%" src={formFilling} alt="Form filling" />
+</p>
+
+[Формы сбора подписчиков](https://docs.sendsay.ru/forms/signup-forms)
+
+**Отписка от&nbsp;всего** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Отписка-от-всего))&nbsp;&mdash; наступит, когда подписчик отпишется от&nbsp;всех рассылок кликом по&nbsp;ссылке &laquo;Отписаться&raquo; внутри письма.
+
+<p align="center">
+  <img width="50%" src={unsubscribeFromEverything} alt="Unsubscribe from everything" />
+</p>
+
+После наступления События подписчик попадёт в&nbsp;стоп-лист **Отписались от&nbsp;всех рассылок** и&nbsp;больше не&nbsp;будет получать письма.
+
+[Стоп-листы](https://docs.sendsay.ru/subscribers/contacts/stop-lists)
+
+**Отписка от&nbsp;отправителя** ([описание&nbsp;в&nbsp;API](https://sendsay.ru/api/api.html#Отписка-по-отправителю))&nbsp;&mdash; подписчик отписался от&nbsp;одного из&nbsp;отправителей — любого или конкретного. Чтобы подключить отписку от&nbsp;отправителя, напишите в&nbsp;техподдержку.
+
+<p align="center">
+  <img width="50%" src={unsubscribeFromTheSender} alt="Unsubscribe from the sender" />
+</p>
+
+[Стоп-лист по отправителю](https://docs.sendsay.ru/email-campaigns/create-your-campaign/topic-subscription/#1-стоп-лист-по-отправителю)
+
+## Как настроить блок Событий
+
+**Если нужно отследить одно из&nbsp;нескольких Событий**, в&nbsp;блок можно добавить несколько Событий, которые будут работать по&nbsp;логике **ИЛИ**. Тогда подписчик перейдёт к&nbsp;следующему шагу сценария при наступлении одного из&nbsp;вариантов:
+
+<p align="center">
+  <img width="50%" src={howToTrackAnEvent} alt="How to track an event" />
+</p>
+
+Чтобы отследить одно из&nbsp;нескольких Событий:
+
+1. Добавьте нужный блок События.
+2. В&nbsp;этом&nbsp;же блоке нажмите &laquo;Добавить&raquo; и&nbsp;выберите другой вариант События.
+3. Если необходимо, добавьте ещё одно или несколько Событий, повторив пункт&nbsp;2. <br/><br/>
+   ![How to track an event](/img/automations/automation-with-workflows/workflow-events/how-to-track-an-event-1.gif)
+
+**Если нужно добавить последовательное наступление Событий**, добавьте два блока подряд с&nbsp;помощью кнопки плюса `+`, указав в&nbsp;каждом нужное Событие. Это может понадобиться, например, когда нужно отреагировать каким-то Действием на&nbsp;то, что подписчик открыл два письма:
+
+<p align="center">
+  <img width="50%" src={sequenceOfEvents} alt="How to add a sequence of events" />
+</p>
+
+## Разветвления Событий в сценарии
+
+Сценарий может идти не&nbsp;последовательно, а&nbsp;с&nbsp;разветвлением вариантов Событий. Например, если необходимо разбить базу на&nbsp;списки, можно отправить письмо-опрос с&nbsp;несколькими вариантами ответов и&nbsp;несколькими ссылками. В&nbsp;зависимости от&nbsp;того, по&nbsp;какой ссылке кликнет подписчик, он&nbsp;попадёт в&nbsp;тот или иной список:
+
+![Branching events](/img/automations/automation-with-workflows/workflow-events/branching-events.png)
+
+### Запасной вариант
+
+Чтобы участники сценария не&nbsp;&laquo;застревали&raquo; на&nbsp;полпути, существует запасной вариант. Например, если подписчик не&nbsp;совершил никаких действий, то&nbsp;сможет пройти дальше по&nbsp;сценарию спустя указанное в&nbsp;запасном варианте время. Его можно настроить:
+
+![Fallback](/img/automations/automation-with-workflows/workflow-events/fallback.png)
+
+Запасной вариант можно отключить с&nbsp;помощью переключателя:
+
+<p align="center">
+  <img width="50%" src={turnOffTheFallback} alt="Turn off the fallback" />
+</p>
+
+### Дополнительные варианты Событий
+
+Чтобы разветвить сценарий, существуют дополнительные варианты Событий, которые работают по&nbsp;логике **ИЛИ**. То&nbsp;есть сработать может **только один вариант**: Событие в&nbsp;основном блоке или в&nbsp;любом из&nbsp;дополнительных. Так, при наступлении указанного в&nbsp;варианте События, подписчик начнёт двигаться по&nbsp;ветке именно этого варианта.
+
+Если в&nbsp;сценарий добавить два одинаковых варианта Событий, приоритет будет у&nbsp;того, что расположен левее в&nbsp;основном блоке цепочки. Например, здесь подписчики будут попадать в&nbsp;список &laquo;Активные&raquo;:
+
+![Further Option](/img/automations/automation-with-workflows/workflow-events/further-option.png)
+
+Чтобы создать в сценарии несколько веток в зависимости от действий подписчика:
+
+1. Добавьте блок с нужным Событием.
+2. Справа от блока нажмите плюс `+` и добавьте ещё один блок, указав другое Событие.
+3. Под каждым блоком Событий нажмите плюс `+` и разместите блоки необходимых Действий.
+4. Настройте временной интервал в&nbsp;запасном варианте или отключите его. <br/><br/>
+   ![How to create several branches](/img/automations/automation-with-workflows/workflow-events/how-to-create-several-branches.gif)
