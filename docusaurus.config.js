@@ -57,12 +57,13 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        gtag: analyticsId || scriptsId
-          ? {
-              trackingID: [analyticsId, scriptsId],
-              anonymizeIP: true,
-            }
-          : undefined,
+        gtag:
+          analyticsId || scriptsId
+            ? {
+                trackingID: [analyticsId, scriptsId],
+                anonymizeIP: true,
+              }
+            : undefined,
         sitemap: {
           ignorePatterns: require('./config/sitemapIgnorePatterns'),
         },
