@@ -1,11 +1,14 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const path = require('path');
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const analyticsId = process.env.GTM_ANALYTICS_ID;
 const scriptsId = process.env.GTM_SCRIPTS_ID;
+const yandexMetricaId = process.env.YANDEX_METRICA_COUNTER_ID;
+const gtagId = process.env.GTM_LANDING_GROUP_COUNTER_ID;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -42,9 +45,9 @@ const config = {
       },
     ],
     [
-      'docusaurus-plugin-yandex-metrica',
+      path.resolve(__dirname, 'plugins', 'yandexMetrica'),
       {
-        counterID: '5230714',
+        counterID: yandexMetricaId,
       },
     ],
   ],
@@ -64,9 +67,9 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         gtag:
-          analyticsId || scriptsId
+          analyticsId || scriptsId || gtagId
             ? {
-                trackingID: [analyticsId, scriptsId],
+                trackingID: [analyticsId, scriptsId, gtagId],
                 anonymizeIP: true,
               }
             : undefined,
