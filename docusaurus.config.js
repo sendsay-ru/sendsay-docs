@@ -6,6 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const analyticsId = process.env.GTM_ANALYTICS_ID;
 const scriptsId = process.env.GTM_SCRIPTS_ID;
+const yandexMetricaId = process.env.YANDEX_METRICA_COUNTER_ID;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -42,9 +43,9 @@ const config = {
       },
     ],
     [
-      'docusaurus-plugin-yandex-metrica',
+      './plugins/yandexMetrica',
       {
-        counterID: '5230714',
+        counterID: yandexMetricaId,
       },
     ],
   ],
