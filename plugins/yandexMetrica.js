@@ -13,8 +13,8 @@ module.exports = function (context, { counterID }) {
   }
 
   if (!counter) {
-    counter = 'xxxx';
+    return {};
   }
 
-  return yandexMetricaPlugin(context, { counter });
+  return yandexMetricaPlugin(context, { counterID: counter });
 };
