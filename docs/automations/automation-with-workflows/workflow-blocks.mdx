@@ -27,9 +27,9 @@ import delist from '/img/automations/automation-with-workflows/workflow-blocks/d
 import callWebhook from '/img/automations/automation-with-workflows/workflow-blocks/call-webhook.png';
 import sendSms from '/img/automations/automation-with-workflows/workflow-blocks/send-sms.png';
 import sendWebPush from '/img/automations/automation-with-workflows/workflow-blocks/send-web-push.png';
-import terms from '/img/automations/automation-with-workflows/workflow-blocks/terms.png';
-import listTerms from '/img/automations/automation-with-workflows/workflow-blocks/list-terms.png';
-import dataTerms from '/img/automations/automation-with-workflows/workflow-blocks/data-terms.png';
+import split from '/img/automations/automation-with-workflows/workflow-blocks/split.png';
+import listSplit from '/img/automations/automation-with-workflows/workflow-blocks/list-split.png';
+import dataSplit from '/img/automations/automation-with-workflows/workflow-blocks/data-split.png';
 import timers from '/img/automations/automation-with-workflows/workflow-blocks/timers.png';
 import passedTime from '/img/automations/automation-with-workflows/workflow-blocks/passed-time.png';
 import exactTime from '/img/automations/automation-with-workflows/workflow-blocks/exact-time.png';
@@ -44,7 +44,7 @@ import getOutOfWorkflow from '/img/automations/automation-with-workflows/workflo
 - [События](#события),
 - [Действия](#действия),
 - [Таймеры](#таймеры),
-- [Условия](#условия),
+- [Разделение](#разделение),
 - [Сценарий](#сценарий).
 
 [Что такое сценарий и как его создать](https://docs.sendsay.ru/automations/automation-with-workflows/workflow-creation)
@@ -412,45 +412,45 @@ import getOutOfWorkflow from '/img/automations/automation-with-workflows/workflo
 
 В этом примере после попадания в список «Участники курса» (в результате изменения данных) подписчики получат первое письмо курса — в ближайшую пятницу, в 11:00.
 
-## Условия
+## Разделение
 
-Блок Условия поможет офильтровать подписчиков в&nbsp;сценарии. Он&nbsp;проверяет соблюдение определенного условия:
+Блок Разделение поможет офильтровать подписчиков в&nbsp;сценарии. Он&nbsp;проверяет соблюдение определенного условия:
 
-- Если подписчик Есть&nbsp;/ Нет в&nbsp;списке,
-- Если данные подписчика соответствуют.
+- Наличие подписчика в&nbsp;списке,
+- Совпадение данных подписчика.
 
 <p align="center">
-  <img width="50%" src={terms} alt="Terms" />
+  <img width="50%" src={split} alt="Split" />
 </p>
 
-Таким образом можно разделить участников сценария на&nbsp;разные ветки. Другими словами, если Условие выполнится, участники сценария пойдут по&nbsp;одной ветке, если нет&nbsp;&mdash; по&nbsp;другой:
+Таким образом можно разделить участников сценария на&nbsp;разные ветки. Другими словами, если условие Разделения выполнится, участники сценария пойдут по&nbsp;одной ветке, если нет&nbsp;&mdash; по&nbsp;другой:
 
-![Branching with terms](/img/automations/automation-with-workflows/workflow-blocks/branching-with-terms.png)
+![Branching with split](/img/automations/automation-with-workflows/workflow-blocks/branching-with-split.png)
 
 [Разветвления Событий в сценарии](#разветвления-событий-в-сценарии)
 
-Чтобы настроить Условия для разветвления веток в&nbsp;сценарии, нажмите плюс `+` под необходимым блоком и&nbsp;выберите нужное Условие, настроив его параметры.
+Чтобы настроить Разделение для разветвления веток в&nbsp;сценарии, нажмите плюс `+` под необходимым блоком и&nbsp;выберите нужное Разделение, настроив его параметры.
 
-### Виды Условий
+### Виды Разделений
 
-**Если подписчик Есть / Нет в списке** — участник сценария перейдёт на следующий шаг в зависимости от того, состоит он или нет в указанном списке. Здесь есть два варианта:
+**Наличие в списке** — участник сценария перейдёт на следующий шаг в зависимости от того, состоит он или нет в указанном списке. Здесь есть два варианта:
 
 <p align="center">
-  <img width="50%" src={listTerms} alt="List terms" />
+  <img width="50%" src={listSplit} alt="List split" />
 </p>
 
 - **есть в&nbsp;списке**&nbsp;&mdash; подписчик перейдёт на&nbsp;следующий шаг сценария в&nbsp;текущей ветке, если он&nbsp;состоит в&nbsp;указанном списке. Если&nbsp;же участника нет в&nbsp;этом списке, он&nbsp;перейдёт на&nbsp;соседнюю ветку сценария;
 - **нет в&nbsp;списке**&nbsp;&mdash; участник перейдёт на&nbsp;следующий шаг в&nbsp;текущей ветке сценария, если его нет в&nbsp;указанном списке. Если участник состоит в&nbsp;этом списке, он&nbsp;перейдёт на&nbsp;соседнюю ветку сценария.
 
-**Если данные соответствуют**&nbsp;&mdash; подписчик перейдёт на&nbsp;следующий шаг сценария, если его данные соответствуют указанным. Таким образом в&nbsp;сценарии можно отфильтровать тех участников, чьи данные подходят под определенные значения:
+**Совпадение данных подписчика**&nbsp;&mdash; подписчик перейдёт на&nbsp;следующий шаг сценария, если его данные соответствуют указанным. Таким образом в&nbsp;сценарии можно отфильтровать тех участников, чьи данные подходят под определенные значения:
 
 <p align="center">
-  <img width="50%" src={dataTerms} alt="Data terms" />
+  <img width="50%" src={dataSplit} alt="Data split" />
 </p>
 
-Например, с&nbsp;помощью такого Условия можно разделить базу на&nbsp;списки:
+Например, с&nbsp;помощью такого Разделения можно разделить базу на&nbsp;списки:
 
-![How to divide into lists by terms](/img/automations/automation-with-workflows/workflow-blocks/how-to-divide-into-lists-by-terms.png)
+![How to divide into lists by split](/img/automations/automation-with-workflows/workflow-blocks/how-to-divide-into-lists-by-split.png)
 
 ## Сценарий
 
@@ -465,7 +465,7 @@ import getOutOfWorkflow from '/img/automations/automation-with-workflows/workflo
 
 Чтобы принудительно закончить текущий сценарий для его участников, нажмите плюс `+` под необходимым блоком и&nbsp;выберите нужный Сценарий.
 
-### Виды сценариев
+### Виды Cценариев
 
 **Перейти в&nbsp;другой сценарий** ([описание в API](https://sendsay.ru/api/api.html#Уйти-в-другую-последовательность))&nbsp;&mdash; текущий сценарий завершится для его участников и&nbsp;они перейдут на&nbsp;первый шаг в&nbsp;другом указанном сценарии, минуя Стартовое событие. Чтобы участник сценария мог перейти в&nbsp;другой указанный сценарий, нужно его активировать и&nbsp;включить приём подписчиков.
 
@@ -489,7 +489,7 @@ import getOutOfWorkflow from '/img/automations/automation-with-workflows/workflo
   <img width="50%" src={getOutOfWorkflow} alt="Get out of the workflow" />
 </p>
 
-Это может понадобится, например, если в&nbsp;сценарии не&nbsp;выполняется какое-то Условие:
+Это может понадобится, например, если в&nbsp;сценарии не&nbsp;выполняется какое-то условие при Разделении:
 
 ![Get out of the workflow](/img/automations/automation-with-workflows/workflow-blocks/get-out-of-the-workflow1.png)
 
