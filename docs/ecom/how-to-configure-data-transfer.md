@@ -421,6 +421,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
             "id": "product1", //обязательно
             "qnt": 2, //обязательно
             "price": 5.88 //обязательно
+            "description": "description",
             "model": "model",
             "name": "name",
             "old_price": 5.99,
