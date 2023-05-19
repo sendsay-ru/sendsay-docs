@@ -1,0 +1,8 @@
+.updatesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.updatesList article {
+  --ifm-col-width: unset;
+}
