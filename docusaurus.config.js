@@ -39,6 +39,14 @@ const config = {
           editUrl: ({ docPath }) =>
             `https://github.com/sendsay-ru/sendsay-docs/edit/stable/docs/${docPath}`,
         },
+        blog: {
+          routeBasePath: '/updates',
+          blogTitle: 'Обновления',
+          blogDescription: 'Описание обновлений',
+          postsPerPage: 8,
+          blogSidebarTitle: 'Обновления',
+          blogSidebarCount: 'ALL',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -60,16 +68,27 @@ const config = {
         },
         items: [
           {
-            to: '/integrations',
+            type: 'docSidebar',
             position: 'left',
-            label: 'Интеграции',
-            activeBaseRegex: 'integrations/*',
-            displayedLocale: 'ru',
+            sidebarId: 'docs',
+            label: 'Главная',
           },
           {
-            to: '/videolessons',
-            label: 'Видеоуроки',
+            type: 'docSidebar',
             position: 'left',
+            sidebarId: 'integrations',
+            label: 'Интеграции',
+          },
+          {
+            type: 'docSidebar',
+            position: 'left',
+            sidebarId: 'videolessons',
+            label: 'Видеоуроки',
+          },
+          {
+            to: 'updates',
+            label: 'Обновления',
+            posittion: 'left',
             displayedLocale: 'ru',
           },
           {
