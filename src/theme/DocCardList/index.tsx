@@ -10,14 +10,12 @@ type Props = {
   className: string;
 };
 
-const DocCardListWrapper = ({ ...restProps }: Props): JSX.Element => {
+const DocCardListWrapper = ({ className, ...restProps }: Props): JSX.Element => {
   const { items } = useCurrentSidebarCategory();
 
   const filteredItems = getAllowedCardItems(items);
 
-  return (
-    <DocCardList {...restProps} items={filteredItems} className={styles[restProps.className]} />
-  );
+  return <DocCardList {...restProps} items={filteredItems} className={styles[className]} />;
 };
 
 export default DocCardListWrapper;

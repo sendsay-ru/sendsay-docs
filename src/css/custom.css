@@ -58,6 +58,6 @@ iframe:not(.no-border) {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-nav.menu {
+.theme-doc-sidebar-container nav.menu {
   padding-bottom: 32px;
 }
