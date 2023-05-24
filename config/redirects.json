@@ -412,8 +412,15 @@
     "from": "/ru/articles/2479524-доступ-к-анкетным-данным-и-переменным-в-proscript"
   },
   {
-    "to": "/videolessons/how-to-import-subscribers",
-    "from": ["/videolessons", "/ru/collections/1411793-видеоуроки", "/ru/articles/2439889-как-импортировать-подписчиков"]
+    "to": "/videolessons/subscribers",
+    "from": [
+      "/videolessons",
+      "/ru/collections/1411793-видеоуроки"
+    ]
+  },
+  {
+    "to": "/videolessons/subscribers/how-to-import-subscribers",
+    "from": "/ru/articles/2439889-как-импортировать-подписчиков"
   },
   {
     "to": "/videolessons/subscribers/signup-forms",
