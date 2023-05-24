@@ -413,10 +413,7 @@
   },
   {
     "to": "/videolessons/subscribers",
-    "from": [
-      "/videolessons",
-      "/ru/collections/1411793-видеоуроки"
-    ]
+    "from": ["/videolessons", "/ru/collections/1411793-видеоуроки"]
   },
   {
     "to": "/videolessons/subscribers/how-to-import-subscribers",
