@@ -1,8 +1,8 @@
-.updatesList {
+.DocCardList-updatesPage {
   display: flex;
   flex-direction: column;
 }
 
-.updatesList article {
+.DocCardList-updatesPage article {
   --ifm-col-width: unset;
 }
