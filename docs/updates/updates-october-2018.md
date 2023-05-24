@@ -1,6 +1,7 @@
 ---
 sidebar_position: -13
 sidebar_label: 'Октябрь 2018'
+description: 'Ограничение количества получателей, тестовые копии по пяти адресам за раз, добавление адреса отправителя везде одинаково'
 ---
 
 import receiverLimit from "/img/updates/2018/update_171018_1.gif";

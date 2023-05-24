@@ -1,6 +1,7 @@
 ---
 sidebar_position: -21
 sidebar_label: 'Июнь 2020'
+description: 'Улучшение журнала заданий, новые условия в редакторе сегментов, улучшение карты кликов и некоторые исправления'
 ---
 
 import taskManager from "/img/updates/2020/update_110620.gif";

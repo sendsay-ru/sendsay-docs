@@ -1,6 +1,7 @@
 ---
 sidebar_position: -33
 sidebar_label: 'Сентябрь 2021'
+description: 'Обновления навигации в разделе «Рассылки» и некоторые исправления'
 ---
 
 import newNavigation from "/img/updates/2021/update_220921.gif";

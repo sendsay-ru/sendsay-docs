@@ -1,6 +1,7 @@
 ---
 sidebar_position: -5
 sidebar_label: 'Декабрь 2016'
+description: 'Новый редактор сегментов, дополнительные настройки рассылки, повышение скорости работы интерфейса'
 ---
 
 import newSegmentEditor from "/img/updates/2016/update_221216_1.png";

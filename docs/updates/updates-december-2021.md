@@ -1,6 +1,7 @@
 ---
 sidebar_position: -35
 sidebar_label: 'Декабрь 2021'
+description: 'Интеграция с Email on Acid, улучшили создание рассылок и шаблонов, обновили API-консоль'
 ---
 
 import emailOnAcid from "/img/updates/2021/update_081021.gif";

@@ -1,6 +1,7 @@
 ---
 sidebar_position: -6
 sidebar_label: 'Октябрь 2017'
+description: 'Оптимизация времени отправки рассылки, выбор макета при создании письма, базовые шаблоны и быстрое создание HTML-выпусков'
 ---
 
 import sendTimeOptimize from "/img/updates/2017/update_241017_1.png";

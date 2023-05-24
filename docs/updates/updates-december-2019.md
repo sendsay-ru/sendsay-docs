@@ -1,6 +1,7 @@
 ---
 sidebar_position: -18
 sidebar_label: 'Декабрь 2019'
+description: 'Письма подтверждения в новом интерфейсе'
 ---
 
 import ConfimEmails from "/img/updates/2019/update_061119_1.png";

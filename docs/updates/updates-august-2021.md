@@ -1,6 +1,7 @@
 ---
 sidebar_position: -32
 sidebar_label: 'Август 2021'
+description: 'Упростили создание email-писем и шаблонов, обновили HTML-редактор'
 ---
 
 import createEmail from "/img/updates/2021/update_040821.gif";

@@ -1,6 +1,7 @@
 ---
 sidebar_position: -28
 sidebar_label: 'Апрель 2021'
+description: 'Добавили подключение доменов и A/B-тестирование в новом интерфейсе, улучшили отправку выпуска по частям и добавили несколько исправлений'
 ---
 
 import attachDomain from "/img/updates/2021/update_130421.png";

@@ -1,6 +1,7 @@
 ---
 sidebar_position: -20
 sidebar_label: 'Апрель 2020'
+description: 'Обновления журнала заданий, обновление отчета статистики, несколько исправлений'
 ---
 
 import taskManager from "/img/updates/2020/update_160420.png";

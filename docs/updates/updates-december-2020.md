@@ -1,6 +1,7 @@
 ---
 sidebar_position: -26
 sidebar_label: 'Декабрь 2020'
+description: 'Виджет подписки на Web Push, улучшили редактор сценариев, создание выпуска на странице шаблона'
 ---
 
 import webPushSubscribe from "/img/updates/2020/update_241220.png";

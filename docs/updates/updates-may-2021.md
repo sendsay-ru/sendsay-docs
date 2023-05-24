@@ -1,6 +1,7 @@
 ---
 sidebar_position: -29
 sidebar_label: 'Май 2021'
+description: 'Сегментация по шаблону, ограничение доступа по IP и некоторые исправления'
 ---
 
 import segmentEditor from "/img/updates/2021/update_130521.gif";

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: 'Сентябрь 2016'
+description: 'Шаблоны писем, визуальный редактор форм, черновики выпусков'
 ---
 
 import emailTemplates from "/img/updates/2016/update_010916_2.png";

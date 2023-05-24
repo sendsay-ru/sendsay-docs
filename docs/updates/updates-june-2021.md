@@ -1,6 +1,7 @@
 ---
 sidebar_position: -30
 sidebar_label: 'Июнь 2021'
+description: 'Формы подписки можно встраивать на сайт, API-консоль в новом интерфейсе и некоторые исправления'
 ---
 
 import subscribeForm from "/img/updates/2021/update_020621_1.png";

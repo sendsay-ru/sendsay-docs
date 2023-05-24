@@ -1,6 +1,7 @@
 ---
 sidebar_position: -17
 sidebar_label: 'Ноябрь 2019'
+description: 'EmbedHTML блоки в email'
 ---
 
 import EmbedHTML from "/img/updates/2019/update_261119_1.gif";

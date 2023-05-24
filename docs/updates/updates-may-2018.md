@@ -1,6 +1,7 @@
 ---
 sidebar_position: -8
 sidebar_label: 'Май 2018'
+description: 'Новые фильтры в редакторе сегментов'
 ---
 
 # Обновления в мае 2018

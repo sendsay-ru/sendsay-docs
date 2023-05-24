@@ -1,6 +1,7 @@
 ---
 sidebar_position: -12
 sidebar_label: 'Сентябрь 2018'
+description: 'Отправка выпуска по неоткрывшим, расширенные возможности предпросмотра и некоторые исправления'
 ---
 
 import Preview from "/img/updates/2018/update_100918_1.gif";

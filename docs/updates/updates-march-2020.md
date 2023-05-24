@@ -1,6 +1,7 @@
 ---
 sidebar_position: -19
 sidebar_label: 'Март 2020'
+description: 'Обновления интерфейса, новые шаблоны и некоторые исправления'
 ---
 
 import newNavigation from "/img/updates/2020/update_310320.gif";

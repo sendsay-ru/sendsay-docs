@@ -1,6 +1,7 @@
 ---
 sidebar_position: -36
 sidebar_label: 'Февраль 2022'
+description: 'Обновления в статистике, рассылки в Telegram'
 ---
 
 import stats from "/img/updates/2022/update_17022022.gif";

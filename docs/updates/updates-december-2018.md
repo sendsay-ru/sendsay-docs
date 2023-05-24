@@ -1,6 +1,7 @@
 ---
 sidebar_position: -14
 sidebar_label: 'Декабрь 2018'
+description: 'Прикрепление файлов к рассылкам (до 10МБ), создание шаблонов из ZIP-архивов, сохранение имени отправителя для выбранного адреса'
 ---
 
 import attachZipArchive from "/img/updates/2018/update_301118_1.gif";

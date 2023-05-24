@@ -1,6 +1,7 @@
 ---
 sidebar_position: -23
 sidebar_label: 'Август 2020'
+description: 'Новые бесплатные шаблоны, доработки импорта картинок, улучшенне шаблонов, некоторые исправления'
 ---
 
 import importImages from "/img/updates/2020/update_190820_1.gif";

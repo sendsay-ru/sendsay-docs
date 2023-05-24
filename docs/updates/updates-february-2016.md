@@ -1,6 +1,7 @@
 ---
 sidebar_position: -1
 sidebar_label: 'Февраль 2016'
+description: 'Предпросмотр на любом устройстве, многоколоночная структура и настраиваемый фон письма'
 ---
 
 import multicolumn from "/img/updates/2016/news_1.png";

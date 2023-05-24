@@ -1,6 +1,7 @@
 ---
 sidebar_position: -7
 sidebar_label: 'Апрель 2018'
+description: 'Новые возможности управления данными подписчика, добавление и исключение контактов из списка, просмотр отправленных выпусков и реакции на них'
 ---
 
 import subscriberProfile from "/img/updates/2018/update_110418_1.jpg";

@@ -1,6 +1,7 @@
 ---
 sidebar_position: -22
 sidebar_label: 'Июль 2020'
+description: 'Новый файловый менеджер, управление пользователями, перенос отписок'
 ---
 
 import fileManager from "/img/updates/2020/update_240720.png";
