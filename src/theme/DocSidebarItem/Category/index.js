@@ -21,7 +21,7 @@ import { useResctrictedPath } from '../../hooks';
 
 // If we navigate to a category and it becomes active, it should automatically
 // expand itself
-function useAutoExpandActiveCategory({ isActive, collapsed, updateCollapsed }) {
+const useAutoExpandActiveCategory = ({ isActive, collapsed, updateCollapsed }) => {
   const wasActive = usePrevious(isActive);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function useAutoExpandActiveCategory({ isActive, collapsed, updateCollapsed }) {
       updateCollapsed(false);
     }
   }, [isActive, wasActive, collapsed, updateCollapsed]);
-}
+};
 
 /**
  * When a collapsible category has no link, we still link it to its first child
@@ -57,6 +57,7 @@ const useCategoryHrefWithSSRFallback = (item) => {
     return findFirstCategoryLink(item);
   }, [item, isBrowser]);
 };
+
 const CollapseButton = ({ categoryLabel, onClick }) => (
   <button
     aria-label={translate(
@@ -72,7 +73,6 @@ const CollapseButton = ({ categoryLabel, onClick }) => (
     onClick={onClick}
   />
 );
-
 const DocSidebarItemCategory = ({ item, onItemClick, activePath, level, index, ...props }) => {
   const { isRestricted } = useResctrictedPath(item);
   const { items, label, collapsible, className, href } = item;
@@ -102,10 +102,12 @@ const DocSidebarItemCategory = ({ item, onItemClick, activePath, level, index, .
     setCollapsed(toCollapsed);
   };
 
-  const linkCollapseHandler = () => {
-    if (!isActive && href) {
+  const linkCollapseHandler = (e) => {
+    onItemClick?.(item);
+    if (href && !isActive) {
       return;
     }
+    e.preventDefault();
     updateCollapsed();
   };
 
