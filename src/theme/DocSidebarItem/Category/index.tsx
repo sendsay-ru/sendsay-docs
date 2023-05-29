@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { type ComponentProps, useEffect, useMemo } from 'react';
 import clsx from 'clsx';
 import {
   ThemeClassNames,
@@ -17,11 +17,21 @@ import Link from '@docusaurus/Link';
 import { translate } from '@docusaurus/Translate';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import DocSidebarItems from '@theme/DocSidebarItems';
+import type { Props } from '@theme/DocSidebarItem/Category';
+import { useLocation } from '@docusaurus/router';
 import { useResctrictedPath } from '../../hooks';
 
 // If we navigate to a category and it becomes active, it should automatically
 // expand itself
-const useAutoExpandActiveCategory = ({ isActive, collapsed, updateCollapsed }) => {
+function useAutoExpandActiveCategory({
+  isActive,
+  collapsed,
+  updateCollapsed,
+}: {
+  isActive: boolean;
+  collapsed: boolean;
+  updateCollapsed: (b: boolean) => void;
+}) {
   const wasActive = usePrevious(isActive);
 
   useEffect(() => {
@@ -31,7 +41,7 @@ const useAutoExpandActiveCategory = ({ isActive, collapsed, updateCollapsed }) =
       updateCollapsed(false);
     }
   }, [isActive, wasActive, collapsed, updateCollapsed]);
-};
+}
 
 /**
  * When a collapsible category has no link, we still link it to its first child
@@ -41,7 +51,7 @@ const useAutoExpandActiveCategory = ({ isActive, collapsed, updateCollapsed }) =
  * see https://github.com/facebookincubator/infima/issues/36#issuecomment-772543188
  * see https://github.com/facebook/docusaurus/issues/3030
  */
-const useCategoryHrefWithSSRFallback = (item) => {
+function useCategoryHrefWithSSRFallback(item: Props['item']): string | undefined {
   const isBrowser = useIsBrowser();
 
   return useMemo(() => {
@@ -56,9 +66,15 @@ const useCategoryHrefWithSSRFallback = (item) => {
 
     return findFirstCategoryLink(item);
   }, [item, isBrowser]);
-};
+}
 
-const CollapseButton = ({ categoryLabel, onClick }) => (
+const CollapseButton = ({
+  categoryLabel,
+  onClick,
+}: {
+  categoryLabel: string;
+  onClick: ComponentProps<'button'>['onClick'];
+}) => (
   <button
     aria-label={translate(
       {
@@ -73,8 +89,17 @@ const CollapseButton = ({ categoryLabel, onClick }) => (
     onClick={onClick}
   />
 );
-const DocSidebarItemCategory = ({ item, onItemClick, activePath, level, index, ...props }) => {
+
+const DocSidebarItemCategory = ({
+  item,
+  onItemClick,
+  activePath,
+  level,
+  index,
+  ...props
+}: Props): JSX.Element => {
   const { isRestricted } = useResctrictedPath(item);
+  const { pathname } = useLocation();
   const { items, label, collapsible, className, href } = item;
   const {
     docs: {
@@ -82,8 +107,10 @@ const DocSidebarItemCategory = ({ item, onItemClick, activePath, level, index, .
     },
   } = useThemeConfig();
   const hrefWithSSRFallback = useCategoryHrefWithSSRFallback(item);
+
   const isActive = isActiveSidebarItem(item, activePath);
   const isCurrentPage = isSamePath(href, activePath);
+
   const { collapsed, setCollapsed } = useCollapsible({
     // Active categories are always initialized as expanded. The default
     // (`item.collapsed`) is only used for non-active categories.
@@ -95,6 +122,7 @@ const DocSidebarItemCategory = ({ item, onItemClick, activePath, level, index, .
       return isActive ? false : item.collapsed;
     },
   });
+
   const { expandedItem, setExpandedItem } = useDocSidebarItemsExpandedState();
   // Use this instead of `setCollapsed`, because it is also reactive
   const updateCollapsed = (toCollapsed = !collapsed) => {
@@ -102,13 +130,21 @@ const DocSidebarItemCategory = ({ item, onItemClick, activePath, level, index, .
     setCollapsed(toCollapsed);
   };
 
-  const linkCollapseHandler = (e) => {
+  const linkCollapseHandler = (e: React.MouseEvent) => {
     onItemClick?.(item);
-    if (href && !isActive) {
+
+    if (href === pathname) {
+      updateCollapsed();
+
       return;
     }
-    e.preventDefault();
-    updateCollapsed();
+
+    if (href) {
+      updateCollapsed(false);
+    } else {
+      e.preventDefault();
+      updateCollapsed();
+    }
   };
 
   useAutoExpandActiveCategory({ isActive, collapsed, updateCollapsed });
