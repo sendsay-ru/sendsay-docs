@@ -105,7 +105,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 Чтобы объединить email и&nbsp;контакт в&nbsp;Телеграме, можно предложить пользователям переходить в&nbsp;бот по&nbsp;QR-коду, размещенному в&nbsp;письме. Для этого добавьте в&nbsp;письмо специальный код:
 
 ```
-[% tgurl = "https://t.me/[example_bot]?start=" %]
+[% tgurl = "https://t.me/example_bot?start=" %]
 [% issue = param.issue.id |uri %]
 [% letter = param.letter.id |uri %]
 [% member = anketa.member.id |uri %]
