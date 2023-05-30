@@ -26,7 +26,7 @@ const config = {
     locales: ['ru', 'en'],
   },
 
-  plugins: [],
+  plugins,
 
   presets: [
     [
@@ -60,13 +60,6 @@ const config = {
         },
         items: [
           {
-            to: '/',
-            position: 'left',
-            label: 'Документация',
-            activeBaseRegex: '/*',
-            displayedLocale: 'ru',
-          },
-          {
             to: '/integrations',
             position: 'left',
             label: 'Интеграции',
@@ -80,12 +73,6 @@ const config = {
             displayedLocale: 'ru',
           },
           {
-            to: '/updates',
-            label: 'Обновления',
-            position: 'left',
-            displayedLocale: 'ru',
-          },
-          {
             href: 'https://app.sendsay.ru',
             label: 'Sendsay',
             position: 'right',
@@ -93,11 +80,6 @@ const config = {
           {
             href: 'https://sendsay.ru/api/api.html',
             label: 'API',
-            position: 'right',
-          },
-          {
-            href: 'https://sendsay.ru/blog/',
-            label: 'Блог',
             position: 'right',
           },
           {
