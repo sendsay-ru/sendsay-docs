@@ -32,10 +32,17 @@ sidebar_label: 'Шаблонизатор PROScript'
 
 Чтобы вывести информацию о всех товарах в корзине можно использовать код:
 
-```html
-[% basket_list = ssecquery('basket') %] [% FOREACH item in basket_list[0].items %] [%
-item.product.name %] [% item.product.model %] Цена: [% item.product.price %] руб. Количество: [%
-item.product.qnt %] шт Сумма: [% item.product.price*item.product.qnt %] руб. [% END %]
+
+```
+[% basket_list = ssecquery('basket') %]
+[% FOREACH item in basket_list[0].items %]
+		<a href="[% item.product.url %]"><img src="[% item.product.picture[0] %]"></a><br>
+		<a href="[% item.product.url %]">[% item.product.name %]</a><br>
+		Цена: [% item.product.price %] руб.<br>
+		Количество: [% item.product.qnt %] шт<br>
+		Стоимость: [% item.product.price*item.product.qnt %] руб.<br>
+		<a href="[% t.product.url %]">Купить</a><br>
+[% END %]
 ```
 
 ## Брошенный просмотр
@@ -50,16 +57,26 @@ item.product.qnt %] шт Сумма: [% item.product.price*item.product.qnt %] �
 Если вы передаете метаданные о товаре (название, ссылка и т.д.) в событии, то вам не нужно использовать данные о товарах из вашего YML-файла.
 В результате работы функции вы получите 100 последних событий. Вы можете задать временные рамки запрашиваемых событий:
 
-```html
-[% ssecquery('product_view','dt','>','current - 1 day') %]
+
+```
+[% ssecquery('product_view','dt','>','current - 2 hours') %]
 ```
 
-Также вы можете ограничить число отображаемых событий (товаров) напрямую в шаблоне:
+Также вы можете ограничить число отображаемых событий (товаров) напрямую в шаблоне (в примере будет выведено 6 последних просмотренных товаров за 2 часа):
 
-```html
-[% product_view_list = ssecquery('product_view') %] [% FOREACH item in product_view_list %] [%
-item.product.name %] [% item.product.model %] Цена: [% item.product.price %] руб. [% LAST IF
-loop.count() == 3 %] [% END %]
+
+```
+[% product_view_list = ssecquery('product_view','dt','>','current - 2 hours') %]
+[% used_ids = []; showed_ids = 0 %]
+[% FOREACH t in product_view_list %]
+[% NEXT IF exists_val(used_ids,t.product.id) %]
+[% used_ids.push(t.product.id) %]
+		<a href="[% t.product.url %]"><img src="[% t.product.picture[0] %]"></a><br>
+		<a href="[% t.product.url %]">[% t.product.name %]</a><br>
+		[% t.product.price %] руб.<br>
+		<a href="[% t.product.url %]">Купить</a><br>
+[% showed_ids = showed_ids+1; LAST IF showed_ids >= 6 %]
+[% END %]
 ```
 
 ## Брошенная категория
@@ -77,7 +94,30 @@ loop.count() == 3 %] [% END %]
 [% ssecquery('category_view','dt','>','current - 1 day') %]
 ```
 
-## Самые продаваемые товары (по количеству)
+Для вывода товаров из категории нужно использовать данные о товарах из вашего YML-файла. В примере будут показаны товары последней просмотренной категории. Если товаров для этой категории не будет, письмо не выйдет (завершится ошибкой).
+
+```
+[% category_view_list = ssecquery('category_view','dt','>','current - 1 day') %]
+[% external_extra("ССЫЛКА_НА_ВАШ_YML","method","get","ignore_error","1","format","yml") %]
+[% category_view_items = [] %]
+[% FOREACH item IN yml.values() %][% IF item.categoryId == category_view_list[0].product.category_id AND item.available == 'true' %][% category_view_items.push(item) %][% END %][% LAST IF category_view_items.size() == 6 %][% END %]
+[% IF category_view_items.size() < 1 %][% Cancel_Letter() %][% END %]
+[% IF category_view_items.size() > 0 %]
+[% FOREACH item IN category_view_items %]
+		<a href="[% item.url %]"><img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]"></a><br>
+		<a href="[% item.url %]">[% item.name %]</a><br>
+		[% item.price %] руб.<br>
+		<a href="[% item.url %]">Купить</a><br>
+[% LAST IF loop.count() == 6 %]
+[% END %]
+[% END %]
+```
+
+## Товарные блоки
+
+Идентификаторы товаров, полученные в результате работы нижеследующих функций, определяются автоматически на основе накопленных событий и продаж по всем пользователям. Данные о товаре (название, ссылка, стоимость и т.д.) для вывода в содержимом письма будут получены из вашего YML-файла, поэтому id товаров, передаваемых в событиях, должны совпадать с id товаров в YML-файле.
+
+### Самые продаваемые товары (по количеству)
 
 ```html
 [% bestseller_count = ssecquery('bestseller_count') %]
@@ -85,10 +125,20 @@ loop.count() == 3 %] [% END %]
 
 Ответ приходит в виде массива объектов. Разбираем с помощью FOREACH:
 
-```html
-[% bestseller_count = ssecquery('bestseller_count') %] [% FOREACH item in bestseller_count %] [%
-item.product.name %] [% item.product.model %] Цена: [% item.product.price %] руб. [% LAST IF
-loop.count() == 3 %] [% END %]
+```
+[% bestseller_count_list = ssecquery('bestseller_count') %]
+[% external_extra("ССЫЛКА_НА_ВАШ_YML","method","get","ignore_error","1","format","yml") %]
+[% bestseller_count_items = [] %]
+[% FOREACH item IN bestseller_count_list %][% IF yml.${item[0]} %][% bestseller_count_items.push(yml.${item[0]}) %][% END %][% END %]
+[% IF bestseller_count_items.size() > 0 %]
+[% FOREACH item IN bestseller_count_items %]
+	<a href="[% item.url %]"><img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]"></a><br>
+	<a href="[% item.url %]">[% item.name %]</a><br>
+	[% item.price %] руб.<br>
+	<a href="[% item.url %]">Купить</a><br>
+[% LAST IF loop.count() == 6 %]
+[% END %]
+[% END %]
 ```
 
 Функция поддерживает фильтры по любым доступным полям в данных о товаре.
@@ -98,13 +148,34 @@ loop.count() == 3 %] [% END %]
 [% bestseller_count = ssecquery('bestseller_count','dt','>','current - 180 days') %]
 ```
 
+### Самые продаваемые товары в категории (по количеству)
+
 С фильтром по категории:
 
 ```html
 [% bestseller_count = ssecquery('bestseller_count',,'category','in',['photo','video']) %]
 ```
 
-## Самые продаваемые товары (по выручке)
+С выбором последней категории, которую просматривал подписчик:
+
+```
+[% product_category_view_list = ssecquery('category_view') %]
+[% external_extra("ССЫЛКА_НА_ВАШ_YML","method","get","ignore_error","1","format","yml") %]
+[% bestseller_count_product_category_list = ssecquery('bestseller_count','product.category_id',product_category_view_list[0].product.category_id) %]
+[% bestseller_count_product_category_item = [] %]
+[% FOREACH item IN bestseller_count_product_category_list %][% IF yml.${item[0]} %][% bestseller_count_product_category_item.push(yml.${item[0]}) %][% END %][% END %]
+[% IF bestseller_count_product_category_item.size() > 0 %]
+[% FOREACH item IN bestseller_count_product_category_item %]
+	<a href="[% item.url %]"><img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]"></a><br>
+	<a href="[% item.url %]">[% item.name %]</a><br>
+	[% item.price %] руб.<br>
+	<a href="[% item.url %]">Купить</a><br>
+[% LAST IF loop.count() == 6 %]
+[% END %]
+[% END %]
+```
+
+### Самые продаваемые товары (по выручке)
 
 ```html
 [% bestseller_money = ssecquery('bestseller_money') %]
@@ -112,13 +183,87 @@ loop.count() == 3 %] [% END %]
 
 Функция поддерживает фильтры по любым доступным полям в данных о товаре.
 
-## Самые посещаемые товары
+```
+[% bestseller_money_list = ssecquery('bestseller_money') %]
+[% external_extra("ССЫЛКА_НА_ВАШ_YML","method","get","ignore_error","1","format","yml") %]
+[% bestseller_money_items = [] %]
+[% FOREACH item IN bestseller_money_list %][% IF yml.${item[0]} %][% bestseller_money_items.push(yml.${item[0]}) %][% END %][% END %]
+[% IF bestseller_money_items.size() > 0 %]
+[% FOREACH item IN bestseller_money_items %]
+	<a href="[% item.url %]"><img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]"></a><br>
+	<a href="[% item.url %]">[% item.name %]</a><br>
+	[% item.price %] руб.<br>
+	<a href="[% item.url %]">Купить</a><br>
+[% LAST IF loop.count() == 6 %]
+[% END %]
+[% END %]
+```
+
+### Самые продаваемые товары в категории (по выручке)
+
+С выбором последней категории, которую просматривал подписчик:
+
+```
+[% product_category_view_list = ssecquery('category_view') %]
+[% external_extra("ССЫЛКА_НА_ВАШ_YML","method","get","ignore_error","1","format","yml") %]
+[% bestseller_money_product_category_list = ssecquery('bestseller_money','product.category_id',product_category_view_list[0].product.category_id) %]
+[% bestseller_money_product_category_item = [] %]
+[% FOREACH item IN bestseller_money_product_category_list %][% IF yml.${item[0]} %][% bestseller_money_product_category_item.push(yml.${item[0]}) %][% END %][% END %]
+[% IF bestseller_money_product_category_item.size() > 0 %]
+[% FOREACH item IN bestseller_money_product_category_item %]
+	<a href="[% item.url %]"><img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]"></a><br>
+	<a href="[% item.url %]">[% item.name %]</a><br>
+	[% item.price %] руб.<br>
+	<a href="[% item.url %]">Купить</a><br>
+[% LAST IF loop.count() == 6 %]
+[% END %]
+[% END %]
+```
+
+### Самые просматриваемые товары
 
 ```html
 [% eyecatcher = ssecquery('eyecatcher') %]
 ```
 
 Функция поддерживает фильтры по любым доступным полям в данных о товаре.
+
+```
+[% eyecatcher_list = ssecquery('eyecatcher') %]
+[% external_extra("ССЫЛКА_НА_ВАШ_YML","method","get","ignore_error","1","format","yml") %]
+[% eyecatcher_items = [] %]
+[% FOREACH item IN eyecatcher_list %][% IF yml.${item[0]} %][% eyecatcher_items.push(yml.${item[0]}) %][% END %][% END %]
+[% IF eyecatcher_items.size() > 0 %]
+[% FOREACH item IN eyecatcher_items %]
+	<a href="[% item.url %]"><img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]"></a><br>
+	<a href="[% item.url %]">[% item.name %]</a><br>
+	[% item.price %] руб.<br>
+	<a href="[% item.url %]">Купить</a><br>
+[% LAST IF loop.count() == 6 %]
+[% END %]
+[% END %]
+```
+
+### Самые просматриваемые товары в категории
+
+С выбором последней категории, которую просматривал подписчик:
+
+```
+[% product_category_view_list = ssecquery('category_view') %]
+[% external_extra("ССЫЛКА_НА_ВАШ_YML","method","get","ignore_error","1","format","yml") %]
+[% eyecatcher_category_view_list = ssecquery('eyecatcher','product.category_id',product_category_view_list[0].product.category_id) %]
+[% eyecatcher_category_view_item = [] %]
+[% FOREACH item IN eyecatcher_category_view_list %][% IF yml.${item[0]} %][% eyecatcher_category_view_item.push(yml.${item[0]}) %][% END %][% END %]
+[% IF eyecatcher_category_view_item.size() > 0 %]
+[% FOREACH item IN eyecatcher_category_view_item %]
+	<a href="[% item.url %]"><img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]"></a><br>
+	<a href="[% item.url %]">[% item.name %]</a><br>
+	[% item.price %] руб.<br>
+	<a href="[% item.url %]">Купить</a><br>
+[% LAST IF loop.count() == 6 %]
+[% END %]
+[% END %]
+```
 
 ## Персонализация шаблона выпуска на основе данных из сегмента
 
