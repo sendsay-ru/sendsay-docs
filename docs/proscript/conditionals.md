@@ -6,7 +6,6 @@ sidebar_position: 4
 
 ## IF / ELSIF / ELSE
 
-
 ```
 [% IF anketa.base.name %]
    [% anketa.base.name %]
@@ -17,7 +16,6 @@ sidebar_position: 4
 ```
 
 Можно объединять несколько выражений с помощью ELSIF и/или ELSE:
-
 
 ```
 [% IF anketa.base.age < 10 %]
@@ -56,6 +54,7 @@ sidebar_position: 4
 ```
 
 А можно внутри одной ссылки подставлять разные адреса:
+
 <!-- prettier-ignore -->
 ```html
 <a href="[% IF условие %] example.com [% ELSE %] example-2.com [% END %] " текст ссылки></a>

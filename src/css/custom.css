@@ -83,7 +83,7 @@
 }
 
 .container > div:not(.row) {
-  max-width: 770px!important;
+  max-width: 770px !important;
   padding: 0 3.5rem;
 }
 
@@ -102,7 +102,6 @@
 .card:hover {
   box-shadow: var(--docs-card-shadow) !important;
 }
-
 
 .padding--lg {
   padding: 1rem !important;
@@ -367,10 +366,7 @@ p {
   .table-of-contents__link {
     line-height: 130%;
   }
-  .theme-doc-toc-mobile
-    div
-    ul
-    li {
+  .theme-doc-toc-mobile div ul li {
     margin: 0.8rem 0.8rem !important;
   }
   .theme-doc-toc-mobile button::after {

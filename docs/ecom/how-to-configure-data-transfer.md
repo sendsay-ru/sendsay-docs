@@ -142,6 +142,7 @@ Ssec-события всегда передаются в Sendsay как масс
 #### JavaScript-синтаксис
 
 Размещение кода напрямую в HTML-странице:
+
 <!-- prettier-ignore -->
 ```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {

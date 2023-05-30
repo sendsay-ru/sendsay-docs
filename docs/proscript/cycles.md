@@ -48,7 +48,6 @@ next()      возвращает следующий элемент в масси
 
 Пример:
 
-
 ```
 [% FOREACH item IN [ 'foo', 'bar', 'baz' ] %]
    [%- "<ul>\n" IF loop.first %]

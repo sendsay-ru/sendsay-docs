@@ -19,6 +19,7 @@ sidebar_position: 8
 ```
 
 Пример описания товара из YML-файла:
+
 <!-- prettier-ignore -->
 ```html
 <offer id="123" type="vendor.model" available="true" bid="1" group_id="136010368">
@@ -110,8 +111,8 @@ sidebar_position: 8
    [% END %]
 [% END %]
 ```
-## Найти и вывести товары из той же категории с похожей ценой
 
+## Найти и вывести товары из той же категории с похожей ценой
 
 ```
 [% product_id = 123 %]

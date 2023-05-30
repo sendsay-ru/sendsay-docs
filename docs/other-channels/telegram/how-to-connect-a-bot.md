@@ -70,6 +70,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 ```
 
 В&nbsp;итоге ссылка на&nbsp;бот в&nbsp;Телеграме будет выглядеть так:
+
 <!-- prettier-ignore -->
 ```html
 <a
@@ -83,6 +84,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 ### 2. Добавить ссылку на бот с указанием email
 
 Если предлагаете подписаться на Телеграм-бота, то можете сформировать ссылку с указанием email (если он вам известен). При формировании ссылки email-адрес и сама ссылка будут отличаться для каждого конкретного подписчика.
+
 <!-- prettier-ignore -->
 ```html
 <a href="https://t.me/example_bot?start=PAYLOAD">Подписаться в Telegram</a>
@@ -96,6 +98,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 4. Вместо `example_bot` впишите название нужного бота.
 
 В итоге должна получиться похожая ссылка:
+
 <!-- prettier-ignore -->
 ```html
 <a href="https://t.me/sendsay_bot?start=ZW1haWw9cXdlcnR5QG1haWwucnUg">Подписаться в Telegram</a>
