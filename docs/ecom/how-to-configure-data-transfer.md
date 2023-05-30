@@ -85,6 +85,7 @@ sidebar_label: 'Инструкция для разработчиков'
 
 Ssec-события всегда передаются в Sendsay как массив объектов. Если вам надо передать одно событие, то это будет массив с одним объектом.
 
+<!-- prettier-ignore -->
 ```json
 [
   {
@@ -107,6 +108,7 @@ Ssec-события всегда передаются в Sendsay как масс
 
 Так как в заказе или корзине может быть более одного товара, то структура передачи к нам таких событий отличается от стандартной. Это все так же массив объектов, но все сведения о товарах содержатся в массиве `items`:
 
+<!-- prettier-ignore -->
 ```json
 [
   {
@@ -140,7 +142,7 @@ Ssec-события всегда передаются в Sendsay как масс
 #### JavaScript-синтаксис
 
 Размещение кода напрямую в HTML-странице:
-
+<!-- prettier-ignore -->
 ```js
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {
   sndsyApi.ssecEvent(<event_type>, <[ items_array ]>, { email: 'name@domain.ru' });
@@ -155,7 +157,7 @@ Ssec-события всегда передаются в Sendsay как масс
 
 Для отправки событий модуля "Продажи" используется отдельный эндпоинт:
 
-```url
+```
 https://ssec.sendsay.ru/general/ssec/v100/json/ACCOUNT_ID
 ```
 
@@ -242,7 +244,7 @@ curl --location --request GET 'https://ssec.sendsay.ru/general/ssec/v100/json/AC
 Подключение YML-файла к аккаунту осуществляется через личный кабинет при подключении сайта.
 Подключить данные из YML-файла к письму можно следующей командой ProScript:
 
-```html
+```
 [% external_extra("rfs://upload/yandex.xml","method","get","ignore_error","1","format","yml") %]
 ```
 

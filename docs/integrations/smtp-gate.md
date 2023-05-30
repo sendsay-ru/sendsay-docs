@@ -95,7 +95,7 @@ Content-Type
 [SMTP-коды: подборка и описание](https://docs.sendsay.ru/integrations/smtp-reply-codes)
 
 Посмотреть 100 последних ошибок в SMTP-гейте можно в АПИ-консоли с помощью запроса:
-
+<!-- prettier-ignore -->
 ```js
 {
 	"filter": [{

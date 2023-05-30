@@ -51,12 +51,23 @@ import diagram from "/img/email-campaigns/personalization//how-to-add-diagram/di
 
 Код для копирования:
 
-```html
-[% params = { "data_format" => "bygraph", "type" => "pie", "title" => "Состав фонда", "3d" => 0,
-"show_pie_labels" => 1, "show_pie_percent" => 1, "colors" => [ "#FF0000", "#4169E1", "#008000",
-"#8A2BE2", ], } %]
+```
+[% params = {
+"data_format" => "bygraph",
+  "type" => "pie",
+  "title" => "Состав фонда",
+  "3d" => 0,
+  "show_pie_labels" => 1,
+  "show_pie_percent" => 1,
+  "colors" => [
+     "#FF0000",
+     "#4169E1",
+     "#008000",
+     "#8A2BE2",
+  ],
+} %]
 
-<img src="[% draw_graph(params, data_by_graphs) %]" />
+<img src="[% draw_graph(params, data_by_graphs) %]">
 ```
 
 Перед отправкой выпуска проверьте, как диаграмма отображается в письме:

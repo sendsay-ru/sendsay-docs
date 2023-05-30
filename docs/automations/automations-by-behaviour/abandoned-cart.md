@@ -55,6 +55,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 
 Выглядеть файл будет вот так:
 
+<!-- prettier-ignore -->
 ```html
 <offer id="123" type="vendor.model" available="true" bid="1" group_id="136010368">
   <url>http://www.xxxxxx.ru/xxxx</url>
@@ -118,6 +119,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 
 Вот исходный код для шаблона:
 
+<!-- prettier-ignore -->
 ```html
 <!-- text_pro_editor -->
 		[% external_extra("ТУТ УРЛ YML","method","get","format","yml") %]
@@ -188,11 +190,13 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 
 1. Функция для обновления данных в корзине, чтобы получать актуальные товары:
 
+
 ```js
 (function(){if(typeof sndsyApi != 'undefined'){sndsyApi.basketUpdate( [{ "id": <id товара>, "count": <количество> }, { "id": <id товара>, "count": <количество> }, { "id": <id товара>, "count": <количество> }] )}})();
 ```
 
-2. Функция для обнуления корзины, который останавливает последовательность при покупке товаров:
+1. Функция для обнуления корзины, который останавливает последовательность при покупке товаров:
+
 
 ```js
 (function () {
@@ -202,7 +206,8 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 })();
 ```
 
-3. Дополнительная функция для передачи электронных адресов со списком просмотренных товаров у подписчиков. Запрос позволяет передать информацию о подписчиках, чью активность на сайте вы можете отследить, а мы — нет (например, если подписчик не перешёл по ссылке из письма, но авторизовался в личном кабинете).
+1. Дополнительная функция для передачи электронных адресов со списком просмотренных товаров у подписчиков. Запрос позволяет передать информацию о подписчиках, чью активность на сайте вы можете отследить, а мы — нет (например, если подписчик не перешёл по ссылке из письма, но авторизовался в личном кабинете).
+2. 
 
 ```js
 (function(){if(typeof sndsyApi != 'undefined'){sndsyApi.basketUpdate( [{ "id": <id товара>, "count": <количество> }, { "id": <id товара>, "count": <количество> }, { "id": <id товара>, "count": <количество> }], { email: 'some@domain.com' } )}})();
@@ -228,6 +233,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 1. Откройте раздел **Система → API-консоль**.
 2. Отправьте следующий API-запрос:
 
+<!-- prettier-ignore -->
 ```js
 {
   "action": "group.filter.set",

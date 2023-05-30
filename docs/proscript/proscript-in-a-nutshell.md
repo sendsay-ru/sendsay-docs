@@ -44,15 +44,22 @@ PROScript — язык шаблонизатора. Для указания ко�
 [% END %]
 ```
 
-```html
-[% FOREACH item IN arrayref %] [%- IF loop.is_first -%]
-<first>
-  [%- END -%] * [% loop.index %] # 0 origin * [% loop.count #loop.index + 1 %] * [% loop.body #
-  alias toarrayref %] * [% loop.size #loop.body.size %] * [% loop.max_index # loop.size- 1 %] * [%
-  loop.peek_next #loop.body[ loop.index + 1 ] * [% loop.peek_prev #loop.body[ loop.index - 1 ] [%-
-  IF loop.is_last -%]
-  <last> [%- END -%] [% END %]</last></first
->
+```
+ [% FOREACH item IN arrayref %]
+        [%- IF loop.is_first -%]
+            <first>
+        [%- END -%]
+        * [% loop.index %]  # 0 origin
+        * [% loop.count     #loop.index + 1 %]
+        * [% loop.body      # alias toarrayref %]
+        * [% loop.size      #loop.body.size %]
+        * [% loop.max_index # loop.size- 1 %]
+        * [% loop.peek_next #loop.body[ loop.index + 1 ]
+        * [% loop.peek_prev #loop.body[ loop.index - 1 ]
+        [%- IF loop.is_last -%]
+            <last>
+        [%- END -%]
+[% END %]
 ```
 
 FOREACH не принимает объекты, поэтому их следует преобразовать в массив (объект класса Array) при помощи методов keys(), values() или kv(). Также поддерживаются директивы для управления циклом NEXT и LAST.

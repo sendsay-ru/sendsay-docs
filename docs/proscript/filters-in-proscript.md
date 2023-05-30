@@ -108,7 +108,7 @@ Thecatsatonthemat
 
 Позволяет вывести в шаблон содержимое переменной, содержащую HTML-теги без конвертации в html-entites
 
-```html
+```
 [% "<b>hello</b>" | mark_raw %]
 ```
 
@@ -116,17 +116,17 @@ Thecatsatonthemat
 
 URI конвертирует все символы строки, которые находятся вне списка разрешенных URI-символов (в соответствии с RFC 3986). URI корректно кодирует все зарезервированные символы, включая &, @, /, ;, :, =, +, ? и $. Этот фильтр обычно нужен для модификации значений GET-параметров ссылки.
 
-```html
-[% path = 'http://tt2.org/example' back = '/other?foo=bar&baz=bam' title = 'Earth: "Mostly
-Harmless"' %] <a href="[% path %]?back=[% back | uri %]&title=[% title | uri %]"></a>
+```
+[% path  = 'http://tt2.org/example'
+   back  = '/other?foo=bar&baz=bam'
+   title = 'Earth: "Mostly Harmless"'
+%]
+<a href="[% path %]?back=[% back | uri %]&title=[% title | uri %]">
 ```
 
-```html
-<a
-  href="http://tt2.org/example?back=%2Fother%3Ffoo%3Dbar%26
-baz%3Dbam&title=Earth%3A%20%22Mostly%20Harmless%22"
-  >link</a
->
+```
+<a href="http://tt2.org/example?back=%2Fother%3Ffoo%3Dbar%26
+baz%3Dbam&title=Earth%3A%20%22Mostly%20Harmless%22">link</a>
 ```
 
 ## url
@@ -139,9 +139,11 @@ baz%3Dbam&title=Earth%3A%20%22Mostly%20Harmless%22"
 
 ## truncate
 
-```html
-[% FILTER truncate(21) %] I have much to say on this matter that has previously been said on more
-than one occasion. [% END %]
+```
+[% FILTER truncate(21) %]
+I have much to say on this matter that has previously
+been said on more than one occasion.
+[% END %]
 ```
 
 ```

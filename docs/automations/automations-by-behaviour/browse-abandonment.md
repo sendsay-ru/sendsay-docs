@@ -124,10 +124,16 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 
 Чтобы вставить таблицу с брошенными товарами, вставьте в текст шаблона следующий код:
 
-```html
-[% external_extra('ссылка на ваш yml-файл','format','yml') %] [% FOREACH ymldata IN
-anketa.sendsay_pageviews %] [% IF ymldata.ymlurl == 'ссылка на ваш yml-файл' %] [% FOREACH id IN
-ymldata.last10 %] [% yml.$id.model %] [% LAST IF loop.count() == 3 %] [% END %] [% END %] [% END %]
+```
+[% external_extra('ссылка на ваш yml-файл','format','yml') %]
+[% FOREACH ymldata IN anketa.sendsay_pageviews %]
+   [% IF ymldata.ymlurl == 'ссылка на ваш yml-файл' %]
+      [% FOREACH id IN ymldata.last10 %]
+             [% yml.$id.model %]
+         [% LAST IF loop.count() == 3 %]
+      [% END %]
+   [% END %]
+[% END %]
 ```
 
 Также можно отредактировать количество товаров, которые будут выводиться в письме (по умолчанию их три). Для этого нужно изменить число в параметре `loop.count ()` — вы можете задать любое значение до 10 (это максимум для одного письма).
