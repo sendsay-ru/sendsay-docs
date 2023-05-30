@@ -71,8 +71,11 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 
 В&nbsp;итоге ссылка на&nbsp;бот в&nbsp;Телеграме будет выглядеть так:
 
-```
-<a href="https://t.me/example_bot?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]">Подписаться в Telegram</a>
+```html
+<a
+  href="https://t.me/example_bot?start=[% param.issue.id %]-[% param.letter.id %]-[% anketa.member.id %]"
+  >Подписаться в Telegram</a
+>
 ```
 
 Вместо `example_bot` впишите название нужного бота.
@@ -81,7 +84,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 
 Если предлагаете подписаться на Телеграм-бота, то можете сформировать ссылку с указанием email (если он вам известен). При формировании ссылки email-адрес и сама ссылка будут отличаться для каждого конкретного подписчика.
 
-```
+```html
 <a href="https://t.me/example_bot?start=PAYLOAD">Подписаться в Telegram</a>
 ```
 
@@ -94,7 +97,7 @@ import deleteBot from "/img/other-channels/telegram/how-to-connect-a-bot/how-to-
 
 В итоге должна получиться похожая ссылка:
 
-```
+```html
 <a href="https://t.me/sendsay_bot?start=ZW1haWw9cXdlcnR5QG1haWwucnUg">Подписаться в Telegram</a>
 ```
 

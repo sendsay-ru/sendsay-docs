@@ -35,15 +35,385 @@
   height: 42px;
 }
 
+/* РЕДИЗАЙН */
+
+/* Шапка */
 .navbar__link {
+  font-weight: var(--ifm-font-weight-semibold);
+  font-size: 14.5px;
+}
+
+/* Хлебные крошки */
+.breadcrumbs__item--active .breadcrumbs__link {
+  background: none;
+}
+
+.breadcrumbsContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocBreadcrumbs-styles-module {
+  margin-bottom: 4rem !important;
+  margin-top: 1.5rem !important;
+}
+
+.breadcrumbs__link {
+  padding: 0;
+}
+.breadcrumbs__link:any-link:hover {
+  background: none;
+}
+
+/* Контентная зона */
+
+.row {
+  margin: 0;
+}
+
+.row .col {
+  max-width: 778px !important;
+}
+
+.row .col--6 {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  min-width: 100%;
+}
+
+.row.list_node_modules-\@docusaurus-theme-classic-lib-theme-DocCategoryGeneratedIndexPage-styles-module {
+  column-gap: 1rem;
+  row-gap: 1rem;
+  margin: 0;
+}
+
+.container
+  .generatedIndexPage_node_modules-\@docusaurus-theme-classic-lib-theme-DocCategoryGeneratedIndexPage-styles-module {
+  max-width: 770px !important;
+}
+
+.col.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
+.generatedIndexPage_node_modules-\@docusaurus-theme-classic-lib-theme-DocCategoryGeneratedIndexPage-styles-module {
+  padding: 0 3.5rem;
+}
+
+/* Карточки на страницах разделов */
+
+.cardContainer_src-theme-DocCard-components-CardWrapper-styles-module {
+  box-shadow: none !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: var(--ifm-card-border-radius);
+}
+
+.cardContainer_src-theme-DocCard-components-CardWrapper-styles-module:hover {
+  box-shadow: var(--docs-card-shadow) !important;
+}
+
+.cardTitle_src-theme-DocCard-components-CardLayout-styles-module {
+  font-size: 1rem !important;
+}
+
+.padding--lg {
+  padding: 1rem !important;
+}
+.card h2 {
+  margin-bottom: 0.3rem;
+}
+
+a.card:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Кнопки перехода на следующую страницу */
+
+.pagination-nav__link {
+  border-radius: var(--ifm-card-border-radius);
+}
+
+.pagination-nav__sublabel {
+  font-size: 13.5px;
   font-weight: var(--ifm-font-weight-normal);
 }
 
-img:not(.no-border),
-video:not(.no-border),
-iframe:not(.no-border) {
-  outline: 1px solid var(--ifm-color-emphasis-300);
-  outline-offset: -1px;
+/* Ссылки в сайдбаре */
+
+.menu__link {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #374151;
+}
+
+.menu__list-item-collapsible .menu__link {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.theme-doc-sidebar-item-category-level-1 {
+  margin-top: 1.5rem;
+}
+
+/* .theme-doc-sidebar-item-category-level-1.menu__list-item:not(:first-child) {
+  margin-top: 1.2rem;
+} */
+
+.menu__link--sublist-caret:after,
+.menu__caret:before {
+  content: none;
+}
+
+.menu__list-item-collapsible {
+  flex-direction: row-reverse;
+}
+
+.menu__list-item-collapsible button {
+  padding-right: 0px;
+}
+
+.menu__list-item-collapsible:not(:first-child) .menu__link {
+  padding-left: 0px;
+}
+
+.menu__list-item-collapsible .menu__link {
+  padding-left: 0px;
+}
+
+.menu.thin-scrollbar {
+  padding: 1rem;
+}
+
+.clean-btn.menu__caret {
+  padding-left: 0px;
+  align-items: flex-start;
+}
+
+.menu__caret:after {
+  transform: rotate(180deg);
+  transition: transform var(--ifm-transition-fast) linear;
+}
+
+.menu__list-item--collapsed .menu__link--sublist:before,
+.menu__list-item--collapsed .menu__caret:after {
+  transform: rotate(90deg);
+}
+
+.menu__link--sublist-caret:before,
+.menu__caret:after {
+  content: '';
+  margin-right: 4px;
+  min-width: 1.25rem;
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.2rem 1.2rem;
+  filter: var(--ifm-menu-link-sublist-icon-filter);
+  height: 1.25rem;
+  transform: rotate(180deg);
+  width: 1.25rem;
+  transition: transform var(--ifm-transition-fast) linear;
+}
+
+.menu__list .menu__list {
+  padding-left: 0.8rem;
+}
+
+.theme-doc-sidebar-item-category-level-1.menu__list-item:last-child {
+  margin-bottom: 2rem;
+}
+
+.menu__list:last-child {
+  margin-bottom: 1.2rem;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  color: var(--ifm-color-primary);
+}
+
+.menu__list-item-collapsible--active .menu__link--active {
+  color: var(--ifm-color-primary) !important;
+}
+
+.menu__list-item:hover {
+  background-color: transparent;
+}
+
+.menu {
+  padding-right: 0.5rem !important;
+}
+
+/* Нумерованные списки */
+
+ol > li {
+  position: relative;
+  list-style: none;
+  display: list-item;
+  border: 0;
+}
+
+ol,
+ul {
+  counter-reset: li;
+}
+
+ol > li::before {
+  content: counter(li);
+  width: calc(1.5rem - 2px);
+  height: calc(1.5rem - 2px);
+  font-size: 13.5px;
+  margin: 2px 0 0 0;
+  counter-increment: li;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  position: absolute;
+  text-align: center;
+  left: -2rem;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #111827;
+}
+
+/* Кнопка «Отредактировать эту страницу» */
+
+.theme-doc-footer-edit-meta-row.row .col {
+  padding: 0 0 0 0;
+}
+
+/* Заголовки */
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.3125rem;
+  line-height: 143%;
+}
+
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+
+h5 {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+/* Anti-alias P */
+
+p {
+  -webkit-font-smoothing: auto;
+}
+
+/* Ширина tableOfContents */
+
+.col--3 {
+  min-width: 330px;
+}
+
+/* Изменение блока с кодом */
+.theme-code-block {
+  box-shadow: none !important;
+}
+
+/* Изменение вкладок */
+.tabs-container .tabs li {
+  font-weight: 600 !important;
+  border-bottom-width: 2px;
+}
+.tabs-container .tabs .tabs__item--active {
+  background-color: var(--ifm-menu-color-background-active);
+}
+.tabs-container ul {
+  column-gap: 8px;
+}
+
+/* Изменение  admonition */
+.theme-admonition {
+  box-shadow: none;
+  border-radius: 4px;
+  border-width: 0px;
+}
+.alert--success {
+  background-color: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 1);
+}
+.alert--secondary {
+  background-color: rgba(203, 213, 225, 0.2);
+  border-color: rgba(203, 213, 225, 1);
+}
+.alert--info {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 1);
+}
+.alert--warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 1);
+}
+.alert--danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 1);
+}
+
+/* Кнопка главного меню в мобильной версии */
+.navbar-sidebar__item .navbar-sidebar__back {
+  font-weight: 500;
+  font-size: 14.5px;
+  padding-left: 0.9rem;
+}
+
+/* Прячем tableOfContents */
+@media screen and (max-width: 1200px) {
+  .col--3 {
+    display: none;
+  }
+}
+/* tableOfContents на мобильной версии */
+
+@media screen and (max-width: 996px) {
+  .table-of-contents__link {
+    line-height: 130%;
+  }
+  .tocCollapsibleContent_node_modules-\@docusaurus-theme-classic-lib-theme-TOCCollapsible-styles-module
+    ul
+    li {
+    margin: 0.8rem 0.8rem !important;
+  }
+  .tocCollapsibleButton_node_modules-\@docusaurus-theme-classic-lib-theme-TOCCollapsible-CollapseButton-styles-module::after {
+    background: var(--ifm-menu-link-sublist-icon) 50% 50% / 1.2rem 1.2rem no-repeat !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .col.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
+  .generatedIndexPage_node_modules-\@docusaurus-theme-classic-lib-theme-DocCategoryGeneratedIndexPage-styles-module {
+    padding: inherit !important;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.7rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1.125rem;
+  }
+}
+
+/* Переопределение переменных */
+[data-theme='light'] {
+  --ifm-hover-overlay: #eff6ff;
+  --ifm-color-primary: #2563eb;
+  --ifm-container-width-xl: 1140px;
+  --ifm-container-width: 1140px;
+  --docs-card-shadow: 0px 1px 2px rgba(2, 8, 20, 0.06), 0px 2px 8px rgba(2, 8, 20, 0.08);
+  /* Изменение цвета футера */
+  --ifm-footer-background-color: #f3f4f6;
+  --ifm-tabs-padding-vertical: 0.3rem;
+  --ifm-tabs-padding-horizontal: 0.5rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -56,4 +426,12 @@ iframe:not(.no-border) {
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Аутлайны на контейнерах изображений/видео/iframe */
+img:not(.no-border),
+video:not(.no-border),
+iframe:not(.no-border) {
+  outline: 1px solid var(--ifm-color-emphasis-300);
+  outline-offset: -1px;
 }

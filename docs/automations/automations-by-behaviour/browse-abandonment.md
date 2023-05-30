@@ -47,7 +47,7 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 
 Выглядеть файл будет вот так:
 
-```
+```html
 <offer id="123" type="vendor.model" available="true" bid="1" group_id="136010368">
   <url>http://www.xxxxxx.ru/xxxx</url>
   <price>1749.0000</price>
@@ -124,16 +124,10 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 
 Чтобы вставить таблицу с брошенными товарами, вставьте в текст шаблона следующий код:
 
-```
-[% external_extra('ссылка на ваш yml-файл','format','yml') %]
-[% FOREACH ymldata IN anketa.sendsay_pageviews %]
-   [% IF ymldata.ymlurl == 'ссылка на ваш yml-файл' %]
-      [% FOREACH id IN ymldata.last10 %]
-             [% yml.$id.model %]
-         [% LAST IF loop.count() == 3 %]
-      [% END %]
-   [% END %]
-[% END %]
+```html
+[% external_extra('ссылка на ваш yml-файл','format','yml') %] [% FOREACH ymldata IN
+anketa.sendsay_pageviews %] [% IF ymldata.ymlurl == 'ссылка на ваш yml-файл' %] [% FOREACH id IN
+ymldata.last10 %] [% yml.$id.model %] [% LAST IF loop.count() == 3 %] [% END %] [% END %] [% END %]
 ```
 
 Также можно отредактировать количество товаров, которые будут выводиться в письме (по умолчанию их три). Для этого нужно изменить число в параметре `loop.count ()` — вы можете задать любое значение до 10 (это максимум для одного письма).
@@ -159,7 +153,7 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 1. Откройте API-консоль — её иконка находится на боковой панели сайта прямо над справочным центром.
 2. Отправьте следующий API-запрос:
 
-```
+```js
 {
   "action": "group.filter.set",
   "id": "id сегмента",

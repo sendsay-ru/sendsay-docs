@@ -155,7 +155,7 @@ Ssec-события всегда передаются в Sendsay как масс
 
 Для отправки событий модуля "Продажи" используется отдельный эндпоинт:
 
-```
+```url
 https://ssec.sendsay.ru/general/ssec/v100/json/ACCOUNT_ID
 ```
 
@@ -242,7 +242,7 @@ curl --location --request GET 'https://ssec.sendsay.ru/general/ssec/v100/json/AC
 Подключение YML-файла к аккаунту осуществляется через личный кабинет при подключении сайта.
 Подключить данные из YML-файла к письму можно следующей командой ProScript:
 
-```
+```html
 [% external_extra("rfs://upload/yandex.xml","method","get","ignore_error","1","format","yml") %]
 ```
 

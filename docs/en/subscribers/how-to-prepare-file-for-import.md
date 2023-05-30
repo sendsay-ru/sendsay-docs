@@ -42,13 +42,13 @@ If you create a file for a manual import, field codes are unnecessary, as the fi
 
 In Excel, paste your data into the spreadsheet. In other file types, separate the data with commas, semicolons or tabs. Check that you use the same separator in each line.
 
-```
+```csv
 pochta1@gmail.com, Иван, Иванов, Москва, 1970.01.21
 ```
 
 If some subscriber data is missing, place two consecutive separators (spaces between symbols are optional).
 
-```
+```csv
 pochta2@gmail.com, , Фёдоров, , 1980.02.14
 ```
 
@@ -76,7 +76,7 @@ If you import subscribers without the list, select the primary contact in the im
 
 Dates are entered in YYYYY.MM.DD format. For example, for the date "July 1, 1993" the entry would be:
 
-```
+```csv
 1993.07.01
 ```
 
@@ -86,7 +86,7 @@ Phone numbers can include parentheses and spaces or contain digits only. For Rus
 
 If you do not want to import a particular subscriber, type # at the beginning of the line.
 
-```
+```csv
 #pochta5@gmail.com, Пётр, Петров, Новгород, 1989.01.01
 ```
 

@@ -20,7 +20,7 @@ sidebar_position: 8
 
 Пример описания товара из YML-файла:
 
-```
+```html
 <offer id="123" type="vendor.model" available="true" bid="1" group_id="136010368">
   <url>http://www.xxxxxx.ru/xxxx</url>
   <price>1749.0000</price>
@@ -68,12 +68,8 @@ sidebar_position: 8
 
 Параметр picture в YML-файле может содержать как одно изображение, так и несколько и, следовательно, у нас это может быть строка или массив. Если вам надо вывести одно изображение из списка доступных, то можно использовать следующий код:
 
-```
-[% IF yml.$id.picture[0] %]
-   [% yml.$id.picture[0] %]
-[% ELSE %]
-   [% yml.$id.picture %]
-[% END %]
+```html
+[% IF yml.$id.picture[0] %] [% yml.$id.picture[0] %] [% ELSE %] [% yml.$id.picture %] [% END %]
 ```
 
 :::tip Важно
@@ -82,78 +78,57 @@ sidebar_position: 8
 
 ## Вывод данных, собранных для сценария «Брошенная корзина»
 
-```
-[% external_extra('YOUR_URL','format','yml') %]
-[% counter = 0 %]
-[% FOREACH item IN anketa.sendsay_basket.items.values() %]
-   [% id = item.id %]
-   [% IF yml.$id %]
-      <a href="[% yml.$id.url %]">[% yml.$id.model %]</a><br>
-      [% yml.$id.price %]
-      [% counter = counter + 1 %]
-   [% END %]
-[% END %]
-[% IF counter == 0 %]
-   [% Cancel_Letter() %]
-[% END %]
+```html
+[% external_extra('YOUR_URL','format','yml') %] [% counter = 0 %] [% FOREACH item IN
+anketa.sendsay_basket.items.values() %] [% id = item.id %] [% IF yml.$id %]
+<a href="[% yml.$id.url %]">[% yml.$id.model %]</a><br />
+[% yml.$id.price %] [% counter = counter + 1 %] [% END %] [% END %] [% IF counter == 0 %] [%
+Cancel_Letter() %] [% END %]
 ```
 
 ## Вывод данных, собранных для сценария «Брошенный просмотр»
 
 Вывести три последних просмотренных товара:
 
-```
-[% external_extra('YOUR_URL','format','yml') %]
-[% FOREACH ymldata IN anketa.sendsay_pageviews %]
-   [% IF ymldata.ymlurl == 'YOUR_URL' %]
-      [% FOREACH id IN ymldata.last10 %]
-         <a href="[% yml.$id.url %]">[% yml.$id.model %]</a><br>
-         [% yml.$id.price %]
-         [% LAST IF loop.count() == 3 %]
-      [% END %]
-   [% END %]
-[% END %]
+```html
+[% external_extra('YOUR_URL','format','yml') %] [% FOREACH ymldata IN anketa.sendsay_pageviews %] [%
+IF ymldata.ymlurl == 'YOUR_URL' %] [% FOREACH id IN ymldata.last10 %]
+<a href="[% yml.$id.url %]">[% yml.$id.model %]</a><br />
+[% yml.$id.price %] [% LAST IF loop.count() == 3 %] [% END %] [% END %] [% END %]
 ```
 
 ## Найти и вывести товары из той же категории с похожей ценой
 
-```
+```html
 [% product_id = 123 %]
 
 <!-- Поиск трех первых похожих товаров -->
-[% external_extra('YOUR_URL','format','yml') %]
-[% user_yml_prod = yml.$product_id %]
-[% suggested = [] %]
+[% external_extra('YOUR_URL','format','yml') %] [% user_yml_prod = yml.$product_id %] [% suggested =
+[] %]
 
 <!-- Переносы строк и пробелы в данном FOREACH убраны т.к. они выдаются в результирующее письмо увеличивая его размер в разы -->
-[% FOREACH item IN yml.values() %][% IF item.categoryId == user_yml_prod.categoryId AND item.available == 'true' AND item.price > user_yml_prod.price AND item.price < user_yml_prod.price*1.5 %][% suggested.push(item) %][% END %][% LAST IF suggested.size() == 3 %][% END %]
-
-[% IF suggested.size() == 3 %]
-	[% FOREACH item IN suggested %]
-		<img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]" />
-		<a href="[% item.url %]">[% item.model %]</a><br>
-		[% item.price %]
-	[% END %]
-[% END %]
+[% FOREACH item IN yml.values() %][% IF item.categoryId == user_yml_prod.categoryId AND
+item.available == 'true' AND item.price > user_yml_prod.price AND item.price <
+user_yml_prod.price*1.5 %][% suggested.push(item) %][% END %][% LAST IF suggested.size() == 3 %][%
+END %] [% IF suggested.size() == 3 %] [% FOREACH item IN suggested %]
+<img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]" />
+<a href="[% item.url %]">[% item.model %]</a><br />
+[% item.price %] [% END %] [% END %]
 ```
 
 ## Найти и вывести товары из указанной категории
 
-```
+```html
 [% product_cat_id = 123 %]
 
 <!-- Поиск трех первых товаров из указанной категории -->
-[% external_extra('YOUR_URL','format','yml') %]
-[% suggested = [] %]
+[% external_extra('YOUR_URL','format','yml') %] [% suggested = [] %]
 
 <!-- Переносы строк и пробелы в данном FOREACH убраны т.к. они выдаются в результирующее письмо увеличивая его размер в разы -->
-[% FOREACH item IN yml.values() %][% IF item.categoryId == product_cat_id AND item.available == 'true' %][% suggested.push(item) %][% END %][% LAST IF suggested.size() == 3 %][% END %]
-
-[% IF suggested.size() == 3 %]
-	[% FOREACH item IN suggested %]
-		<img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]" />
-		<a href="[% item.url %]">[% item.model %]</a><br>
-		[% item.price %]
-	[% END %]
-[% END %]
+[% FOREACH item IN yml.values() %][% IF item.categoryId == product_cat_id AND item.available ==
+'true' %][% suggested.push(item) %][% END %][% LAST IF suggested.size() == 3 %][% END %] [% IF
+suggested.size() == 3 %] [% FOREACH item IN suggested %]
+<img src="[% IF item.picture[0] %][% item.picture[0] %][% ELSE %][% item.picture %][% END %]" />
+<a href="[% item.url %]">[% item.model %]</a><br />
+[% item.price %] [% END %] [% END %]
 ```

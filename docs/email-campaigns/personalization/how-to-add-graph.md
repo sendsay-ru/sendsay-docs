@@ -54,44 +54,13 @@ import graph from "/img/email-campaigns/personalization//how-to-add-graph/graph.
 
 Код для копирования:
 
-```
-[% params = {
-   "data_format" => "bygraph",
-   "type" => "line",
+```html
+[% params = { "data_format" => "bygraph", "type" => "line", "title" => "Динамика расходов", "xname"
+=> "Кварталы", "yname" => "Расходы", "graph" => [ {"name" => "Одежда"}, {"name" => "Продукты"},
+{"name" => "Кафе"}, {"name" => "Авто"}, ], "line_types" => [ 1, 2, 3, 4, ], "line_type_scale" => 10,
+"line_width" => 3, "colors" => [ "#FF0000", "#4169E1", "#008000", "#8A2BE2", ], } %]
 
-   "title" => "Динамика расходов",
-   "xname" => "Кварталы",
-   "yname" => "Расходы",
-
-   "graph" => [
-
-      {"name" => "Одежда"},
-      {"name" => "Продукты"},
-      {"name" => "Кафе"},
-      {"name" => "Авто"},
-
-   ],
-
-   "line_types" => [
-     1,
-     2,
-     3,
-     4,
-   ],
-
-   "line_type_scale" => 10,
-
-   "line_width" => 3,
-
-   "colors" => [
-      "#FF0000",
-      "#4169E1",
-      "#008000",
-      "#8A2BE2",
-   ],
-} %]
-
-<img src="[% draw_graph(params, anketa.custom.data) %]">
+<img src="[% draw_graph(params, anketa.custom.data) %]" />
 ```
 
 Перед отправкой выпуска проверьте, как график отображается в письме:

@@ -9,28 +9,22 @@ sidebar_position: 3
 Для обработки массивов предназначен FOREACH.
 Для того, чтобы с помощью FOREACH проитерировать объект, вам надо с помощью методов keys() или values() создать массивы ключей или значений вашего объекта.
 
-```
-[% FOREACH i IN items %]
-   [% i %]
-[% END %]
+```html
+[% FOREACH i IN items %] [% i %] [% END %]
 ```
 
 Директива NEXT стартует новую итерацию, пропуская все команды после себя:
 
-```
-[% FOREACH user IN userlist %]
-   [% NEXT IF user.isguest %]
-   Name: [% user.name %]    Email: [% user.email %]
-[% END %]
+```html
+[% FOREACH user IN userlist %] [% NEXT IF user.isguest %] Name: [% user.name %] Email: [% user.email
+%] [% END %]
 ```
 
 LAST может использоваться для выхода из цикла. Есть синоним — BREAK.
 
-```
-[% FOREACH match IN results.nsort('score').reverse %]
-   [% LAST IF match.score < 50 %]
-   [% match.score %] : [% match.url %]
-[% END %]
+```html
+[% FOREACH match IN results.nsort('score').reverse %] [% LAST IF match.score < 50 %] [% match.score
+%] : [% match.url %] [% END %]
 ```
 
 Для упрощения работы внутри оператора FOREACH доступна переменная loop со следующими методами:
@@ -48,21 +42,23 @@ next()      возвращает следующий элемент в масси
 
 Пример:
 
-```
-[% FOREACH item IN [ 'foo', 'bar', 'baz' ] %]
-   [%- "<ul>\n" IF loop.first %]
-   <li>[% loop.count %]/[% loop.size %]: [% item %]
-   [%- "</ul>\n" IF loop.last %]
-[% END %]
+```html
+[% FOREACH item IN [ 'foo', 'bar', 'baz' ] %] [%- "
+<ul>
+  \n" IF loop.first %]
+  <li>[% loop.count %]/[% loop.size %]: [% item %] [%- "</li>
+</ul>
+
+\n" IF loop.last %] [% END %]
 ```
 
 Вывод:
 
-```
+```html
 <ul>
-<li>1/3: foo
-<li>2/3: bar
-<li>3/3: baz
+  <li>1/3: foo</li>
+  <li>2/3: bar</li>
+  <li>3/3: baz</li>
 </ul>
 ```
 
@@ -70,9 +66,6 @@ next()      возвращает следующий элемент в масси
 
 WHILE используется для повторяющегося выполнения списка команд до тех пор пока условное выражение отдает true.
 
-```
-[% WHILE total < 100 %]
-   ...
-   [% total = calculate_new_total %]
-[% END %]
+```html
+[% WHILE total < 100 %] ... [% total = calculate_new_total %] [% END %]
 ```

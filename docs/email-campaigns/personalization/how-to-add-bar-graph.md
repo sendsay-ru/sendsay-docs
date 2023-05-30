@@ -51,39 +51,13 @@ import barGraph from "/img/email-campaigns/personalization//how-to-add-bar-graph
 ![HTML code for bar graph](/img/email-campaigns/personalization//how-to-add-bar-graph/html-code-for-bar-graph.png) <br/>
 Код для копирования:
 
-```
-[% params = {
+```html
+[% params = { "data_format" => "bygraph", "type" => "bar", "title" => "Динамика расходов", "xname"
+=> "Кварталы", "yname" => "Расходы", "graph" => [ {"name" => "Одежда"}, {"name" => "Продукты"},
+{"name" => "Кафе"}, {"name" => "Авто"}, ], "bar_width" => 4, "bar_spacing" => 3, "colors" => [
+"#FF0000", "#4169E1", "#008000", "#8A2BE2", ], } %]
 
-"data_format" => "bygraph",
-
-  "type" => "bar",
-
-  "title" => "Динамика расходов",
-  "xname" => "Кварталы",
-  "yname" => "Расходы",
-
-  "graph" => [
-
-     {"name" => "Одежда"},
-     {"name" => "Продукты"},
-     {"name" => "Кафе"},
-     {"name" => "Авто"},
-
-   ],
-
-  "bar_width" => 4,
-
-  "bar_spacing" => 3,
-
-  "colors" => [
-     "#FF0000",
-     "#4169E1",
-     "#008000",
-     "#8A2BE2",
-  ],
-} %]
-
-<img src="[% draw_graph(params, anketa.custom.data) %]">
+<img src="[% draw_graph(params, anketa.custom.data) %]" />
 ```
 
 Перед отправкой выпуска проверьте, как гистограмма отображается в письме:
