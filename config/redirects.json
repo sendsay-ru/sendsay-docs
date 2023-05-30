@@ -490,5 +490,9 @@
   {
     "to": "/sendsay-api/how-to-send-campaign-with-api",
     "from": "/ru/articles/4091121-как-отправить-рассылку-через-sendsay-api"
+  },
+  {
+    "to": "/updates/list",
+    "from": "/updates"
   }
 ]
