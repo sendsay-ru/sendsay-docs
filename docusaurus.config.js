@@ -60,17 +60,28 @@ const config = {
         },
         items: [
           {
-            to: '/integrations',
+            type: 'docSidebar',
             position: 'left',
-            label: 'Интеграции',
-            activeBaseRegex: 'integrations/*',
-            displayedLocale: 'ru',
+            sidebarId: 'docs',
+            label: 'Главная',
           },
           {
-            to: '/videolessons',
-            label: 'Видеоуроки',
+            type: 'docSidebar',
             position: 'left',
-            displayedLocale: 'ru',
+            sidebarId: 'integrations',
+            label: 'Интеграции',
+          },
+          {
+            type: 'docSidebar',
+            position: 'left',
+            sidebarId: 'videolessons',
+            label: 'Видеоуроки',
+          },
+          {
+            type: 'docSidebar',
+            position: 'left',
+            sidebarId: 'updates',
+            label: 'Обновления',
           },
           {
             href: 'https://app.sendsay.ru',
