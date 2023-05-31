@@ -1,0 +1,8 @@
+.DocCardList-updatesPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.DocCardList-updatesPage article {
+  --ifm-col-width: unset;
+}
