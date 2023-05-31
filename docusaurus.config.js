@@ -5,7 +5,6 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const plugins = require('./plugins');
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'База знаний Sendsay',
@@ -59,6 +58,34 @@ const config = {
           className: 'no-border',
         },
         items: [
+          {
+            type: 'dropdown',
+            label: 'Главная',
+            labelMode: 'dynamic',
+            position: 'left',
+            items: [
+              {
+                type: 'docSidebar',
+                sidebarId: 'docs',
+                label: 'Главная',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'integrations',
+                label: 'Интеграции',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'videolessons',
+                label: 'Видеоуроки',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'updates',
+                label: 'Обновления',
+              },
+            ],
+          },
           {
             type: 'docSidebar',
             position: 'left',
