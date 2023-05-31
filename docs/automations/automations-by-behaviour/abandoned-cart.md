@@ -190,20 +190,22 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 
 1. Функция для обновления данных в корзине, чтобы получать актуальные товары:
 <!-- prettier-ignore -->
+
 ```js
 (function () {
   if (typeof sndsyApi != 'undefined') {
     sndsyApi.basketUpdate([
-      { "id": '<id товара>', "count": '<количество>' }, 
-      { "id": '<id товара>', "count": '<количество>' }, 
-      { "id": '<id товара>', "count": '<количество>' }
-    ])
+      { id: '<id товара>', count: '<количество>' },
+      { id: '<id товара>', count: '<количество>' },
+      { id: '<id товара>', count: '<количество>' },
+    ]);
   }
 })();
 ```
 
 2. Функция для обнуления корзины, который останавливает последовательность при покупке товаров:
 <!-- prettier-ignore -->
+
 ```js
 (function () {
   if (typeof window.sndsyApi == 'object') {
@@ -214,17 +216,18 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 
 3. Дополнительная функция для передачи электронных адресов со списком просмотренных товаров у подписчиков. Запрос позволяет передать информацию о подписчиках, чью активность на сайте вы можете отследить, а мы — нет (например, если подписчик не перешёл по ссылке из письма, но авторизовался в личном кабинете).
 <!-- prettier-ignore -->
+
 ```js
 (function () {
   if (typeof sndsyApi != 'undefined') {
     sndsyApi.basketUpdate(
       [
-        { "id": '<id товара>', "count": '<количество>' }, 
-        { "id": '<id товара>', "count": '<количество>' }, 
-        { "id": '<id товара>', "count": '<количество>' }
-      ], 
-      { email: 'some@domain.com' } 
-    )
+        { id: '<id товара>', count: '<количество>' },
+        { id: '<id товара>', count: '<количество>' },
+        { id: '<id товара>', count: '<количество>' },
+      ],
+      { email: 'some@domain.com' }
+    );
   }
 })();
 ```
