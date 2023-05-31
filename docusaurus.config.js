@@ -99,6 +99,13 @@ const config = {
       colorMode: {
         disableSwitch: true,
       },
+      zoom: {
+        selector: '.markdown img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)',
+        },
+      },
     },
 };
 
