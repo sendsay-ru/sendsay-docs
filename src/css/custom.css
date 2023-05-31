@@ -57,3 +57,19 @@ iframe:not(.no-border) {
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.theme-doc-sidebar-container nav.menu {
+  padding-bottom: 32px;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar__inner .navbar__items:first-child > a:not(:first-of-type) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .navbar__inner .navbar__items:first-child .dropdown {
+    display: none;
+  }
+}
