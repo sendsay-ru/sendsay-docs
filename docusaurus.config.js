@@ -112,12 +112,12 @@ const config = {
           },
           {
             href: 'https://app.sendsay.ru',
-            label: 'Перейти в Sendsay',
+            label: 'Sendsay',
             position: 'right',
           },
           {
             href: 'https://sendsay.ru/api/api.html',
-            label: 'Sendsay API',
+            label: 'API',
             position: 'right',
           },
           {
