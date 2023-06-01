@@ -205,6 +205,10 @@ a.card:hover {
   margin-bottom: 2rem;
 }
 
+.theme-doc-sidebar-container nav.menu {
+  padding-bottom: 32px;
+}
+
 .menu__list:last-child {
   margin-bottom: 1.2rem;
 }
@@ -388,6 +392,18 @@ p {
   font-weight: 500;
   font-size: 14.5px;
   padding-left: 0.9rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar__inner .navbar__items:first-child > a:not(:first-of-type) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .navbar__inner .navbar__items:first-child .dropdown {
+    display: none;
+  }
 }
 
 /* Hide tableOfContents */
