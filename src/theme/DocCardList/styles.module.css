@@ -1,3 +1,9 @@
+.DocCardList {
+  column-gap: 1rem;
+  row-gap: 1rem;
+  margin: 0;
+}
+
 .DocCardList-updatesPage {
   display: flex;
   flex-direction: column;

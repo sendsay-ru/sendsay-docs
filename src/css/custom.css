@@ -76,12 +76,6 @@
   min-width: 100%;
 }
 
-.margin-top--lg section.row {
-  column-gap: 1rem;
-  row-gap: 1rem;
-  margin: 0;
-}
-
 .container > div:not(.row):not(.footer__bottom) {
   max-width: 770px !important;
   padding: 0 3.5rem;

@@ -15,7 +15,13 @@ const DocCardListWrapper = ({ className, ...restProps }: Props): JSX.Element => 
 
   const filteredItems = getAllowedCardItems(items);
 
-  return <DocCardList {...restProps} items={filteredItems} className={styles[className]} />;
+  return (
+    <DocCardList
+      {...restProps}
+      items={filteredItems}
+      className={`${styles.DocCardList} ${styles[className]}`}
+    />
+  );
 };
 
 export default DocCardListWrapper;
