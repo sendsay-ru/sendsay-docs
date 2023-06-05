@@ -203,10 +203,6 @@ a.card:hover {
   padding-bottom: 32px;
 }
 
-.menu__list:last-child {
-  margin-bottom: 1.2rem;
-}
-
 .menu__link--active:not(.menu__link--sublist) {
   color: var(--ifm-color-primary);
 }
