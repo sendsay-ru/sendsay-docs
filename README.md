@@ -139,30 +139,21 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 ## Working with articles
 
-### Adding an month update page
+### Adding a month update page
 
-Add a page file with an `.mdx` extension to the folder `/docs/updates/list`.
-If the article is for the current year - put it in the root folder `../list/`, otherwise in the appropriate folder `../list/2021/`
+1. add a new file with `.mdx` extension to the `/docs/updates/list`, `sidebar_position` should be in NEGATIVE REVERSE order (where `-1` is `January` and `-12` is `December`)
 
-In the page file itself specify the
+2. change import in the root file `docs/updates/index.mdx` to a new article
 
 ```
----
-sidebar_position: -2
----
+import ChangeLog from './updates-may-2023.mdx';`
 ```
 
-in NEGATIVE REVERSE order starting with `-1`, where `-1` is `February` and `-12` is `December`
-
-In the root file `docs/updates/index.mdx` in `import ChangeLog from './updates-may-2023.mdx';` specify the address to the newly created file (this article will be shown on the main link `../updates`).
-
-At the end of the year, put all pages for the current year in an appropriate folder, add the file `_category_.json` with the following content
+3. (optional) create previous year folder and move pages from past year -> add `_category_.json` file with position in REVERSE order (where `"position": 1000` is for `2022`)
 
 ```
 {
-  "label": "2023",
-  "position": 999
+   "label": "2023",
+   "position": 999
 }
 ```
-
-Position should be in REVERSE order, `"position": 1000` is for `2022`
