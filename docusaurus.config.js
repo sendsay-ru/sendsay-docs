@@ -91,24 +91,28 @@ const config = {
             position: 'left',
             sidebarId: 'docs',
             label: 'Главная',
+            displayedLocale: 'ru',
           },
           {
             type: 'docSidebar',
             position: 'left',
             sidebarId: 'integrations',
             label: 'Интеграции',
+            displayedLocale: 'ru',
           },
           {
             type: 'docSidebar',
             position: 'left',
             sidebarId: 'videolessons',
             label: 'Видеоуроки',
+            displayedLocale: 'ru',
           },
           {
             type: 'docSidebar',
             position: 'left',
             sidebarId: 'updates',
             label: 'Обновления',
+            displayedLocale: 'ru',
           },
           {
             href: 'https://app.sendsay.ru',
