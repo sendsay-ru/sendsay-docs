@@ -480,5 +480,5 @@ iframe:not(.no-border) {
 
 [data-iframed='true'] .navbar,
 [data-iframed='true'] .footer {
-    display: none;
+  display: none;
 }
