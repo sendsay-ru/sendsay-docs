@@ -106,9 +106,9 @@ Ssec-события всегда передаются в Sendsay как масс
 ```json
 [
   {
-    "transaction_id": "x1", // обязательно
-    "transaction_dt": "2022-07-25 23:25:13", // обязательно для заказа
-    "transaction_sum": 100.9, // желательно
+    "transaction_id": "x1", //обязательно
+    "transaction_dt": "2022-07-25 23:25:13", //обязательно для заказа
+    "transaction_sum": 100.9, //желательно
     "payment_dt": "2022-07-25 23:25:13", //необязательно
     "delivery_dt": "2022-07-25 23:25:13", //необязательно
     "update": 1 | 0, //необязательно
@@ -266,15 +266,15 @@ curl --location --request GET 'https://ssec.sendsay.ru/general/ssec/v100/json/AC
       "model": "model",
       "name": "name",
       "old_price": 5.99,
-      "picture": [],//абсолютные ссылки в массиве
+      "picture": [], //абсолютные ссылки в массиве
       "price": 7.88,
-      "url": "url",//абсолютная ссылка
+      "url": "url", //абсолютная ссылка
       "vendor": "vendor",
       "category_id": 777,
       "category_paths": []
     }
   ]);
-  // или с доп. параметрами
+  //или с доп. параметрами
   sndsyApi.ssecEvent(
     'VIEW_PRODUCT',
     [
@@ -285,15 +285,15 @@ curl --location --request GET 'https://ssec.sendsay.ru/general/ssec/v100/json/AC
         "model": "model",
         "name": "name",
         "old_price": 5.99,
-        "picture": [],//абсолютные ссылки в массиве
+        "picture": [], //абсолютные ссылки в массиве
         "price": 7.88,
-        "url": "url",//абсолютная ссылка
+        "url": "url", //абсолютная ссылка
         "vendor": "vendor"
         "category_id": 777,
         "category_paths": []
       }
     ],
-    { email: 'АДРЕС КЛИЕНТА' }//необязательно, при отсутствии email будет распознаваться нашим скриптом  
+    { email: 'АДРЕС КЛИЕНТА' } //необязательно, при отсутствии email будет распознаваться нашим скриптом  
   );
 });
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
@@ -316,7 +316,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "category_id": INT, //Число идентификатор из YML
       }
     ],
-    { email: 'АДРЕС КЛИЕНТА' }//необязательно, при отсутствии email будет распознаваться нашим скриптом
+    { email: 'АДРЕС КЛИЕНТА' } //необязательно, при отсутствии email будет распознаваться нашим скриптом
   );
 });
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
@@ -360,8 +360,8 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
       {
         "transaction_id": "x1", //необязательно
         "transaction_dt": "2022-07-25 23:25:13", //необязательно
-        "transaction_sum": 100.9, // желательно
-        "update_per_item": 1|0 // необязательно (по умолчанию 0)
+        "transaction_sum": 100.9, //желательно
+        "update_per_item": 1|0 //необязательно (по умолчанию 0)
         "items": [ //обязательно
           {           
             "id": "product1", //обязательно
@@ -371,8 +371,8 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
             "model": "model",
             "name": "name",
             "old_price": 5.99,
-            "picture": [],//абсолютные ссылки в массиве
-            "url": "url",//абсолютная ссылка
+            "picture": [], //абсолютные ссылки в массиве
+            "url": "url", //абсолютная ссылка
             "vendor": "vendor",
             "category_id": 777,
             "category_paths": []
@@ -381,7 +381,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         ]
       }
     ],
-    { email: 'АДРЕС КЛИЕНТА' }//необязательно, при отсутствии email будет распознаваться нашим скриптом
+    { email: 'АДРЕС КЛИЕНТА' } //необязательно, при отсутствии email будет распознаваться нашим скриптом
   );
 });
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
@@ -424,15 +424,15 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 <!-- prettier-ignore -->
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
-  // Call methods with params
+  //Call methods with params
   sndsyApi.ssecEvent(
     'ORDER',
     [
       {
-        "transaction_id": "x1", // обязательно
-        "transaction_status": 1, // обязательно
-        "transaction_dt": "2022-07-25 23:25:13", // обязательно YYYY-MM-DD hh:mm:ss
-        "transaction_sum": 100.9, // // желательно, для отображения статистики по заказам
+        "transaction_id": "x1", //обязательно
+        "transaction_status": 1, //обязательно
+        "transaction_dt": "2022-07-25 23:25:13", //обязательно YYYY-MM-DD hh:mm:ss
+        "transaction_sum": 100.9, //желательно, для отображения статистики по заказам
         "payment_dt": "2022-07-25 23:25:13", //необязательно
         "delivery_dt": "2022-07-25 23:25:13", //необязательно
         "update": 1 | 0, //необязательно
@@ -445,7 +445,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
             "model": "model",
             "name": "name",
             "old_price": 5.99,
-            "picture": [],//абсолютные ссылки в массиве
+            "picture": [], //абсолютные ссылки в массиве
             "url": "url", //абсолютная ссылка
             "vendor": "vendor",
             "category_id": 777,
@@ -455,7 +455,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         ]
       }
     ],
-    { email: 'АДРЕС КЛИЕНТА' }//необязательно, при отсутствии email будет распознаваться нашим скриптом
+    { email: 'АДРЕС КЛИЕНТА' } //необязательно, при отсутствии email будет распознаваться нашим скриптом
   );
 });
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
@@ -479,7 +479,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "description": "поисковая строка",
       }
     ],
-    { email: 'АДРЕС КЛИЕНТА' }//необязательно, при отсутствии email будет распознаваться нашим скриптом
+    { email: 'АДРЕС КЛИЕНТА' } //необязательно, при отсутствии email будет распознаваться нашим скриптом
   );
 });
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
@@ -500,13 +500,13 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "old_price": 5.99,
         "picture": [], //абсолютные ссылки в массиве
         "price": 7.88,
-        "url": "url",//абсолютная ссылка
+        "url": "url", //абсолютная ссылка
         "vendor": "vendor"
       }
     ],
     extraData = {
       email: 'АДРЕС КЛИЕНТА',
-    };//необязательно, при отсутствии email будет распознаваться нашим скриптом
+    }; //необязательно, при отсутствии email будет распознаваться нашим скриптом
 
   sndsyApi.ssecEvent(
     'SUBSCRIBE_PRODUCT_PRICE',
@@ -554,7 +554,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "model": "model",
         "name": "name",
         "old_price": 5.99,
-        "picture": [],//абсолютные ссылки в массиве
+        "picture": [], //абсолютные ссылки в массиве
         "price": 7.88,
         "url": "url", //абсолютная ссылка
         "vendor": "vendor"
@@ -562,7 +562,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
     ],
     extraData = {
       email: 'АДРЕС КЛИЕНТА',
-    };//необязательно, при отсутствии email будет распознаваться нашим скриптом
+    }; //необязательно, при отсутствии email будет распознаваться нашим скриптом
 
   sndsyApi.ssecEvent(
     'SUBSCRIBE_PRODUCT_ISA',
@@ -610,7 +610,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "model": "model",
         "name": "name",
         "old_price": 5.99,
-        "picture": [],//абсолютные ссылки в массиве
+        "picture": [], //абсолютные ссылки в массиве
         "price": 7.88,
         "url": "url", //абсолютная ссылка
         "vendor": "vendor"
@@ -666,15 +666,15 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "model": "model",
         "name": "name",
         "old_price": 5.99,
-        "picture": [],//абсолютные ссылки в массиве
+        "picture": [], //абсолютные ссылки в массиве
         "price": 7.88,
-        "url": "url",//абсолютная ссылка
+        "url": "url", //абсолютная ссылка
         "vendor": "vendor"
       }
     ],
     extraData = {
       email: 'АДРЕС КЛИЕНТА',
-    };//необязательно, при отсутствии email будет распознаваться нашим скриптом
+    }; //необязательно, при отсутствии email будет распознаваться нашим скриптом
 
   sndsyApi.ssecEvent(
     'PREORDER',
