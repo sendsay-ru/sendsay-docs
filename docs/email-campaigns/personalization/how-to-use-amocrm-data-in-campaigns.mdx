@@ -1,11 +1,11 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 sidebar_label: 'Данные из amoCRM в рассылках'
 ---
 
-import triggerConditions from '/img/integrations/how-to-use-amocrm-data-in-campaigns/trigger-conditions.png';
-import templateAllTransactions from '/img/integrations/how-to-use-amocrm-data-in-campaigns/template-with-all-transactions.png';
-import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaigns/how-to-set-a-trigger.png';
+import triggerConditions from '/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/trigger-conditions.png';
+import templateAllTransactions from '/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/template-with-all-transactions.png';
+import howToSetTrigger from '/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/how-to-set-a-trigger.png';
 
 # Как использовать данные из amoCRM в рассылках
 
@@ -25,7 +25,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Для этого перейдите в&nbsp;свой аккаунт в&nbsp;amoCRM и&nbsp;выберите в&nbsp;левом меню раздел **Сделки**. Откройте карточку любой Сделки, выберите вкладку «Настроить» и&nbsp;создайте новое поле (либо выберите существующее)&nbsp;&mdash; например, **Статус оплаты**. Нажмите &laquo;Сохранить&raquo;, а затем в&nbsp;верхней части окна редактирования скопируйте и&nbsp;сохраните числовой&nbsp;ID этого поля.
 
-![How to create a new field](/img/integrations/how-to-use-amocrm-data-in-campaigns/how-to-create-a-new-field.gif)
+![How to create a new field](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/how-to-create-a-new-field.gif)
 
 Этот ID&nbsp;&mdash; ключ к&nbsp;текущему полю Сделки. Он&nbsp;понадобится для персонализации и&nbsp;подстановки в&nbsp;шаблон письма данных о&nbsp;статусе Сделки&nbsp;&mdash; например, оплачена она или нет.
 
@@ -35,7 +35,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Для отправки поля в Sendsay перейдите в&nbsp;раздел **Настройки &rarr; Sendsay**. В&nbsp;выпадающем списке поля Сделки укажите созданное поле:
 
-![How to pass a field to Sendsay](/img/integrations/how-to-use-amocrm-data-in-campaigns/how-to-pass-a-field-to-Sendsay.png)
+![How to pass a field to Sendsay](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/how-to-pass-a-field-to-Sendsay.png)
 
 Нажмите &laquo;Сохранить&raquo;.
 
@@ -53,7 +53,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Добавьте такой триггер для каждого этапа Сделки, включая этап закрытия реализованной сделки:
 
-![Digital funnel](/img/integrations/how-to-use-amocrm-data-in-campaigns/digital-funnel.png)
+![Digital funnel](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/digital-funnel.png)
 
 ### 3. Настройте передачу данных Сделки в&nbsp;Sendsay при её&nbsp;переходе на&nbsp;новый этап
 
@@ -61,11 +61,11 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 В&nbsp;поле **Выполнить** выберите пункт **Сразу после перехода или создания в&nbsp;этапе** и&nbsp;нажмите &laquo;Готово&raquo;:
 
-![Sendsay trigger](/img/integrations/how-to-use-amocrm-data-in-campaigns/sendsay-trigger.gif)
+![Sendsay trigger](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/sendsay-trigger.gif)
 
 Создайте такой триггер для каждого этапа Сделки&nbsp;&mdash; так обновлённые данные отправятся в&nbsp;Sendsay сразу, как только Сделка перейдёт на&nbsp;новый этап. Благодаря этому в&nbsp;Sendsay всегда будет актуальная информация обо всех статусах Сделок ваших клиентов.
 
-![Sendsay trigger](/img/integrations/how-to-use-amocrm-data-in-campaigns/sendsay-trigger.png)
+![Sendsay trigger](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/sendsay-trigger.png)
 
 **Как это работает:** Cделка переходит на новый этап → обновляется значение поля Статус оплаты → срабатывает триггер Sendsay → данные контакта и Сделки с обновлённым полем отправляются в Sendsay.
 
@@ -73,7 +73,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 В&nbsp;amoCRM перейдите в&nbsp;раздел **Сделки** и&nbsp;выберите отображение списком, затем отфильтруйте нужные вам Сделки для импорта в&nbsp;Sendsay&nbsp;&mdash; чтобы наполнить базу подписчиками, с&nbsp;которыми вы&nbsp;хотите поддерживать общение.
 
-[Как импортировать данные Сделок](https://docs.sendsay.ru/integrations/integration-with-amocrm/#как-импортировать-данные-сделок)
+[Как импортировать данные Сделок](https://docs.sendsay.ru/email-campaigns/personalization/integration-with-amocrm/#как-импортировать-данные-сделок)
 
 ## Как сегментировать аудиторию на&nbsp;основе данных Сделок
 
@@ -81,10 +81,10 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Чтобы отправить такую рассылку, необходимо:
 
-1. [Настроить передачу статуса сделки в&nbsp;Sendsay](https://docs.sendsay.ru/integrations/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay),
+1. [Настроить передачу статуса сделки в&nbsp;Sendsay](https://docs.sendsay.ru/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay),
 2. Создать соответствующий сегмент, используя в&nbsp;условиях сегмента анкету **Данные из&nbsp;amoCRM**:
 
-   ![Segment setting](/img/integrations/how-to-use-amocrm-data-in-campaigns/segment-setting.gif)
+   ![Segment setting](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/segment-setting.gif)
 
    [Как создать сегмент](https://docs.sendsay.ru/subscribers/lists-and-segments/what-is-segment/#как-создать-сегмент)
 
@@ -97,7 +97,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 :::tip Важно
 В&nbsp;предустановленных сегментах уже есть поле **Статус**, но&nbsp;вам необходимо создать и&nbsp;подставить своё поле в&nbsp;условие.
 
-[Как создать поле](https://docs.sendsay.ru/integrations/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay)
+[Как создать поле](https://docs.sendsay.ru/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay)
 :::
 
 ### Сегмент с&nbsp;данными по&nbsp;давности Сделок
@@ -106,7 +106,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 В&nbsp;Sendsay есть шаблон сегмента **amoCRM. Нет изменений за&nbsp;2&nbsp;месяца, и&nbsp;есть хотя&nbsp;бы одна завершенная сделка**&nbsp;&mdash; в&nbsp;него войдут подписчики, у&nbsp;которых нет изменений ни&nbsp;по&nbsp;одной Сделке за&nbsp;последние 2&nbsp;месяца, но&nbsp;при этом есть хотя&nbsp;бы одна завершённая Сделка:
 
-![Segment conditions](/img/integrations/how-to-use-amocrm-data-in-campaigns/segment-conditions.png)
+![Segment conditions](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/segment-conditions.png)
 
 Как работает этот сегмент:
 
@@ -119,7 +119,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Готовый сегмент **amoCRM. Есть сделки с&nbsp;бюджетом более 50&nbsp;000** отбирает тех подписчиков, кто совершал хотя&nbsp;бы одну покупку с&nbsp;бюджетом больше 50&nbsp;000&nbsp;рублей:
 
-![Segment conditions](/img/integrations/how-to-use-amocrm-data-in-campaigns/segment-conditions1.png)
+![Segment conditions](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/segment-conditions1.png)
 
 Таким образом сегмент отфильтрует тех подписчиков, кто уже оплачивал за&nbsp;один заказ более 50&nbsp;000 рублей&nbsp;&mdash; по&nbsp;нему можно отправить массовую рассылку с&nbsp;предложением нового товара.
 
@@ -129,7 +129,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Для этого можно использовать сегмент **amoCRM. Есть сделки в&nbsp;статусе &laquo;Ожидается оплата&raquo;, обновленные менее месяца назад**:
 
-![Segment conditions](/img/integrations/how-to-use-amocrm-data-in-campaigns/segment-conditions2.png)
+![Segment conditions](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/segment-conditions2.png)
 
 Сюда попадут те&nbsp;подписчики, чьи данные Сделок соответствуют условиям:
 
@@ -149,7 +149,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Чтобы отобразить в&nbsp;письме нужные данные подписчика, вместо `idПОЛЯ` подставьте реальный id&nbsp;поля Контакта или Компании соответственно. Например, `updated_at`, `created_at` или `cf_ID` созданного вручную поля.
 
-О&nbsp;том, как создать поле и&nbsp;найти его&nbsp;ID, [читайте на&nbsp;примере поля **Статус**](https://docs.sendsay.ru/integrations/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay).
+О&nbsp;том, как создать поле и&nbsp;найти его&nbsp;ID, [читайте на&nbsp;примере поля **Статус**](https://docs.sendsay.ru/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay).
 
 Например, если поле **Адрес** в&nbsp;amoCRM имеет id `55555`, то&nbsp;чтобы подписчик увидел свой адрес в&nbsp;письме, пропишите такую команду PROScript:
 
@@ -161,14 +161,14 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Данные Сделок из&nbsp;amoCRM можно также использовать в&nbsp;рассылках&nbsp;&mdash; например, чтобы каждый клиент мог получить актуальный статус заказа. Для этого:
 
-1. [Настройте передачу статуса Сделки в&nbsp;Sendsay](https://docs.sendsay.ru/integrations/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay).
+1. [Настройте передачу статуса Сделки в&nbsp;Sendsay](https://docs.sendsay.ru/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay).
 2. Создайте нужный сегмент в&nbsp;Sendsay, используя в&nbsp;условиях поля анкеты **Данные из&nbsp;amoCRM**, либо используйте готовый сегмент **amoCRM. Есть обновления по&nbsp;незавершенным сделкам за&nbsp;последний день**.
 
-   ![Segment conditions](/img/integrations/how-to-use-amocrm-data-in-campaigns/segment-conditions3.png)
+   ![Segment conditions](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/segment-conditions3.png)
 
 3. Во&nbsp;вкладке **Настройка условий** нажмите на&nbsp;значок в&nbsp;виде закладки и&nbsp;укажите имя переменной. Например, `leads`.
 
-   ![Variable name](/img/integrations/how-to-use-amocrm-data-in-campaigns/variable-name.gif)
+   ![Variable name](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/variable-name.gif)
 
    В&nbsp;этой переменной будут храниться данные всех Сделок, подпадающих под условие этого сегмента. Например, в&nbsp;сегмент, отбирающий подписчиков с&nbsp;бюджетом Сделок от&nbsp;50&nbsp;000&nbsp;рублей, попадут только Сделки подписчика от&nbsp;50&nbsp;000&nbsp;рублей,&nbsp;&mdash; и&nbsp;никакие другие с&nbsp;меньшим бюджетом.
 
@@ -223,10 +223,10 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 Как это сделать:
 
-1. [Настройте передачу статуса Сделки в&nbsp;Sendsay](https://docs.sendsay.ru/integrations/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay).
+1. [Настройте передачу статуса Сделки в&nbsp;Sendsay](https://docs.sendsay.ru/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/#как-настроить-передачу-статуса-сделки-в-sendsay).
 
 2. Настройте передачу статуса Сделки в&nbsp;Sendsay.
-   Создайте сегмент в&nbsp;Sendsay, используя в&nbsp;условиях анкету Данные из&nbsp;amoCRM. Либо воспользуйтесь [шаблоном сегмента с&nbsp;данными текущих Сделок](https://docs.sendsay.ru/integrations/how-to-use-amocrm-data-in-campaigns/#сегмент-с-данными-текущих-сделок).<br/>
+   Создайте сегмент в&nbsp;Sendsay, используя в&nbsp;условиях анкету Данные из&nbsp;amoCRM. Либо воспользуйтесь [шаблоном сегмента с&nbsp;данными текущих Сделок](https://docs.sendsay.ru/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/#сегмент-с-данными-текущих-сделок).<br/>
 
 :::tip Важно
 При использовании предустановленного сегмента укажите в&nbsp;его условиях своё созданное поле, иначе сегмент не&nbsp;будет работать.
@@ -234,11 +234,11 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 3. Во&nbsp;вкладке **Настройка условий** нажмите на&nbsp;значок в&nbsp;виде закладки и&nbsp;укажите имя переменной — например, `leads`. Нажмите «Сохранить».
 
-   ![Variable name](/img/integrations/how-to-use-amocrm-data-in-campaigns/variable-name.png)
+   ![Variable name](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/variable-name.png)
 
 4. Перейдите в&nbsp;раздел **Автоматизации &rarr; По&nbsp;времени** и&nbsp;нажмите &laquo;Создать автоматизацию&raquo;, затем выберите тип **Автоматизация рассылки**.
 
-   ![Automation by time](/img/integrations/how-to-use-amocrm-data-in-campaigns/automation-by-time.gif)
+   ![Automation by time](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/automation-by-time.gif)
 
 5. На&nbsp;шаге **Аудитория** нажмите &laquo;Выбрать аудиторию&raquo; и&nbsp;выберите созданный ранее сегмент. Сохраните.
 
@@ -250,13 +250,13 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 7. Добавьте нужные данные полей для персонализации в&nbsp;письмо с&nbsp;помощью команд подстановки PROScript.
 
-   [Как персонализировать рассылки на основе данных Сделок](https://docs.sendsay.ru/integrations/how-to-use-amocrm-data-in-campaigns/#как-персонализировать-рассылку-на-основе-данных-сделок)
+   [Как персонализировать рассылки на основе данных Сделок](https://docs.sendsay.ru/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/#как-персонализировать-рассылку-на-основе-данных-сделок)
 
    Сохраните результат.
 
 8. На&nbsp;шаге **Расписание** выберите периодичность, с&nbsp;которой должна срабатывать автоматизация. Чтобы подписчики получали актуальную информацию в&nbsp;письме сразу после обновления поля Сделки, вы&nbsp;можете настроить периодичность вплоть до&nbsp;5&nbsp;минут.
 
-   ![Timetable](/img/integrations/how-to-use-amocrm-data-in-campaigns/timetable.png)
+   ![Timetable](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/timetable.png)
 
    [Как создать автоматическую рассылку по расписанию](https://docs.sendsay.ru/automations/automations-by-time/how-to-create-automation-by-time)
 
@@ -280,7 +280,7 @@ import howToSetTrigger from '/img/integrations/how-to-use-amocrm-data-in-campaig
 
 2. Нажмите &laquo;Редактировать&raquo; и&nbsp;создайте короткий сценарий из&nbsp;одного шага. В&nbsp;качестве [Стартового события](https://docs.sendsay.ru/automations/automation-with-workflows/workflow-blocks#стартовые-события) выберите **Без стартового события**, следующим шагом&nbsp;&mdash; действие **Отправить подписчику email**. В&nbsp;качестве шаблона выберите **amoCRM. Письмо с&nbsp;данными последней измененной сделки**, либо создайте новый шаблон.
 
-   ![Workflow](/img/integrations/how-to-use-amocrm-data-in-campaigns/workflow.png)
+   ![Workflow](/img/email-campaigns/personalization/how-to-use-amocrm-data-in-campaigns/workflow.png)
 
 3. При создании своего шаблона письма, добавьте в&nbsp;него нужные команды персонализации PROScript для подстановки данных Сделки в&nbsp;письмо&nbsp;&mdash; команды можно скопировать из&nbsp;готового шаблона **amoCRM. Письмо с&nbsp;данными последней измененной сделки**.
 
