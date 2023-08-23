@@ -2,6 +2,9 @@
 sidebar_position: 3
 ---
 
+import sendConfirmationEmail from '/img/automations/automation-with-workflows/workflow-blocks/send-confirmation-email.png';
+import emailDelivered from '/img/automations/automation-with-workflows/workflow-blocks/email-delivered.png';
+import withoutStartEvent from '/img/automations/automation-with-workflows/workflow-blocks/without-start-event.png';
 import startEvent from '/img/automations/automation-with-workflows/workflow-blocks/start-event.png';
 import startEvent1 from '/img/automations/automation-with-workflows/workflow-blocks/start-event1.png';
 import subscriberOpenedEmail from '/img/automations/automation-with-workflows/workflow-blocks/subscriber-opened-the-email.png';
@@ -66,7 +69,9 @@ import Video from '@site/src/components/Video';
 
 Какие бывают Стартовые события:
 
+- Без стартового события,
 - Подписчик открыл email,
+- Email доставлен,
 - Изменение данных подписчика,
 - Клик по&nbsp;ссылке,
 - Подтверждение подписки,
@@ -86,7 +91,13 @@ import Video from '@site/src/components/Video';
 
 ### Виды Событий в сценариях
 
-**Подписчик открыл email** ([описание в API](https://sendsay.ru/api/api.html#Чтения-письма))&nbsp;&mdash; подписчик открыл письмо, отправленное по&nbsp;любому или указанному шаблону.
+**Без стартового события** ([описание в API](https://sendsay.ru/api/api.html#Никогда)) — подписчик станет участником сценария, если его туда добавят принудительно. Например, с помощью [блока Сценария **Перейти в другой сценарий**](https://docs.sendsay.ru/automations/automation-with-workflows/workflow-blocks#варианты-выхода-из-сценария) или через **Управление участниками**:
+
+<p align="center">
+  <img width="50%" src={withoutStartEvent} alt="Without start event" />
+</p>
+
+**Подписчик открыл email** ([описание в API](https://sendsay.ru/api/api.html#Чтения-письма))&nbsp;&mdash; подписчик открыл транзакционное письмо, отправленное по&nbsp;любому или указанному шаблону.
 
 <p align="center">
   <img width="50%" src={subscriberOpenedEmail} alt="Subscriber opened the email" />
@@ -94,11 +105,21 @@ import Video from '@site/src/components/Video';
 
 Здесь есть две группы шаблонов: можно указать, что сценарий будет реагировать на&nbsp;открытие письма, отправленного в&nbsp;текущем сценарии; либо на&nbsp; открытие письма, отправленного в&nbsp;другом автоматическом сценарии. При выборе шаблона вы&nbsp;увидите его превью.
 
+С помощью этого События можно отслеживать открытие указанного письма в&nbsp;других сценариях&nbsp;— для этого проставьте галочку в&nbsp;чекбоксе.
+
 :::tip Важно
 Если Событие **Подписчик открыл email** указано Стартовым, в&nbsp;качестве шаблона можно выбрать только письмо, отправленное в другом сценарии.
 :::
 
-С помощью этого События можно отслеживать открытия указанного письма в&nbsp;других сценариях&nbsp;— для этого проставьте галочку в&nbsp;чекбоксе.
+**Email доставлен** — сработает, когда любое или выбранное письмо будет успешно доставлено.
+
+<p align="center">
+  <img width="50%" src={emailDelivered} alt="Email delivered" />
+</p>
+
+:::tip Важно
+Событие **Email доставлен** учитывается только для транзакционных писем, отправленных вне сценария. Чтобы Событие сработало, необходимо проставить галочку у пункта **После доставки запускать событие «Email доставлен» для сценариев** в дополнительных настройках при отправке выпуска.
+:::
 
 **Изменение данных** ([описание в API](https://sendsay.ru/api/api.html#Изменение-данных))&nbsp;&mdash; Событие сработает, когда изменятся данные подписчика. Здесь есть три варианта:
 
@@ -251,6 +272,7 @@ import Video from '@site/src/components/Video';
 Какие бывают Действия:
 
 - Отправить подписчику email,
+- Отправить email подтверждения,
 - Добавить в&nbsp;список,
 - Изменить данные подписчика,
 - Исключить из&nbsp;списка,
@@ -275,6 +297,14 @@ import Video from '@site/src/components/Video';
 :::tip Важно
 В&nbsp;шаблоне должны быть заполнены поля **Адрес отправителя** и&nbsp;**Тема письма**, иначе письмо не&nbsp;отправится.
 :::
+
+**Отправить email подтверждения** — система отправит участнику сценария выбранное письмо подтверждения. В шаблоне должна быть указана специальная ссылка, при клике на которую пользователь подтвердит свою подписку на рассылку.
+
+<p align="center">
+  <img width="50%" src={sendConfirmationEmail} alt="Send confirmation email" />
+</p>
+
+[Активация через письмо подтверждения](https://docs.sendsay.ru/subscribers/contacts/how-to-activate-inactive-contacts/#активация-через-письмо-подтверждения)
 
 **Добавить в&nbsp;список** ([описание в API](https://sendsay.ru/api/api.html#Внести-в-группу-список))&nbsp;&mdash; подписчик будет добавлен в&nbsp;указанный список, если его там ещё нет.
 
