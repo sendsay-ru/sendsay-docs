@@ -330,10 +330,21 @@ import howToSetTrigger from '/img/email-campaigns/personalization/how-to-use-amo
 
    Также можно персонализировать тему письма, чтобы получатели сразу понимали его суть. В&nbsp;предустановленном шаблоне уже указана персонализация темы в&nbsp;зависимости от&nbsp;статуса Сделки:
 
-   `[% anketa.base.firstName %]` — имя подписчика.
+   ```
+   [% anketa.base.firstName %]
+   ```
+
+   — имя подписчика.
 
    ```
-   [% lead = "" %][% max_updated_at = '1970-01-01 00:00:00' %][% FOREACH n in anketa.amoCRM.leads.values() %][% IF (format_datetime_duration(n.updated_at,max_updated_at,"format",['']) > 0) %][% lead = n %][% max_updated_at = n.updated_at %][% END %][% END %]
+   [% lead = "" %]
+   [% max_updated_at = '1970-01-01 00:00:00' %]
+   [% FOREACH n in anketa.amoCRM.leads.values() %]
+   [% IF (format_datetime_duration(n.updated_at,max_updated_at,"format",['']) > 0) %]
+   [% lead = n %]
+   [% max_updated_at = n.updated_at %]
+   [% END %]
+   [% END %]
    ```
 
    — тот же код, который указан в шаблоне. Далее поле Статус будет использоваться в теме. **Не забудьте изменить ID поля Статус.**
