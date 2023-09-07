@@ -32,6 +32,6 @@ One SMS can consist of several messages if you exceed the following character li
 
 - up to 70 characters for one message in Russian
 - up to 160 characters for one message in English
-:::
+  :::
 
 It takes some time to enable the feature. We activate SMS campaigns on the first day of the month. To make sure your SMS campaign will be available next month, sign the contract and send us the necessary information for the sender name registration by the 15th day of the current month.
