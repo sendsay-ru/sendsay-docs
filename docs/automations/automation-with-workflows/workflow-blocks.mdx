@@ -10,6 +10,7 @@ import startEvent1 from '/img/automations/automation-with-workflows/workflow-blo
 import subscriberOpenedEmail from '/img/automations/automation-with-workflows/workflow-blocks/subscriber-opened-the-email.png';
 import changeSubscriberData from '/img/automations/automation-with-workflows/workflow-blocks/change-of-subscriber-data.png';
 import clickOnLink from '/img/automations/automation-with-workflows/workflow-blocks/click-on-the-link.png';
+import additionalSettings from '/img/automations/automation-with-workflows/workflow-blocks/additional-settings.png';
 import subscriptionConfirmation from '/img/automations/automation-with-workflows/workflow-blocks/subscription-confirmation.png';
 import subscriberAddedUnconfirmed from '/img/automations/automation-with-workflows/workflow-blocks/subscriber-added-unconfirmed.png';
 import subscriberAddedConfirmed from '/img/automations/automation-with-workflows/workflow-blocks/subscriber-added-confirmed.png';
@@ -33,7 +34,7 @@ import sendWebPush from '/img/automations/automation-with-workflows/workflow-blo
 import split from '/img/automations/automation-with-workflows/workflow-blocks/separation.png';
 import listSplit from '/img/automations/automation-with-workflows/workflow-blocks/list-split.png';
 import dataSplit from '/img/automations/automation-with-workflows/workflow-blocks/data-split.png';
-import ABTest from '/img/automations/automation-with-workflows/workflow-blocks/ AB-test.png';
+import ABTest from '/img/automations/automation-with-workflows/workflow-blocks/AB-test.png';
 import percentageSplit from '/img/automations/automation-with-workflows/workflow-blocks/percentage-split.png';
 import timers from '/img/automations/automation-with-workflows/workflow-blocks/timers.png';
 import passedTime from '/img/automations/automation-with-workflows/workflow-blocks/passed-time.png';
@@ -112,15 +113,17 @@ import Video from '@site/src/components/Video';
 Если Событие **Подписчик открыл email** указано Стартовым, в&nbsp;качестве шаблона можно выбрать только письмо, отправленное в другом сценарии.
 :::
 
-**Email доставлен** — сработает, когда любое или выбранное письмо будет успешно доставлено.
+**Email доставлен** — сработает, когда письмо, отправленное по указанному шаблону, будет успешно доставлено.
 
 <p align="center">
   <img width="50%" src={emailDelivered} alt="Email delivered" />
 </p>
 
-:::tip Важно
-Событие **Email доставлен** учитывается только для транзакционных писем. Чтобы Событие сработало, необходимо проставить галочку у пункта **После доставки запускать событие «Email доставлен» для сценариев** в дополнительных настройках при отправке выпуска.
-:::
+Чтобы Событие сработало, необходимо проставить галочку у пункта **После доставки запускать событие «Email доставлен» для сценариев** в дополнительных настройках шаблона:
+
+<p align="center">
+  <img width="80%" src={additionalSettings} alt="Additional settings" />
+</p>
 
 **Изменение данных** ([описание в API](https://sendsay.ru/api/api.html#Изменение-данных))&nbsp;&mdash; Событие сработает, когда изменятся данные подписчика. Здесь есть три варианта:
 
@@ -299,11 +302,13 @@ import Video from '@site/src/components/Video';
 В&nbsp;шаблоне должны быть заполнены поля **Адрес отправителя** и&nbsp;**Тема письма**, иначе письмо не&nbsp;отправится.
 :::
 
-**Отправить email подтверждения** — система отправит участнику сценария выбранное письмо подтверждения. В шаблоне должна быть указана специальная ссылка, при клике на которую пользователь подтвердит свою подписку на рассылку.
+**Отправить email подтверждения** ([описание в API](https://sendsay.ru/api/api.html#Выслать-письмо-подтверждения)) — система отправит участнику сценария в статусе «Неподтверждённый» выбранное письмо подтверждения. Если подтверждение не требуется, шаг будет игнорирован.
 
 <p align="center">
   <img width="50%" src={sendConfirmationEmail} alt="Send confirmation email" />
 </p>
+
+В шаблоне письма должна быть указана специальная ссылка, при клике на которую пользователь подтвердит свою подписку на рассылку.
 
 [Активация через письмо подтверждения](https://docs.sendsay.ru/subscribers/contacts/how-to-activate-inactive-contacts/#активация-через-письмо-подтверждения)
 
