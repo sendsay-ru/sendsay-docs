@@ -33,6 +33,7 @@ import sendWebPush from '/img/automations/automation-with-workflows/workflow-blo
 import split from '/img/automations/automation-with-workflows/workflow-blocks/separation.png';
 import listSplit from '/img/automations/automation-with-workflows/workflow-blocks/list-split.png';
 import dataSplit from '/img/automations/automation-with-workflows/workflow-blocks/data-split.png';
+import ABTest from '/img/automations/automation-with-workflows/workflow-blocks/ AB-test.png';
 import percentageSplit from '/img/automations/automation-with-workflows/workflow-blocks/percentage-split.png';
 import timers from '/img/automations/automation-with-workflows/workflow-blocks/timers.png';
 import passedTime from '/img/automations/automation-with-workflows/workflow-blocks/passed-time.png';
@@ -455,7 +456,8 @@ import Video from '@site/src/components/Video';
 
 - Наличие подписчика в&nbsp;списке,
 - Совпадение данных подписчика,
-- Процентное разделение.
+- Процентное разделение,
+  – A/B тест.
 
 <p align="center">
   <img width="50%" src={split} alt="Split" />
@@ -499,6 +501,16 @@ import Video from '@site/src/components/Video';
 Такой блок может понадобиться, например, если необходимо проверить какую-то гипотезу на небольшой части аудитории:
 
 ![Separation](/img/automations/automation-with-workflows/workflow-blocks/separation-95-5.png)
+
+**A/B тест** — позволяет разделить участников сценария на равные группы и отправить каждую на свою ветку — с помощью этого блока можно создать от 2 до 5 веток.
+
+<p align="center">
+  <img width="50%" src={ABTest} alt="A/B-test" />
+</p>
+
+Например, с помощью этого блока можно отправить разным группам одно и тоже письмо, но с разной темой. Результаты такого тестирования помогут лучше понимать, какие маркетинговые кампании работают эффективнее.
+
+[Подробнее про A/B-тестирование](https://docs.sendsay.ru/email-campaigns/create-your-campaign/a-b-testing)
 
 ## Сценарий
 
