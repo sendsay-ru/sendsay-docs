@@ -1,0 +1,76 @@
+---
+sidebar_position: 4
+sidebar_label: 'Отправка через Stream API'
+---
+
+import login from '/img/sendsay-api/how-to-send-campaign-with-stream-api/login.png';
+
+# Быстрый старт отправки рассылок через Stream API
+
+Специализированное потоковое [Stream API](https://sendsay.ru/api/apistream.html) позволяет отправлять массовые рассылки, передавая по одному письму в одном API-запросе.
+
+:::tip Важно
+Отправляя массовые и&nbsp;транзакционные письма через Stream API важно учитывать, что выпуски массовых рассылок могут помешать отправке транзакционных. Чтобы этого избежать, обратитесь в&nbsp;техподдержку.
+:::
+
+Как отправить рассылку через Stream API:
+
+1. В&nbsp;меню аккаунта перейдите в&nbsp;раздел [**Настройки системы &rarr; Отправители**](https://app.sendsay.ru/account/senders) и&nbsp;добавьте имя и&nbsp;адрес отправителя писем.
+
+   [Как добавить и подтвердить отправителя писем](https://docs.sendsay.ru/getting-started/how-to-migrate-to-sendsay/#8-добавьте-иподтвердите-отправителя-писем)
+
+2. Напишите в&nbsp;техподдержку, чтобы вам открыли доступ на&nbsp;отправку запросов через Stream API.
+
+3. Протестируйте отправку запроса извне&nbsp;&mdash; например, через [Postman](https://www.postman.com/). Для этого вам потребуется уникальный API-ключ.
+
+   [Как получить API-ключ](https://docs.sendsay.ru/sendsay-api/how-to-get-apikey/)
+
+   Перейдите в [Postman](https://www.postman.com/) и авторизуйтесь, либо зарегистрируйте новый аккаунт. Откройте раздел **My&nbsp;Workspace**, нажмите &laquo;New&raquo; и&nbsp;выберите **HTTP**&nbsp;&mdash; чтобы создать новый HTTP-запрос:
+
+   ![Postman](/img/sendsay-api/how-to-send-campaign-with-stream-api/postman.gif)
+
+4. В&nbsp;параметрах запроса выберите метод **POST**. Затем выберите вкладку `body` и&nbsp;укажите `raw`, в&nbsp;раскрывающемся меню выберите `JSON`:
+
+   ![Postman](/img/sendsay-api/how-to-send-campaign-with-stream-api/postman1.gif)
+
+5. В&nbsp;поле **URL** вставьте `https://trapi.sendsay.ru/tranz/api/v2/ВАШ ЛОГИН/json/issue.send/personal`. Вместо `ВАШ ЛОГИН` необходимо добавить ваш логин&nbsp;&mdash; его можно скопировать в&nbsp;меню аккаунта:
+
+<p align="center">
+  <img width="40%" src={login} alt="Login" />
+</p>
+
+6. В&nbsp;поле ниже вставьте запрос:
+
+   ```js
+   {
+       "apikey" : "ВАШ API КЛЮЧ",
+       "action": "issue.send",
+       "letter": {
+           "message": {
+               "text": "Текст тестового письма"
+           },
+           "subject": "Заголовок тестового письма",
+           "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
+       },
+       "group": "personal",
+       "email": "EMAIL-АДРЕС ПОЛУЧАТЕЛЯ",
+       "sendwhen": "now"
+   }
+   ```
+
+   где `ВАШ API КЛЮЧ` &mdash; API-ключ, который был сгенерирован в&nbsp;п.3.; `EMAIL-АДРЕС ОТПРАВИТЕЛЯ` &mdash; адрес отправителя, который вы&nbsp;добавили в&nbsp;п.1; `EMAIL-АДРЕС ПОЛУЧАТЕЛЯ` &mdash; ваш email-адрес, на&nbsp;который отправится тестовое письмо.
+
+   ![Postman](/img/sendsay-api/how-to-send-campaign-with-stream-api/postman2.png)
+
+   Затем нажмите &laquo;Send&raquo;.
+
+   После отправки запроса должен прийти похожий ответ:
+
+   ![Request response](/img/sendsay-api/how-to-send-campaign-with-stream-api/request-response.png)
+
+   Это значит, что запрос выполнился успешно, и письмо отправлено.
+
+Статистика по выпускам, отправленным через потоковое API, доступна в разделе [**Статистика**](https://app.sendsay.ru/reports/campaigns) в Sendsay. Также её можно получить методом `stat.uni` обычного [Sendsay API](https://sendsay.ru/api/api.html).
+
+**Читайте также:**<br/>
+[Базовые представления о получении статистики через stat.uni](https://docs.sendsay.ru/sendsay-api/basic-stat-uni/#базовые-представления-о-получении-статистики-через-statuni)
