@@ -11,9 +11,9 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
 ## Транзакционные рассылки
 
-### Отправка в интерфейсе Sendsay
+### Отправка через API-консоль в Sendsay
 
-Чтобы отправить транзакционную рассылку через Sendsay API:
+Чтобы отправить транзакционную рассылку с помощью API в интерфейсе Sendsay:
 
 1. В&nbsp;меню аккаунта перейдите в&nbsp;раздел [**Настройки системы &rarr; Отправители**](https://app.sendsay.ru/account/senders) и&nbsp;добавьте имя и&nbsp;адрес отправителя писем.
 
