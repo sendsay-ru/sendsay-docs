@@ -7,11 +7,13 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
 # Как отправить рассылку через Sendsay API
 
-[Sendsay API](https://sendsay.ru/api/api.html) позволяет отправлять массовые и транзакционные рассылrb, смотреть статистику и&nbsp;многое другое&nbsp;&mdash; с&nbsp;его помощью можно настроить автоматизированный доступ ко&nbsp;всем функциям Sendsay.
+[Sendsay API](https://sendsay.ru/api/api.html) позволяет отправлять массовые и транзакционные рассылки, смотреть статистику и&nbsp;многое другое&nbsp;&mdash; с&nbsp;его помощью можно задать автоматизированные настройки ко&nbsp;всем функциям Sendsay.
 
-## Транзакционные рассылки через Sendsay API
+## Транзакционные рассылки
 
-Чтобы отправить транзакционную рассылку через API:
+### Отправка в интерфейсе Sendsay
+
+Чтобы отправить транзакционную рассылку через Sendsay API:
 
 1. В&nbsp;меню аккаунта перейдите в&nbsp;раздел [**Настройки системы &rarr; Отправители**](https://app.sendsay.ru/account/senders) и&nbsp;добавьте имя и&nbsp;адрес отправителя писем.
 
@@ -30,9 +32,9 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
        "action": "issue.send",
        "letter": {
            "message": {
-               "text": "Текст тестового письма"
+               "html" : "html-версия письма"
            },
-           "subject": "Заголовок тестового письма",
+           "subject": "Тема письма",
            "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
        },
        "group": "personal",
@@ -43,38 +45,40 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
    где `EMAIL-АДРЕС ОТПРАВИТЕЛЯ` &mdash; email-адрес, который вы&nbsp;добавили в&nbsp;качестве отправителя, а `EMAIL-АДРЕС ПОЛУЧАТЕЛЯ` &mdash; ваш email-адрес, на&nbsp;который уйдёт тестовое письмо.
 
-   Нажмите &laquo;Выполнить&raquo;. После этого на&nbsp;email-адрес получателя должно прийти письмо, а&nbsp;в&nbsp;разделе [**Статистика &rarr; Транзакционные рассылки**](https://app.sendsay.ru/reports/transactional) появится данные об&nbsp;успешной отправке:
+   Нажмите &laquo;Выполнить&raquo;. После этого на&nbsp;email-адрес получателя отправится письмо, а&nbsp;в&nbsp;разделе [**Статистика &rarr; Транзакционные рассылки**](https://app.sendsay.ru/reports/transactional) появятся данные об&nbsp;успешной отправке:
 
    ![Statistics](/img/sendsay-api/how-to-send-campaign-with-api/statistics.png)
 
-4. Протестируйте отправку запроса извне&nbsp;&mdash; например, через Postman. Для этого вам потребуется уникальный API-ключ.
+### Отправка через Postman
 
-   [Как получить API-ключ](https://docs.sendsay.ru/sendsay-api/how-to-get-apikey)
+Протестируйте отправку запроса извне&nbsp;&mdash; например, через [Postman](https://www.postman.com/). Для этого вам потребуется уникальный API-ключ.
 
-5. Перейдите в&nbsp;[Postman](https://www.postman.com/) и&nbsp;авторизуйтесь, либо зарегистрируйте новый аккаунт. В&nbsp;разделе **My&nbsp;Workspace** нажмите &laquo;New&raquo; и&nbsp;выберите **HTTP**&nbsp;&mdash; чтобы создать новый HTTP-запрос:
+[Как получить API-ключ](https://docs.sendsay.ru/sendsay-api/how-to-get-apikey)
+
+1. Перейдите в&nbsp;[Postman](https://www.postman.com/) и&nbsp;авторизуйтесь, либо зарегистрируйте новый аккаунт. В&nbsp;разделе **My&nbsp;Workspace** нажмите &laquo;New&raquo; и&nbsp;выберите **HTTP**&nbsp;&mdash; чтобы создать новый HTTP-запрос:
 
    ![Postman](/img/sendsay-api/how-to-send-campaign-with-api/postman.gif)
 
-6. В&nbsp;параметрах запроса выберите метод `POST`. Затем во вкладке **body** укажите `raw`, а в&nbsp;раскрывающемся меню выберите `JSON`:
+2. В&nbsp;параметрах запроса выберите метод `POST`. Затем во вкладке **body** укажите `raw`, а в&nbsp;раскрывающемся меню выберите `JSON`:
 
    ![Postman](/img/sendsay-api/how-to-send-campaign-with-api/postman1.gif)
 
-7. В&nbsp;поле URL вставьте `https://api.sendsay.ru/general/api/v100/json/Ваш_логин_Sendsay`. Вместо `Ваш_логин_Sendsay` необходимо добавить ваш логин, его можно скопировать в&nbsp;меню аккаунта:
+3. В&nbsp;поле URL вставьте `https://api.sendsay.ru/general/api/v100/json/Ваш_логин_Sendsay`. Вместо `Ваш_логин_Sendsay` необходимо добавить ваш логин, его можно скопировать в&nbsp;меню аккаунта:
 
 <p align="center">
   <img width="50%" src={login} alt="Login" />
 </p>
 
-8. В&nbsp;поле ниже вставьте запрос:
+4. В&nbsp;поле ниже вставьте запрос:
 
    ```js
    {
    "action": "issue.send",
    "letter": {
        "message": {
-           "text": "Текст тестового письма"
+           "html" : "html-версия письма"
        },
-       "subject": "Заголовок тестового письма",
+       "subject": "Тема письма",
        "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
    },
    "group": "personal",
@@ -86,10 +90,6 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
    где `EMAIL-АДРЕС ОТПРАВИТЕЛЯ` &mdash; адрес отправителя, который вы&nbsp;добавили в&nbsp;п.1; `EMAIL-АДРЕС ПОЛУЧАТЕЛЯ` &mdash; ваш email-адрес, на&nbsp;который отправится тестовое письмо; `ВАШ API КЛЮЧ` &mdash; API-ключ, который был сгенерирован в&nbsp;п.4.
 
-   Запись получится примерно такой:
-
-   ![Postman](/img/sendsay-api/how-to-send-campaign-with-api/postman2.png)
-
    Затем нажмите &laquo;Send&raquo;.
 
    После отправки запроса должен прийти похожий ответ:
@@ -100,7 +100,7 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
 ## Массовые рассылки через Sendsay API
 
-Данные для выпуска можно передавать как в&nbsp;API-запросе, так и&nbsp;использовать заранее подготовленные черновик и&nbsp;группу получателей. В&nbsp;первом случае используйте обычный массовый выпуск, во&nbsp;втором&nbsp;&mdash; экспресс-выпуск.
+Данные для выпуска можно передавать как в&nbsp;API-запросе, так и&nbsp;использовать заранее подготовленные шаблон выпуска и&nbsp;список или сегмент получателей. В&nbsp;первом случае используйте обычный массовый выпуск, во&nbsp;втором&nbsp;&mdash; экспресс-выпуск.
 
 ### Обычный массовый выпуск
 
@@ -118,13 +118,17 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 }
 ```
 
-где `GROUPID` &mdash; ID&nbsp;группы получателей, а `DRAFTID` &mdash; ID&nbsp;черновика.
+где `GROUPID` &mdash; ID&nbsp;списка или сегмента получателей, а `DRAFTID` &mdash; ID&nbsp;шаблона выпуска.
 
 ### Экспресс-выпуск
 
 Если нужно передать список участников в&nbsp;запросе, используйте экспресс-выпуск.
 
-Содержимое письма можно взять из&nbsp;готового черновика, а&nbsp;вот список получателей нужно подготовить в&nbsp;CSV или JSON в&nbsp;соответствии [с&nbsp;документацией](https://sendsay.ru/api/api.html#Форматы-данных-для-импортирования-и-Экспресс-выпуска).
+Содержимое письма можно взять из&nbsp;шаблона выпуска, а&nbsp;вот список или мегмент получателей нужно подготовить в&nbsp;CSV или JSON в&nbsp;соответствии [с&nbsp;документацией](https://sendsay.ru/api/api.html#Форматы-данных-для-импортирования-и-Экспресс-выпуска).
+
+:::tip Важно
+Адреса, по которым вы хотите отправить рассылку, должны находиться в базе и быть доступными для рассылок.
+:::
 
 В&nbsp;API-консоли введите запрос:
 
@@ -140,4 +144,4 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 }
 ```
 
-где `DRAFTID` — ID черновика, `member.email;data.name\nask@sendsay.ru;Андрей` — адреса и данные получателей, непосредственно в JSON или СSV.
+где `DRAFTID` — ID шаблона выпуска, `member.email;data.name\nask@sendsay.ru;Андрей` — адреса и данные получателей, непосредственно в JSON или СSV.
