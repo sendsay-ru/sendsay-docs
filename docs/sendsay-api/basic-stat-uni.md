@@ -9,6 +9,8 @@ import login from '/img/sendsay-api/basic-stat-uni/login.png';
 
 [Sendsay API](https://sendsay.ru/api/api.html) позволяет получить статистику о результатах доставки отправленных выпусков. Это реализуется через [возвращаемые значения](https://sendsay.ru/api/api.html#Возвращаемое-значение).
 
+## Отправка через API-консоль в Sendsay
+
 Для тестирования воспользуемся сервисом Webhook.site:
 
 1. Перейдите на&nbsp;[Webhook.site](https://webhook.site/) и&nbsp;скопируйте URL для возвращаемых значений:
@@ -42,25 +44,27 @@ import login from '/img/sendsay-api/basic-stat-uni/login.png';
 
    Нажмите на&nbsp;ссылку &laquo;Download&raquo;, чтобы скачать JSON-архив с&nbsp;данными статистики.
 
-4. Протестируйте отправку запроса через Postman. Для этого вам потребуется уникальный API-ключ.
+## Отправка через Postman
 
-   [Как получить API-ключ](https://docs.sendsay.ru/sendsay-api/how-to-get-apikey)
+Протестируйте отправку запроса через [Postman](https://www.postman.com/). Для этого вам потребуется уникальный API-ключ.
 
-   Переходите в&nbsp;[Postman](https://www.postman.com/) и&nbsp;авторизуйтесь, либо зарегистрируйте новый аккаунт. Затем перейдите в&nbsp;раздел **My&nbsp;Workspace**, нажмите &laquo;New&raquo; и&nbsp;выберите **HTTP**&nbsp;&mdash; чтобы создать новый HTTP-запрос.
+[Как получить API-ключ](https://docs.sendsay.ru/sendsay-api/how-to-get-apikey)
+
+1. Переходите в&nbsp;[Postman](https://www.postman.com/) и&nbsp;авторизуйтесь, либо зарегистрируйте новый аккаунт. Затем перейдите в&nbsp;раздел **My&nbsp;Workspace**, нажмите &laquo;New&raquo; и&nbsp;выберите **HTTP**&nbsp;&mdash; чтобы создать новый HTTP-запрос.
 
    ![Postman](/img/sendsay-api/basic-stat-uni/postman.gif)
 
-5. В&nbsp;параметрах запроса выберите метод POST. Затем выберите вкладку `body` и&nbsp;укажите `raw`, в&nbsp;раскрывающемся меню выберите `JSON`.
+2. В&nbsp;параметрах запроса выберите метод POST. Затем выберите вкладку **body** и&nbsp;укажите `raw`, в&nbsp;раскрывающемся меню выберите `JSON`.
 
    ![Postman](/img/sendsay-api/basic-stat-uni/postman1.gif)
 
-6. В&nbsp;поле URL вставьте `https://api.sendsay.ru/general/api/v100/json/Ваш_логин_Sendsay`. Вместо `Ваш_логин_Sendsay` необходимо добавить ваш логин, его можно скопировать в&nbsp;меню аккаунта:
+3. В&nbsp;поле URL вставьте `https://api.sendsay.ru/general/api/v100/json/Ваш_логин_Sendsay`. Вместо `Ваш_логин_Sendsay` необходимо добавить ваш логин, его можно скопировать в&nbsp;меню аккаунта:
 
 <p align="center">
   <img width="40%" src={login} alt="Login" />
 </p>
 
-7. В&nbsp;поле ниже вставьте запрос:
+4. В&nbsp;поле ниже вставьте запрос:
 
    ```js
    {
