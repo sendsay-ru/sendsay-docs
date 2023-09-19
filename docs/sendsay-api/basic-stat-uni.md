@@ -18,8 +18,8 @@ import login from '/img/sendsay-api/basic-stat-uni/login.png';
    ![Unique url](/img/sendsay-api/basic-stat-uni/unique-url.png)
 
 2. В&nbsp;Sendsay перейдите в&nbsp;раздел [**API &rarr; API-консоль**](https://app.sendsay.ru/api/console) и&nbsp;вставьте запрос:
-  <!-- prettier-ignore -->
-   ```js
+   <!-- prettier-ignore -->
+    ```js
    {
        "action": "stat.uni",
        "select": [
@@ -65,8 +65,8 @@ import login from '/img/sendsay-api/basic-stat-uni/login.png';
 </p>
 
 4. В&nbsp;поле ниже вставьте запрос:
-  <!-- prettier-ignore -->
-   ```js
+   <!-- prettier-ignore -->
+    ```js
    {
        "apikey": "ВАШ API КЛЮЧ",
        "action": "stat.uni",
