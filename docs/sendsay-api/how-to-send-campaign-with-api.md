@@ -27,6 +27,7 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
    Чтобы протестировать отправку писем, введите запрос:
 
+   <!-- prettier-ignore -->
    ```js
    {
        "action": "issue.send",
@@ -71,20 +72,21 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
 4. В&nbsp;поле ниже вставьте запрос:
 
+   <!-- prettier-ignore -->
    ```js
    {
-   "action": "issue.send",
-   "letter": {
-       "message": {
-           "html" : "html-версия письма"
-       },
-       "subject": "Тема письма",
-       "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
-   },
-   "group": "personal",
-   "email": "EMAIL-АДРЕС ПОЛУЧАТЕЛЯ",
-   "sendwhen": "now",
-   "apikey": "ВАШ API КЛЮЧ"
+      "action": "issue.send",
+      "letter": {
+          "message": {
+              "html" : "html-версия письма"
+          },
+          "subject": "Тема письма",
+          "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
+      },
+      "group": "personal",
+      "email": "EMAIL-АДРЕС ПОЛУЧАТЕЛЯ",
+      "sendwhen": "now",
+      "apikey": "ВАШ API КЛЮЧ"
    }
    ```
 
