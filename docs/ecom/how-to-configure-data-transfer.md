@@ -139,12 +139,45 @@ Ssec-события всегда передаются в Sendsay как масс
 
 <!-- prettier-ignore -->
 ```js
+<script type="text/javascript">
 (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {
   sndsyApi.ssecEvent(<event_type>, <[ items_array ]>, { email: 'name@domain.ru' });
 });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+</script>
 ```
 
 Также вы можете вызывать функцию `sndsyApi.ssecEvent()` в нужный вам момент из любого места вашего JS-кода.
+
+#### Изменение анкетных данных контакта через JS-функции добавления событий
+
+Одновременно с передачей любых событий можно добавлять, изменять, удалять анкетные данные контакта, для которого вы передаете событие.
+
+<!-- prettier-ignore -->
+```js
+(window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
+  sndsyApi.ssecEvent(
+    'REGISTRATION',    
+    { email: 'АДРЕС КЛИЕНТА'
+      extra: { // любые данные которые будут включены в корень запроса
+        dk: [["base.name","set","Andrey"]] // анкетные данные
+        }
+     } 
+  );
+});
+typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+```
+
+*Формат параметра dk:*
+<!-- prettier-ignore -->
+```js
+[
+  [ "base.name", "set", "Vladimir"],
+  [ "client_data.pets", "push", [{"pet_type":"dog","age":1}]],
+  [ "client_data", "merge", {"type":"GOLD","orders_count":55,"prefered_item":"shopping bag"}]
+]
+```
+Полное описание возможностей работы с данными и режимов можно найти в [документации АПИ](https://sendsay.ru/api/api.html#C%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9A%D0%94).
+
 
 ### Добавление данных через Sendsay API
 
