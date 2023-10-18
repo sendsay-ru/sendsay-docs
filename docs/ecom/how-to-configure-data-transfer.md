@@ -167,7 +167,8 @@ Ssec-события всегда передаются в Sendsay как масс
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```
 
-*Формат параметра dk:*
+_Формат параметра dk:_
+
 <!-- prettier-ignore -->
 ```js
 [
@@ -176,8 +177,8 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
   [ "client_data", "merge", {"type":"GOLD","orders_count":55,"prefered_item":"shopping bag"}]
 ]
 ```
-Полное описание возможностей работы с данными и режимов можно найти в [документации АПИ](https://sendsay.ru/api/api.html#C%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9A%D0%94).
 
+Полное описание возможностей работы с данными и режимов можно найти в [документации АПИ](https://sendsay.ru/api/api.html#C%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9A%D0%94).
 
 ### Добавление данных через Sendsay API
 
