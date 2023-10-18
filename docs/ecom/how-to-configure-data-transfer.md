@@ -140,9 +140,9 @@ Ssec-события всегда передаются в Sendsay как масс
 <!-- prettier-ignore -->
 ```js
 <script type="text/javascript">
-(window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {
-  sndsyApi.ssecEvent(<event_type>, <[ items_array ]>, { email: 'name@domain.ru' });
-});typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
+  (window["sndsyApiOnReady"] = window["sndsyApiOnReady"] || []).push(function() {
+    sndsyApi.ssecEvent(<event_type>, <[ items_array ]>, { email: 'name@domain.ru' });
+  });typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 </script>
 ```
 
@@ -156,12 +156,13 @@ Ssec-события всегда передаются в Sendsay как масс
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent(
-    'REGISTRATION',    
-    { email: 'АДРЕС КЛИЕНТА'
+    'REGISTRATION',
+    {
+      email: 'АДРЕС КЛИЕНТА',
       extra: { // любые данные которые будут включены в корень запроса
         dk: [["base.name","set","Andrey"]] // анкетные данные
-        }
-     } 
+      }
+    }
   );
 });
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
@@ -289,7 +290,7 @@ curl --location --request GET 'https://ssec.sendsay.ru/general/ssec/v100/json/AC
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent(
-    'REGISTRATION',    
+    'REGISTRATION',
     { email: 'АДРЕС КЛИЕНТА' } //обязательно
   );
 });
@@ -302,7 +303,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
 ```js
 (window['sndsyApiOnReady'] = window['sndsyApiOnReady'] || []).push(function () {
   sndsyApi.ssecEvent(
-    'AUTHORIZATION',    
+    'AUTHORIZATION',
     { email: 'АДРЕС КЛИЕНТА' } //обязательно
   );
 });
@@ -355,7 +356,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "category_paths": []
       }
     ],
-    { email: 'АДРЕС КЛИЕНТА' } //необязательно, при отсутствии email будет распознаваться нашим скриптом  
+    { email: 'АДРЕС КЛИЕНТА' } //необязательно, при отсутствии email будет распознаваться нашим скриптом
   );
 });
 typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
@@ -425,7 +426,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "transaction_sum": 100.9, //желательно
         "update_per_item": 1|0 //необязательно (по умолчанию 0)
         "items": [ //обязательно
-          {           
+          {
             "id": "product1", //обязательно
             "qnt": 2, //обязательно
             "price": 5.88, //обязательно
@@ -499,7 +500,7 @@ typeof sndsyApi != 'undefined' && sndsyApi.runQueue();
         "delivery_dt": "2022-07-25 23:25:13", //необязательно
         "update": 1 | 0, //необязательно
         "items": [  //обязательно при update != 1
-          {           
+          {
             "id": "product1", //обязательно
             "qnt": 2, //обязательно
             "price": 5.88, //обязательно
