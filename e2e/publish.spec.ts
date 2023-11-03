@@ -5,11 +5,11 @@ test('Publish', async ({ page }) => {
 
   const { PUBLISH_LOGIN, PUBLISH_PASSWORD } = process.env;
 
-  await page.locator("[name='credential_0']").fill(PUBLISH_LOGIN);
-  await page.locator("[name='credential_1']").fill(PUBLISH_PASSWORD);
+  await page.fill("[name='credential_0']", PUBLISH_LOGIN);
+  await page.fill("[name='credential_1']", PUBLISH_PASSWORD);
 
   await page.getByRole('button').click();
 
-  await page.waitForTimeout(3000);
-  await page.screenshot({ path: 'playwright-report/result.png' });
+  await page.waitForSelector('text=Wait 180 secs and check');
+  await page.screenshot({ path: 'playwright-artifacts/result.png' });
 });

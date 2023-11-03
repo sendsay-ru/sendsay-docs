@@ -108,5 +108,6 @@ dist
 .tern-port
 /test-results/
 /playwright-report/
+/playwright-artifacts/
 /blob-report/
 /playwright/.cache/
