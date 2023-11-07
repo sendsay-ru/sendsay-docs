@@ -7,6 +7,7 @@
     "clear": "docusaurus clear",
     "deploy": "./bin/deploy.sh",
     "docusaurus": "docusaurus",
+    "e2e": "yarn playwright test",
     "eslint": "eslint src/ ",
     "eslint:fix": "yarn eslint --fix",
     "fix": "node scripts/translate && yarn lint:fix",
