@@ -61,7 +61,7 @@ jobs:
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Publish with playwright
         env:
           PUBLISH_LOGIN: ${{ secrets.PUBLISH_LOGIN }}
           PUBLISH_PASSWORD: ${{ secrets.PUBLISH_PASSWORD }}
