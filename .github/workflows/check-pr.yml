@@ -53,7 +53,7 @@ jobs:
       - name: Run Playwright tests
         env:
           BASE_URL: ${{ steps.url.outputs.link }}
-        run: yarn playwright test
+        run: yarn e2e
 
       - uses: actions/upload-artifact@v3
         if: always()
