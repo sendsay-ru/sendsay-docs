@@ -65,6 +65,7 @@ jobs:
         env:
           PUBLISH_LOGIN: ${{ secrets.PUBLISH_LOGIN }}
           PUBLISH_PASSWORD: ${{ secrets.PUBLISH_PASSWORD }}
+          PUBLISH: true
         run: yarn playwright test
 
       - uses: actions/upload-artifact@v3
