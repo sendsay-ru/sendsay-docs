@@ -7,39 +7,36 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-stream-api/login.p
 
 # Быстрый старт отправки рассылок через Stream API
 
-Специализированное потоковое [Stream API](https://sendsay.ru/api/apistream.html) позволяет отправлять массовые рассылки, передавая по одному письму в одном API-запросе.
+[Stream API](https://sendsay.ru/api/apistream.html) — это специализированное API, которое позволяет отправлять массовые рассылки, передавая по одному письму в одном API-запросе. Таким образом выпуски отправляются постепенно по мере поступления запросов — параллельно этому письма уходят получателям с максимально возможной для аккаунта скоростью.
 
-:::tip Важно
-Отправляя массовые и&nbsp;транзакционные письма через Stream API важно учитывать, что выпуски массовых рассылок могут помешать отправке транзакционных. Чтобы этого избежать, обратитесь в&nbsp;техподдержку.
-:::
+Отправку рассылок через потоковое API используют в случаях, когда проще реализовать отправку заданий по одному письму, чем создавать реестр с получателями и отправлять задание на [экспресс-выпуск](https://docs.sendsay.ru/sendsay-api/how-to-send-campaign-with-api/#экспресс-выпуск).
 
-Как отправить рассылку через Stream API:
+Чтобы начать работу со Stream API, необходимо:
 
-1. В&nbsp;меню аккаунта перейдите в&nbsp;раздел [**Настройки системы &rarr; Отправители**](https://app.sendsay.ru/account/senders) и&nbsp;добавьте имя и&nbsp;адрес отправителя писем.
+- [Добавить отправителя писем](https://docs.sendsay.ru/getting-started/how-to-migrate-to-sendsay/#8-добавьте-иподтвердите-отправителя-писем),<br/>
+- Написать в техподдержку, чтобы вам открыли доступ на отправку запросов через Stream API.
 
-   [Как добавить и подтвердить отправителя писем](https://docs.sendsay.ru/getting-started/how-to-migrate-to-sendsay/#8-добавьте-иподтвердите-отправителя-писем)
+## Отправка через Postman
 
-2. Напишите в&nbsp;техподдержку, чтобы вам открыли доступ на&nbsp;отправку запросов через Stream API.
+Протестируйте отправку запроса извне — например, через [Postman](https://www.postman.com/). Для этого вам потребуется уникальный API-ключ.
 
-3. Протестируйте отправку запроса извне&nbsp;&mdash; например, через [Postman](https://www.postman.com/). Для этого вам потребуется уникальный API-ключ.
+[Как получить API-ключ](https://docs.sendsay.ru/sendsay-api/how-to-get-apikey)
 
-   [Как получить API-ключ](https://docs.sendsay.ru/sendsay-api/how-to-get-apikey/)
-
-   Перейдите в [Postman](https://www.postman.com/) и авторизуйтесь, либо зарегистрируйте новый аккаунт. Откройте раздел **My&nbsp;Workspace**, нажмите &laquo;New&raquo; и&nbsp;выберите **HTTP**&nbsp;&mdash; чтобы создать новый HTTP-запрос:
+1. Перейдите в [Postman](https://www.postman.com/) и авторизуйтесь, либо зарегистрируйте новый аккаунт. Откройте раздел **My&nbsp;Workspace**, нажмите &laquo;New&raquo; и&nbsp;выберите **HTTP**&nbsp;&mdash; чтобы создать новый HTTP-запрос:
 
    ![Postman](/img/sendsay-api/how-to-send-campaign-with-stream-api/postman.gif)
 
-4. В&nbsp;параметрах запроса выберите метод **POST**. Затем выберите вкладку `body` и&nbsp;укажите `raw`, в&nbsp;раскрывающемся меню выберите `JSON`:
+2. В&nbsp;параметрах запроса выберите метод **POST**. Затем выберите вкладку `body` и&nbsp;укажите `raw`, в&nbsp;раскрывающемся меню выберите `JSON`:
 
    ![Postman](/img/sendsay-api/how-to-send-campaign-with-stream-api/postman1.gif)
 
-5. В&nbsp;поле **URL** вставьте `https://trapi.sendsay.ru/tranz/api/v2/ВАШ ЛОГИН/json/issue.send/personal`. Вместо `ВАШ ЛОГИН` необходимо добавить ваш логин&nbsp;&mdash; его можно скопировать в&nbsp;меню аккаунта:
+3. В&nbsp;поле **URL** вставьте `https://trapi.sendsay.ru/tranz/api/v2/ВАШ ЛОГИН/json/issue.send/personal`. Вместо `ВАШ ЛОГИН` необходимо добавить ваш логин&nbsp;&mdash; его можно скопировать в&nbsp;меню аккаунта:
 
 <p align="center">
   <img width="40%" src={login} alt="Login" />
 </p>
 
-6. В&nbsp;поле ниже вставьте запрос:
+4. В&nbsp;поле ниже вставьте запрос:
 
    ```js
    {
@@ -53,8 +50,7 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-stream-api/login.p
            "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
        },
        "group": "personal",
-       "email": "EMAIL-АДРЕС ПОЛУЧАТЕЛЯ",
-       "sendwhen": "now"
+       "email": "EMAIL-АДРЕС ПОЛУЧАТЕЛЯ"
    }
    ```
 
