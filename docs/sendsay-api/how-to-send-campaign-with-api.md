@@ -13,7 +13,11 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
 ### Отправка через API-консоль в Sendsay
 
-Чтобы отправить транзакционную рассылку с помощью API в интерфейсе Sendsay:
+В целях безопасности мы просим всех пользователей Sendsay подтвердить номер телефона, к&nbsp;которому привязан аккаунт. В&nbsp;меню аккаунта перейдите в&nbsp;раздел [**Настройки системы → Настройки аккаунта**](https://app.sendsay.ru/account/settings) и&nbsp;убедитесь, что в&nbsp;вашем аккаунте номер подтверждён.
+
+Также перед отправкой рассылок через Sendsay API ваш аккаунт должен пройти первую [модерацию](https://docs.sendsay.ru/faq/moderation).
+
+Для отправки транзакционной рассылки через Sendsay API:
 
 1. В&nbsp;меню аккаунта перейдите в&nbsp;раздел [**Настройки системы &rarr; Отправители**](https://app.sendsay.ru/account/senders) и&nbsp;добавьте имя и&nbsp;адрес отправителя писем.
 
@@ -33,7 +37,9 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
        "action": "issue.send",
        "letter": {
            "message": {
-               "html" : "html-версия письма"
+               "html" : "html-версия письма",
+               "amp" : "amp-версия письма",
+               "text" : "текстовая версия письма"
            },
            "subject": "Тема письма",
            "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
@@ -78,7 +84,9 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
       "action": "issue.send",
       "letter": {
           "message": {
-              "html" : "html-версия письма"
+              "html" : "html-версия письма",
+              "amp" : "amp-версия письма",
+              "text" : "текстовая версия письма"
           },
           "subject": "Тема письма",
           "from.email": "EMAIL-АДРЕС ОТПРАВИТЕЛЯ"
@@ -102,7 +110,7 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 
 ## Массовые рассылки через Sendsay API
 
-Данные для выпуска можно передавать как в&nbsp;API-запросе, так и&nbsp;использовать заранее подготовленные шаблон выпуска и&nbsp;список или сегмент получателей. В&nbsp;первом случае используйте обычный массовый выпуск, во&nbsp;втором&nbsp;&mdash; экспресс-выпуск.
+Данные для выпуска можно передавать как в&nbsp;API-запросе, так и&nbsp;использовать заранее подготовленные шаблон выпуска и&nbsp;список или сегмент получателей. В&nbsp;первом случае будет использоваться обычный массовый выпуск, во&nbsp;втором&nbsp;&mdash; экспресс-выпуск.
 
 ### Обычный массовый выпуск
 
@@ -146,4 +154,4 @@ import login from '/img/sendsay-api/how-to-send-campaign-with-api/login.png';
 }
 ```
 
-где `DRAFTID` — ID шаблона выпуска, `member.email;data.name\nask@sendsay.ru;Андрей` — адреса и данные получателей, непосредственно в JSON или СSV.
+где `DRAFTID` — ID шаблона выпуска, `member.email;data.name` — описание данных, которые пойдут дальше, `\n` — символ перевода строки, `ask@sendsay.ru;Андрей` — адреса и данные получателей, непосредственно в JSON или СSV.
