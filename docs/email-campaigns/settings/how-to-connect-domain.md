@@ -88,11 +88,11 @@ Email-аутентификация позволяет как минимум ве
 
    ```js
    {
-   "action" : "issue.dkim.create",
-   "obj" : {
-      "domain" : "mail.ваш_домен.ru" ,
-      "keysize" : 2048 ,
-      "return_fresh_obj": "1"
+      "action" : "issue.dkim.create",
+      "obj" : {
+         "domain" : "mail.ваш_домен.ru" ,
+         "keysize" : 2048 ,
+         "return_fresh_obj": "1"
       }
    }
    ```
