@@ -1,16 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import type { Config } from '@docusaurus/types';
+import type { Options, ThemeConfig } from '@docusaurus/preset-classic';
+import lightCodeTheme from 'prism-react-renderer/themes/github';
+import darkCodeTheme from 'prism-react-renderer/themes/dracula';
 
 const plugins = require('./plugins');
 const googleVerificationCode = process.env.GOOGLE_VERIFICATION_CODE;
 const yandexVerificationCode = process.env.YANDEX_VERIFICATION_CODE;
 const noIndex = process.env.NO_PAGE_INDEXING === 'true';
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'База знаний Sendsay',
   tagline: 'Советы и ответы от команды Sendsay',
   url: 'https://docs.sendsay.ru',
@@ -32,7 +30,6 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
           routeBasePath: '/',
@@ -46,7 +43,7 @@ const config = {
         sitemap: {
           ignorePatterns: require('./config/sitemapIgnorePatterns'),
         },
-      },
+      } satisfies Options,
     ],
   ],
 
@@ -160,7 +157,7 @@ const config = {
           content: yandexVerificationCode,
         },
       ],
-    },
+    } satisfies ThemeConfig,
 };
 
 module.exports = config;
