@@ -2,8 +2,8 @@ import type { Config } from '@docusaurus/types';
 import type { Options, ThemeConfig } from '@docusaurus/preset-classic';
 import lightCodeTheme from 'prism-react-renderer/themes/github';
 import darkCodeTheme from 'prism-react-renderer/themes/dracula';
+import plugins from './plugins';
 
-const plugins = require('./plugins');
 const googleVerificationCode = process.env.GOOGLE_VERIFICATION_CODE;
 const yandexVerificationCode = process.env.YANDEX_VERIFICATION_CODE;
 const noIndex = process.env.NO_PAGE_INDEXING === 'true';
