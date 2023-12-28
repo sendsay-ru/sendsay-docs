@@ -1,7 +1,6 @@
 import type { Config } from '@docusaurus/types';
 import type { Options, ThemeConfig } from '@docusaurus/preset-classic';
-import lightCodeTheme from 'prism-react-renderer/themes/github';
-import darkCodeTheme from 'prism-react-renderer/themes/dracula';
+import { themes } from 'prism-react-renderer'
 import plugins from './plugins';
 
 const googleVerificationCode = process.env.GOOGLE_VERIFICATION_CODE;
@@ -48,7 +47,6 @@ const config: Config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
       navbar: {
         logo: {
@@ -134,8 +132,8 @@ const config: Config = {
         copyright: `Copyright © ${new Date().getFullYear()} Sendsay.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: themes.github,
+        darkTheme: themes.dracula,
       },
       colorMode: {
         disableSwitch: true,
