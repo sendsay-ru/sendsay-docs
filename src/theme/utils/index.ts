@@ -7,3 +7,4 @@ export {
 } from './routeAccessUtils';
 export { ResctrictedAccessStorage } from './ResctrictedAccessStorage';
 export { getAllowedCardItems } from './getAllowedCardItems';
+export { modifyHTMLElement } from './modifyHTMLElement';
