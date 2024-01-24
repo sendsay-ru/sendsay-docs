@@ -240,11 +240,29 @@
   "search.placeholder.pending": {
     "message": "Loading..."
   },
+  "search.placeholder.readyMac": {
+    "message": "Search ⌘+K"
+  },
+  "search.placeholder.readyWindows": {
+    "message": "Search Ctrl+K"
+  },
   "search.result.not.found": {
     "message": "No results found for query <b>\"{{query}}\"</b>"
   },
   "theme.docs.DocCard.categoryDescription": {
     "message": "{count} items",
     "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "feedback.question": {
+    "message": "Have you find the answer?"
+  },
+  "feedback.thanks.widget": {
+    "message": "Thank you for your feedback!"
+  },
+  "feedback.btn.positive": {
+    "message": "Yes"
+  },
+  "feedback.btn.negative": {
+    "message": "No"
   }
 }
