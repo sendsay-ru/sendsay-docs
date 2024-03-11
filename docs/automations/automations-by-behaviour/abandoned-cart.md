@@ -3,29 +3,31 @@ sidebar_position: 1
 sidebar_label: 'Брошенная корзина'
 ---
 
-import abandonedCart from "/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart.png";
-import legacyInterface from "/img/automations/automations-by-behaviour/abandoned-cart/legacy-interface.png";
-import howToAddYml from "/img/automations/automations-by-behaviour/abandoned-cart/how-to-add-yml.png";
-import ymlUpdate from "/img/automations/automations-by-behaviour/abandoned-cart/yml-update.png";
-import abandonedCartTemplate from "/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-template.png";
-import step1 from "/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-step-1.png";
-import step2 from "/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-step-2.png";
-import step3 from "/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-step-3.png";
-import dataUpdate from "/img/automations/automations-by-behaviour/abandoned-cart/data-update.png";
-import abandonedCartSegment from "/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-segment.png";
+import abandonedCart from '/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart.png';
+import legacyInterface from '/img/automations/automations-by-behaviour/abandoned-cart/legacy-interface.png';
+import howToAddYml from '/img/automations/automations-by-behaviour/abandoned-cart/how-to-add-yml.png';
+import ymlUpdate from '/img/automations/automations-by-behaviour/abandoned-cart/yml-update.png';
+import abandonedCartTemplate from '/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-template.png';
+import step1 from '/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-step-1.png';
+import step2 from '/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-step-2.png';
+import step3 from '/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-step-3.png';
+import dataUpdate from '/img/automations/automations-by-behaviour/abandoned-cart/data-update.png';
+import abandonedCartSegment from '/img/automations/automations-by-behaviour/abandoned-cart/abandoned-cart-segment.png';
 
 # Как настроить автоматизацию «Брошенная корзина»
 
 :::tip Важно
+
 Подключение автоматизации приостановлено, ранее настроенные автоматизации продолжают работать. Сценарий Брошенная корзина вы можете настроить в новом модуле Sendsay Продажи.
 
 [Модуль «Sendsay Продажи»: что это и как подключить](https://docs.sendsay.ru/ecom/how-to-connect-ecom)
+
 :::
 
 Брошенная корзина — это автоматизация, которая отслеживает у посетителей сайта оставленные в корзине товары и отправляет письма с напоминаниями о них. Это увеличивает конверсию, так как письма уходят уже заинтересованным в покупке подписчикам, и вы отправляете им именно те товары, которые им нужны.
 
 <p align="center">
-    <img src={abandonedCart} alt="Abandoned cart" />
+  <img src={abandonedCart} alt="Abandoned cart" />
 </p>
 
 Важно отметить, что брошенная корзина будет работать только для тех подписчиков, чью активность мы можем отследить на сайте. Это возможно в двух случаях:
@@ -36,7 +38,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 Подключить «Брошенную корзину» можно только [в предыдущей версии интерфейса Sendsay](https://sendsay.ru/account/). В неё можно перейти и в самом аккаунте — для этого нажмите на свой адрес (справа от журнала заданий) и в меню выберите пункт «Предыдущий интерфейс»:
 
 <p align="center">
-    <img src={legacyInterface} alt="Legacy interface" />
+  <img src={legacyInterface} alt="Legacy interface" />
 </p>
 
 Подключение брошенной корзины проходит в шесть шагов:
@@ -89,7 +91,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 В разделе **Конверсии → Брошенная корзина** вставьте в поле ссылку на yml-файл и нажмите «Создать сущности для брошенной корзины».
 
 <p align="center">
-    <img src={howToAddYml} alt="How to add YML" />
+  <img src={howToAddYml} alt="How to add YML" />
 </p>
 
 ### Создайте автоматизацию для обновления списка товаров
@@ -103,7 +105,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 5. Дождитесь загрузки данных — данные будут обновляться три раза в сутки (по умолчанию в 7:00, 15:00 и 23:00 по московскому времени).
 
 <p align="center">
-    <img src={ymlUpdate} alt="YML update" />
+  <img src={ymlUpdate} alt="YML update" />
 </p>
 
 ## 2. Настройте шаблон письма и при надобности отредактируйте автоматизацию
@@ -115,7 +117,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 Это шаблон с кодом, который добавляет в письмо таблицу с брошенными товарами (по умолчанию выводятся три товара). Вы можете отредактировать внешний вид письма, а также отредактировать количество товаров, изменив число в параметре count:
 
 <p align="center">
-    <img src={abandonedCartTemplate} alt="Abandoned cart template" />
+  <img src={abandonedCartTemplate} alt="Abandoned cart template" />
 </p>
 
 Вот исходный код для шаблона:
@@ -159,13 +161,13 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 **Первый шаг.** Он нужен, чтобы на последовательность не могли попасть случайные подписчики — только из автоматизации «Запуск/Остановка».
 
 <p align="center">
-    <img src={step1} alt="Step 1" />
+  <img src={step1} alt="Step 1" />
 </p>
 
 **Второй шаг.** Когда подписчик попал на последовательность, мы ждём час, чтобы посетитель сайта мог завершить заказ (вы можете задать больший или меньший интервал времени).
 
 <p align="center">
-    <img src={step2} alt="Step 2" />
+  <img src={step2} alt="Step 2" />
 </p>
 
 **Третий шаг.** Происходит проверка данных:
@@ -174,7 +176,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 - если корзина пуста, через 10 минут последовательность останавливается.
 
 <p align="center">
-    <img src={step3} alt="Step 3" />
+  <img src={step3} alt="Step 3" />
 </p>
 
 Остальные шаги нужны в случае, если подписчик проигнорирует письмо, а в корзине по-прежнему что-то лежит. По умолчанию в сценарии есть одно дополнительное письмо, которое отправляется через один день, но вы можете настроить любое количество.
@@ -184,14 +186,14 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 Чтобы идентифицировать товары, которые нужно выводить в письме, на каждую страницу с товаром нужно добавить специальный скрипт, который находится в разделе **Конверсии → Брошенная корзина** (например, если у вас в разделе товаров 20 наименований, скрипт надо добавить на все 20 страниц). Скопируйте его и добавьте в html-код перед закрывающим тегом `</body>` (на виде страницы это не отразится).
 
 <p align="center">
-    <img src={dataUpdate} alt="Data update" />
+  <img src={dataUpdate} alt="Data update" />
 </p>
 
 Также попросите программистов написать javascript-функции, чтобы сайт передавал нам данные о товарах в корзине пользователя.
 
 1. Функция для обновления данных в корзине, чтобы получать актуальные товары:
-<!-- prettier-ignore -->
 
+<!-- prettier-ignore -->
 ```js
 (function () {
   if (typeof sndsyApi != 'undefined') {
@@ -204,9 +206,9 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 })();
 ```
 
-2. Функция для обнуления корзины, который останавливает последовательность при покупке товаров:
-<!-- prettier-ignore -->
+1. Функция для обнуления корзины, который останавливает последовательность при покупке товаров:
 
+<!-- prettier-ignore -->
 ```js
 (function () {
   if (typeof window.sndsyApi == 'object') {
@@ -215,9 +217,9 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 })();
 ```
 
-3. Дополнительная функция для передачи электронных адресов со списком просмотренных товаров у подписчиков. Запрос позволяет передать информацию о подписчиках, чью активность на сайте вы можете отследить, а мы — нет (например, если подписчик не перешёл по ссылке из письма, но авторизовался в личном кабинете).
-<!-- prettier-ignore -->
+1. Дополнительная функция для передачи электронных адресов со списком просмотренных товаров у подписчиков. Запрос позволяет передать информацию о подписчиках, чью активность на сайте вы можете отследить, а мы — нет (например, если подписчик не перешёл по ссылке из письма, но авторизовался в личном кабинете).
 
+<!-- prettier-ignore -->
 ```js
 (function () {
   if (typeof sndsyApi != 'undefined') {
@@ -245,7 +247,7 @@ import abandonedCartSegment from "/img/automations/automations-by-behaviour/aban
 4. Скопируйте id сегмента — он отображается рядом с названием группы.
 
 <p align="center">
-    <img src={abandonedCartSegment} alt="Abandoned cart segment" />
+  <img src={abandonedCartSegment} alt="Abandoned cart segment" />
 </p>
 
 ### 2. Задайте условия сегмента
