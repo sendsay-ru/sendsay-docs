@@ -2,14 +2,14 @@
 sidebar_position: 6
 ---
 
-import graph from "/img/email-campaigns/personalization//how-to-add-graph/graph.png";
+import graph from '/img/email-campaigns/personalization//how-to-add-graph/graph.png';
 
 # Как вставить график в письмо
 
 График генерируется на основе данных подписчика и представляет собой одну или несколько ломаных линий на координатной плоскости. Для примера рассмотрим график, который показывает динамику расходов по разным категориям:
 
 <p align="center">
-    <img src={graph} alt="Graph" />
+  <img src={graph} alt="Graph" />
 </p>
 
 График создаётся в три этапа:
@@ -29,17 +29,24 @@ import graph from "/img/email-campaigns/personalization//how-to-add-graph/graph.
 
 **Запись по строкам (формат bygraph)**
 
-![Bygraph format](/img/email-campaigns/personalization//how-to-add-graph/bygraph-format.png) <br/>
+![Bygraph format](/img/email-campaigns/personalization//how-to-add-graph/bygraph-format.png)
+
+<br />
 
 **Запись по столбцам (формат bypoint)**
 
-![Bypoint format](/img/email-campaigns/personalization//how-to-add-graph/bypoint-format.png) <br/>
+![Bypoint format](/img/email-campaigns/personalization//how-to-add-graph/bypoint-format.png)
+
+<br />
 
 Запомните, какой формат вы выбрали (bygraph или bypoint), — его нужно будет указать при добавлении графика в письмо. У всех получателей графика координаты должны быть записаны в одном формате. На внешний вид графика формат не влияет — дело только в удобстве.
+
 :::tip Важно
+
 Так как запись занимает несколько строк, данные в поле анкеты нужно загружать только через API. При импорте через интерфейс значения соберутся в одну строку, и при создании графика возникнет ошибка.
 
 [Как импортировать данные через API](https://sendsay.ru/api/api.html#C%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B0-%D0%9A%D0%94)
+
 :::
 
 Если у конкретного получателя недостаточно данных, график будет отрисован из того, что есть. Если у подписчика данных совсем нет, то письмо ему отправится без графика.
@@ -50,7 +57,9 @@ import graph from "/img/email-campaigns/personalization//how-to-add-graph/graph.
 
 Для наглядности значения каждой линии выделены тем же цветом, что и сама линия на графике.
 
-![HTML code for graph](/img/email-campaigns/personalization//how-to-add-graph/html-code-for-graph.png) <br/>
+![HTML code for graph](/img/email-campaigns/personalization//how-to-add-graph/html-code-for-graph.png)
+
+<br />
 
 Код для копирования:
 
