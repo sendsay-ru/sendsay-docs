@@ -6,6 +6,8 @@ jobs:
   autofix:
     runs-on: ubuntu-latest
 
+    if: ${{ github.repository != 'sendsay-ru/sendsay-docs' }}
+
     env:
       FORCE_COLOR: 1
 
