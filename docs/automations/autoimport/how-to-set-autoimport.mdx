@@ -14,23 +14,28 @@ import fileToPrivateStorage from '/img/automations/autoimport/how-to-set-autoimp
 
 ## 1. Создайте автоматизацию по времени
 
+:::tip
+
+dfsdfsdf
+
+:::
+
 <Tabs>
-<TabItem value="key1" label="В новом интерфейсе" default>
+  <TabItem value="key1" label="В новом интерфейсе" default>
+    Перейдите в раздел **Автоматизации → По времени** и нажмите «Создать автоматизацию». Появится окно с выбором типа автоматизации — выберите «Автоматизация импорта».
 
-Перейдите в раздел **Автоматизации → По времени** и нажмите «Создать автоматизацию». Появится окно с выбором типа автоматизации — выберите «Автоматизация импорта».
+    ![How to create automation by time in the new interface](/img/automations/autoimport/how-to-set-autoimport/how-to-create-automation-by-time-in-the-new-interface.gif)
 
-![How to create automation by time in the new interface](/img/automations/autoimport/how-to-set-autoimport/how-to-create-automation-by-time-in-the-new-interface.gif)
+  </TabItem>
 
-</TabItem>
-<TabItem value="key2" label="В предыдущем интерфейсе">
+  <TabItem value="key2" label="В предыдущем интерфейсе">
+    Откройте раздел **Система → Действия по расписанию**. В выпадающем меню вместо «Выпуск по расписанию» выберите пункт «Импорт по расписанию» и нажмите «Создать».
 
-Откройте раздел **Система → Действия по расписанию**. В выпадающем меню вместо «Выпуск по расписанию» выберите пункт «Импорт по расписанию» и нажмите «Создать».
+    ![How to create automation by time in the legacy interface](/img/automations/autoimport/how-to-set-autoimport/how-to-create-automation-by-time-in-the-legacy-interface.gif)
 
-![How to create automation by time in the legacy interface](/img/automations/autoimport/how-to-set-autoimport/how-to-create-automation-by-time-in-the-legacy-interface.gif)
+    Настройки импорта мы рассмотрим на примере нового интерфейса, но в предыдущем всё настраивается аналогично.
 
-Настройки импорта мы рассмотрим на примере нового интерфейса, но в предыдущем всё настраивается аналогично.
-
-</TabItem>
+  </TabItem>
 </Tabs>
 
 ## 2. Настройте параметры импорта
@@ -40,13 +45,16 @@ import fileToPrivateStorage from '/img/automations/autoimport/how-to-set-autoimp
 1. Вставьте ссылку на файл с данными — это может быть:
 
    - ссылка в формате http / https / ftp / ftps / sftp,
-   - ссылка на защищённый файл в формате ftp://логин:пароль@ftp.путь.ru/директория,
-   - ссылка на файл в приватном хранилище Sendsay в формате rfs://upload/путь-до-файла.
+   - ссылка на защищённый файл в формате ftp\://логин:пароль@ftp.путь.ru/директория,
+   - ссылка на файл в приватном хранилище Sendsay в формате rfs\://upload/путь-до-файла.
 
-   **Система не принимает Google-файлы**. Чтобы загрузить файл в приватное хранилище, нажмите «Выбрать файл», а затем «Загрузить» в появившемся окне: <br/>
+   **Система не принимает Google-файлы**. Чтобы загрузить файл в приватное хранилище, нажмите «Выбрать файл», а затем «Загрузить» в появившемся окне: <br />
 
    <p align="center">
-     <img src={fileToPrivateStorage} alt="How to upload file to private storage" />
+     <img
+       src={fileToPrivateStorage}
+       alt="How to upload file to private storage"
+     />
    </p>
 
    [Как подготовить файл для импорта](https://docs.sendsay.ru/subscribers/import-and-export/how-to-prepare-file-for-import)
@@ -62,6 +70,8 @@ import fileToPrivateStorage from '/img/automations/autoimport/how-to-set-autoimp
 - сообщать об ошибке в отчёте по импорту (в базе останутся старые адреса).
 
 ### Дополнительные параметры
+
+![](/img/logo_adaptive.png)
 
 #### Добавлять подписчиков неподтверждёнными
 
