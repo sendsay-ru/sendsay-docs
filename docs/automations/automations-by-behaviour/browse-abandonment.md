@@ -3,25 +3,27 @@ sidebar_position: 2
 sidebar_label: 'Брошенный просмотр'
 ---
 
-import browseAbandonment from "/img/automations/automations-by-behaviour/browse-abandonment/browse-abandonment.png";
-import legacyInterface from "/img/automations/automations-by-behaviour/browse-abandonment/legacy-interface.png";
-import howToAddYml from "/img/automations/automations-by-behaviour/browse-abandonment/how-to-add-yml.png";
-import ymlUpdate from "/img/automations/automations-by-behaviour/browse-abandonment/yml-update.png";
-import templateRestrictions from "/img/automations/automations-by-behaviour/browse-abandonment/add-restrictions-to-the-template.png";
-import segmentId from "/img/automations/automations-by-behaviour/browse-abandonment/segment-id.png";
+import browseAbandonment from '/img/automations/automations-by-behaviour/browse-abandonment/browse-abandonment.png';
+import legacyInterface from '/img/automations/automations-by-behaviour/browse-abandonment/legacy-interface.png';
+import howToAddYml from '/img/automations/automations-by-behaviour/browse-abandonment/how-to-add-yml.png';
+import ymlUpdate from '/img/automations/automations-by-behaviour/browse-abandonment/yml-update.png';
+import templateRestrictions from '/img/automations/automations-by-behaviour/browse-abandonment/add-restrictions-to-the-template.png';
+import segmentId from '/img/automations/automations-by-behaviour/browse-abandonment/segment-id.png';
 
 # Как настроить автоматизацию «Брошенный просмотр»
 
 :::tip Важно
+
 Подключение автоматизации приостановлено, ранее настроенные автоматизации продолжают работать. Сценарий Брошенный просмотр вы можете настроить в новом модуле Sendsay Продажи.
 
 [Модуль «Sendsay Продажи»: что это и как подключить](https://docs.sendsay.ru/ecom/how-to-connect-ecom)
+
 :::
 
 Брошенный просмотр — это автоматизация, которая предлагает посетителям сайта купить что-нибудь из просмотренных товаров, если их так и не добавили в корзину. Это увеличивает конверсию, так как вы отправляете именно те товары, которые уже возможно заинтересовали подписчиков.
 
 <p align="center">
-    <img src={browseAbandonment} alt="Browse abandonment" />
+  <img src={browseAbandonment} alt="Browse abandonment" />
 </p>
 
 Важно отметить, что брошенный просмотр будет работать только для тех подписчиков, чью активность мы можем отследить на сайте. Это возможно в двух случаях:
@@ -34,7 +36,9 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 ## 1. Загрузите каталог товаров в Sendsay
 
 :::tip Важно
+
 Если в аккаунте уже настроены автоматизации «Брошенная корзина» или «Товарные рекомендации», этот шаг можно пропустить
+
 :::
 
 ### Подготовьте файл со списком товаров
@@ -80,10 +84,10 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 Чтобы подписчики не получали устаревшие предложения, данные о товарах в Sendsay должны периодически обновляться. Это можно сделать с помощью автоматического импорта, который настраивается [в предыдущей версии интерфейса Sendsay](https://sendsay.ru/account/). В неё можно перейти и в самом аккаунте — для этого нажмите на свой адрес (справа от журнала заданий) и в меню выберите пункт «Предыдущий интерфейс»:
 
 <p align="center">
-    <img src={legacyInterface} alt="Legacy interface" />
+  <img src={legacyInterface} alt="Legacy interface" />
 </p>
 
-[В предыдущем интерфейсе](https://sendsay.ru/account/#dashboard) нужно создать действие по расписанию:
+В предыдущем интерфейсе нужно создать действие по расписанию:
 
 1. Откройте раздел **Система → Действия по расписанию**.
 2. В выпадающем меню вместо «Выпуск по расписанию» выберите пункт «Импорт из YML» и нажмите «Создать».
@@ -92,19 +96,21 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 5. Дождитесь загрузки данных — данные будут обновляться три раза в сутки (по умолчанию в 7:00, 15:00 и 23:00 по московскому времени).
 
 <p align="center">
-    <img src={howToAddYml} alt="How to add YML" />
+  <img src={howToAddYml} alt="How to add YML" />
 </p>
 
 ## 2. Настройте передачу данных с сайта
 
 :::tip Важно
+
 Если в аккаунте уже настроены автоматизации «Брошенная корзина» или «Товарные рекомендации», этот шаг можно пропустить
+
 :::
 
-Чтобы идентифицировать товары, которые нужно выводить в письме, на страницы сайта нужно добавить специальный скрипт. Он находится [в предыдущем интерфейсе](https://sendsay.ru/account/#dashboard) — перейдите в раздел **Система → Настройки** и раскройте вкладку **Basket script**.
+Чтобы идентифицировать товары, которые нужно выводить в письме, на страницы сайта нужно добавить специальный скрипт. Он находится в предыдущем интерфейсе — перейдите в раздел **Система → Настройки** и раскройте вкладку **Basket script**.
 
 <p align="center">
-    <img src={ymlUpdate} alt="YML update" />
+  <img src={ymlUpdate} alt="YML update" />
 </p>
 
 Скрипт нужно вставить на каждую страницу с товаром — например, если у вас в разделе товаров 20 наименований, скрипт надо добавить на все 20 страниц. Скопируйте его в html-код перед закрывающим тегом `</body>` (на виде страниц это не отразится).
@@ -120,7 +126,7 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 С брошенным просмотром стоит быть аккуратным, чтобы не перенасытить пользователя напоминаниями и не присылать ему письма с товарами слишком часто. Поэтому при создании шаблона стоит поставить ограничение — письмо не будет отправляться подписчикам, которые уже получали от вас рассылки за выбранный период. Для этого в блоке **Действия с получателями** поставьте галочку «Подписчики, получившие много писем» и укажите период.
 
 <p align="center">
-    <img src={templateRestrictions} alt="Add restrictions to the template" />
+  <img src={templateRestrictions} alt="Add restrictions to the template" />
 </p>
 
 Чтобы вставить таблицу с брошенными товарами, вставьте в текст шаблона следующий код:
@@ -152,7 +158,7 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 5. Скопируйте id сегмента — он отображается в адресной строке браузера.
 
 <p align="center">
-    <img src={segmentId} alt="Segment ID" />
+  <img src={segmentId} alt="Segment ID" />
 </p>
 
 ### 2. Задайте условия сегмента
@@ -177,7 +183,7 @@ import segmentId from "/img/automations/automations-by-behaviour/browse-abandonm
 ## 5. Протестируйте, всё ли работает
 
 1. Отправьте себе тестовое письмо со ссылкой на сайт. Перейдите из письма на сайт, откройте несколько товаров и закройте сайт.
-2. В Sendsay перейдите в предыдущий интерфейс [по ссылке](https://sendsay.ru/account/#dashboard), либо откройте меню аккаунта в правом верхнем углу и выберите пункт **Предыдущий интерфейс**. Откройте свою карточку подписчика: если всё настроено правильно, там появится новая сущность `sendsay_pageviews`, где будут храниться id просмотренных товаров.
+2. В Sendsay перейдите в предыдущий интерфейс и откройте свою карточку подписчика. Если всё настроено правильно, там появится новая сущность `sendsay_pageviews`, где будут храниться id просмотренных товаров.
 3. Чтобы протестировать, как товары из брошенного просмотра выглядят в письме, откройте созданный шаблон и войдите в режим предпросмотра. Сбоку выберите пункт «Посмотреть письмо с данными конкретного подписчика» и вставьте свой адрес — товары должны отображаться в письме.
 
 ## 6. Создайте автоматизацию

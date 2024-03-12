@@ -51,7 +51,9 @@ sidebar_position: 2
 
 В отчёте можно посмотреть распределение доставки по доменам, чтобы при следующих рассылках проверять отображение письма в указанных почтовых сервисах, и по подписчикам. Также статистику по доменам и по подписчикам можно экспортировать — для этого откройте нужную вкладку, нажмите на три точки в верхней строке таблицы и выберите формат для экспорта.
 
-![Export statistics by domains](/img/statistics\all-about-campaign-reports/export-statistics-by-domains.png)
+![](/img/statistics/all-about-campaign-reports/test.png)
+
+![Export statistics by domains](/img/statistics/all-about-campaign-reports/export-statistics-by-domains.png)
 
 С помощью выгрузки отчёта по подписчикам можно восстановить удалённые контакты:
 

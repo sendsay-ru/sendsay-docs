@@ -3,25 +3,27 @@ sidebar_position: 3
 sidebar_label: 'Товарные рекомендации'
 ---
 
-import productRecommendations from "/img/automations/automations-by-behaviour/product-recommendations/product-recommendations.png";
-import legacyInterface from "/img/automations/automations-by-behaviour/product-recommendations/legacy-interface.png";
-import howToAddYml from "/img/automations/automations-by-behaviour/product-recommendations/how-to-add-yml.png";
-import ymlUpdate from "/img/automations/automations-by-behaviour/product-recommendations/yml-update.png";
-import templateRestrictions from "/img/automations/automations-by-behaviour/product-recommendations/add-restrictions-to-the-template.png";
-import segmentId from "/img/automations/automations-by-behaviour/product-recommendations/segment-id.png";
+import productRecommendations from '/img/automations/automations-by-behaviour/product-recommendations/product-recommendations.png';
+import legacyInterface from '/img/automations/automations-by-behaviour/product-recommendations/legacy-interface.png';
+import howToAddYml from '/img/automations/automations-by-behaviour/product-recommendations/how-to-add-yml.png';
+import ymlUpdate from '/img/automations/automations-by-behaviour/product-recommendations/yml-update.png';
+import templateRestrictions from '/img/automations/automations-by-behaviour/product-recommendations/add-restrictions-to-the-template.png';
+import segmentId from '/img/automations/automations-by-behaviour/product-recommendations/segment-id.png';
 
 # Как настроить товарные рекомендации в письме
 
 :::tip Важно
+
 Подключение автоматизации приостановлено, ранее настроенные автоматизации продолжают работать. Товарные рекомендации вы можете настроить в новом модуле Sendsay Продажи.
 
 [Модуль «Sendsay Продажи»: что это и как подключить](https://docs.sendsay.ru/ecom/how-to-connect-ecom)
+
 :::
 
 Товарные рекомендации — это дополнительный блок в письме, где отображаются товары с сайта, автоматически подобранные для каждого пользователя на основе его покупок и просмотренных товаров.
 
 <p align="center">
-    <img src={productRecommendations} alt="Product recommendations" />
+  <img src={productRecommendations} alt="Product recommendations" />
 </p>
 
 Важно отметить, что товарные рекомендации будут работать только для тех подписчиков, чью активность мы можем отследить на сайте. Это возможно в двух случаях:
@@ -34,7 +36,9 @@ import segmentId from "/img/automations/automations-by-behaviour/product-recomme
 ## 1. Загрузите каталог товаров в Sendsay
 
 :::tip Важно
+
 Если в аккаунте уже настроены автоматизации «Брошенная корзина» или «Брошенный просмотр», этот шаг можно пропустить
+
 :::
 
 ### Подготовьте файл со списком товаров
@@ -81,10 +85,10 @@ import segmentId from "/img/automations/automations-by-behaviour/product-recomme
 Чтобы подписчики не получали устаревшие предложения, данные о товарах в Sendsay должны периодически обновляться. Это можно сделать с помощью автоматического импорта, который настраивается [в предыдущей версии интерфейса Sendsay](https://sendsay.ru/account/). В неё можно перейти и в самом аккаунте — для этого нажмите на свой адрес (справа от журнала заданий) и в меню выберите пункт «Предыдущий интерфейс»:
 
 <p align="center">
-    <img src={legacyInterface} alt="Legacy interface" />
+  <img src={legacyInterface} alt="Legacy interface" />
 </p>
 
-[В предыдущем интерфейсе](https://sendsay.ru/account/#dashboard) нужно создать действие по расписанию:
+В предыдущем интерфейсе нужно создать действие по расписанию:
 
 1. Откройте раздел **Система → Действия по расписанию**.
 2. В выпадающем меню вместо «Выпуск по расписанию» выберите пункт «Импорт из YML» и нажмите «Создать».
@@ -93,19 +97,21 @@ import segmentId from "/img/automations/automations-by-behaviour/product-recomme
 5. Дождитесь загрузки данных — данные будут обновляться три раза в сутки (по умолчанию в 7:00, 15:00 и 23:00 по московскому времени).
 
 <p align="center">
-    <img src={howToAddYml} alt="How to add YML" />
+  <img src={howToAddYml} alt="How to add YML" />
 </p>
 
 ## 2. Настройте передачу данных с сайта
 
 :::tip Важно
+
 Если в аккаунте уже настроены автоматизации «Брошенная корзина» или «Брошенный просмотр», этот шаг можно пропустить
+
 :::
 
-Чтобы идентифицировать товары, которые нужно выводить в письме, на страницы сайта нужно добавить специальный скрипт. Он находится [в предыдущем интерфейсе](https://sendsay.ru/account/#dashboard) — перейдите в раздел **Система → Настройки** и раскройте вкладку **Basket script**.
+Чтобы идентифицировать товары, которые нужно выводить в письме, на страницы сайта нужно добавить специальный скрипт. Он находится в предыдущем интерфейсе — перейдите в раздел **Система → Настройки** и раскройте вкладку **Basket script**.
 
 <p align="center">
-    <img src={ymlUpdate} alt="YML update" />
+  <img src={ymlUpdate} alt="YML update" />
 </p>
 
 Скрипт нужно вставить на каждую страницу с товаром — например, если у вас в разделе товаров 20 наименований, скрипт надо добавить на все 20 страниц. Скопируйте его в html-код перед закрывающим тегом `</body>` (на виде страниц это не отразится).
@@ -130,7 +136,7 @@ import segmentId from "/img/automations/automations-by-behaviour/product-recomme
 5. Скопируйте id сегмента — он отображается в адресной строке браузера.
 
 <p align="center">
-    <img src={segmentId} alt="Segment ID" />
+  <img src={segmentId} alt="Segment ID" />
 </p>
 
 ### 2. Задайте условия сегмента
@@ -164,7 +170,7 @@ import segmentId from "/img/automations/automations-by-behaviour/product-recomme
 С товарными рекомендациями стоит быть аккуратным, чтобы не перенасытить ими пользователя. Поэтому при создании шаблона стоит поставить ограничение — письмо не будет отправляться подписчикам, которые уже получали от вас рассылки за выбранный период. Для этого в блоке **Действия с получателями** поставьте галочку «Подписчики, получившие много писем» и укажите период.
 
 <p align="center">
-    <img src={templateRestrictions} alt="Add restrictions to the template" />
+  <img src={templateRestrictions} alt="Add restrictions to the template" />
 </p>
 
 Чтобы вставить таблицу с товарными рекомендациями, добавьте в текст шаблона следующий код:
@@ -198,7 +204,7 @@ import segmentId from "/img/automations/automations-by-behaviour/product-recomme
 
 1. Отправьте себе тестовое письмо со ссылкой на сайт. Перейдите из письма на сайт, просмотрите несколько товаров и закройте сайт.
 2. Данные обрабатываются сутки, поэтому нужно подождать.
-3. На следующий день перейдите в перейдите в предыдущий интерфейс [по ссылке](https://sendsay.ru/account/#dashboard), либо откройте меню аккаунта в правом верхнем углу и выберите пункт **Предыдущий интерфейс**. Откройте свою карточку подписчика: если всё настроено правильно, там появится новая сущность `_sndsy_recommends`, где будут храниться id просмотренных товаров.
+3. На следующий день перейдите в предыдущий интерфейс Sendsay и откройте свою карточку подписчика. Если всё настроено правильно, там появится новая сущность `_sndsy_recommends`, где будут храниться id просмотренных товаров.
 
 ## 7. Создайте автоматизацию
 

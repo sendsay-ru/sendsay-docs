@@ -9,7 +9,7 @@ sidebar_label: 'Использование данных из Tilda'
 
 [Интеграция с Tilda](https://docs.sendsay.ru/integrations/integration-with-tilda)
 
-После интеграции все данные из форм, кроме почты, можно посмотреть только [в предыдущем интерфейсе](https://sendsay.ru/account/#dashboard). Чтобы можно было строить сегменты и вставлять данные из Tilda в рассылки, нужно сначала настроить отображение данных в новом интерфейсе.
+После интеграции все данные из форм, кроме почты, можно посмотреть только в предыдущем интерфейсе. Чтобы можно было строить сегменты и вставлять данные из Tilda в рассылки, нужно сначала настроить отображение данных в новом интерфейсе.
 
 ## Как настроить отображение данных из формы Tilda в новом интерфейсе
 
@@ -17,16 +17,18 @@ sidebar_label: 'Использование данных из Tilda'
 
 Анкета — это набор полей, в которых хранятся персональные данные подписчиков. Для данных из Tilda нужна отдельная анкета. Этот шаг нужно выполнить один раз — даже если потом у вас будут добавляться новые формы или сайты на Tilda.
 
-1. Перейдите в предыдущий интерфейс [по ссылке](https://sendsay.ru/account/#dashboard), либо откройте меню аккаунта в правом верхнем углу и выберите пункт **Предыдущий интерфейс**.
+1. Перейдите [в предыдущий интерфейс](https://sendsay.ru/account/).
 2. Откройте раздел **Система → Словари** и в списке словарей нажмите «anketa».
 3. В открывшемся словаре нажмите на плюсик («Создать узел»).
 4. Укажите следующие данные:
+
    - вместо «Строка» выберите «Объект»,
    - введите название анкеты (например, «Формы из Tilda»),
    - в поле label введите `tildaforms`
+
 5. Нажмите «Добавить».
 
-![Create data group for tilda](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/create-data-group-for-tilda.gif) <br/>
+![Create data group for tilda](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/create-data-group-for-tilda.gif) <br />
 
 ### 2. Создайте папку для каждой формы
 
@@ -34,29 +36,31 @@ sidebar_label: 'Использование данных из Tilda'
 
 1. Наведите мышку на папку «Формы из Tilda» — в правой части строки появится кнопка «+ Узел». Нажмите на неё.
 2. Укажите следующие данные:
+
    - вместо «Строка» выберите «Объект»,
    - введите название папки (например, «Форма 1»),
+
 3. В соседней вкладке откройте раздел **Подписчики → Группы** и выберите список с подписчиками из Tilda.
 4. Нажмите «Показать всех подписчиков» и откройте карточку любого подписчика.
 5. Перейдите в раздел **Данные**. В блоке «Произвольные данные» раскройте секцию tildaforms и нажмите на нужную форму. Скопируйте код формы из поля formname. Не закрывайте эту вкладку, она ещё понадобится.
 6. Вернитесь на первую вкладку к созданию папки. В поле label вставьте код формы.
 7. Нажмите «Добавить».
 
-![Create folder for each form](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/create-folder-for-each-form.gif) <br/>
+![Create folder for each form](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/create-folder-for-each-form.gif) <br />
 
 ### 3. Создайте поля для данных из формы
 
 Чтобы создать поле, наведите мышку на папку «Форма 1» — в правой части строки появится кнопка «+ Узел». Нажмите на неё. Для каждого поля нужно указать название и вставить переменную поля в поле label. В конце нажмите «Добавить».
 
-![How to create fields](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/how-to-create-fields.gif) <br/>
+![How to create fields](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/how-to-create-fields.gif) <br />
 
 Чтобы скопировать переменные, снова откройте соседнюю вкладку — они находятся в левом столбце. Рекомендуем создать в папке поля для всех полей из формы, кроме почты (она и так отображается в новом интерфейсе). Также советуем добавить поле с названием формы (formname), так как по нему можно отбирать подписчиков в сегмент. Поля для служебных данных (formid и tranid) можно не создавать.
 
-![Where to copy field codes](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/where-to-copy-field-codes.png) <br/>
+![Where to copy field codes](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/where-to-copy-field-codes.png) <br />
 
 После настройки вся информация появится в карточках подписчиков, которые пришли из Tilda, во вкладке **Данные**:
 
-![Tilda data in subscriber profile](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/tilda-data-in-subscriber-profile.png) <br/>
+![Tilda data in subscriber profile](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/tilda-data-in-subscriber-profile.png) <br />
 
 ## Как создать сегмент
 
@@ -69,9 +73,9 @@ sidebar_label: 'Использование данных из Tilda'
 имеет данные → Формы из Tilda → Форма 1 → Название формы → равно → название
 ```
 
-3. Сохраните сегмент.
+1. Сохраните сегмент.
 
-![Segment for subscribers from Tilda](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/segment-for-subscribers-from-tilda.gif) <br/>
+![Segment for subscribers from Tilda](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/segment-for-subscribers-from-tilda.gif) <br />
 
 ## Как вставить данные в письмо
 
@@ -81,7 +85,7 @@ sidebar_label: 'Использование данных из Tilda'
 2. В карточке подписчика во вкладке **Данные** и раскройте блок **Формы из Tilda**.
 3. Раскройте нужную форму и наведите курсор на поле, чей код хотите скопировать. Справа появится иконка из двух квадратиков — нажмите на неё. Для примера скопируем имя подписчика:
 
-![How to copy field code](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/how-to-copy-field-code.png) <br/>
+![How to copy field code](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/how-to-copy-field-code.png) <br />
 
 ### 2. Вставьте код поля в письмо
 
@@ -95,7 +99,7 @@ sidebar_label: 'Использование данных из Tilda'
 
 У фрагмента с кодом можно менять шрифт, цвет и размер, чтобы форматирование всех вариантов подходило под остальное письмо.
 
-![Tilda data in the campaign](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/tilda-data-in-the-campaign.png) <br/>
+![Tilda data in the campaign](/img/email-campaigns/personalization//how-to-use-tilda-data-in-campaigns/tilda-data-in-the-campaign.png) <br />
 
 ### 3. Проверьте письмо в режиме предпросмотра
 
