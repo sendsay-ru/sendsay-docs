@@ -34,7 +34,7 @@ import copyBitrixSubdomain from '/img/integrations/autoimport-from-bitrix/copy-b
   <img src={copyBitrixSubdomain} alt="Copy Bitrix subdomain" />
 </p>
 
-1. Нажмите «Продолжить».
+3. Нажмите «Продолжить».
 
 ![How to connect Bitrix](/img/integrations\autoimport-from-bitrix/how-to-connect-bitrix.gif) <br />
 
