@@ -93,17 +93,17 @@ import Details from '@theme/Details';
 
 ![Telegram key](/img/other-channels/telegram/how-to-create-a-telegram-campaign/tg-key.jpg)
 
-\<Details summary='Как добавить в кнопку ссылку внутри Телеграм'>
-
+```mdx-code-block
+<Details summary="Как добавить в кнопку ссылку внутри Телеграм">
 Рассмотрим на примере стикера, ссылок на канал и профиль.
 
-- Для кнопки со стикерпаком, используйте ссылку вида `tg://addemoji?set=stickers`. Вместо `stickers` нужно подставить название стикерпака. Например, для стикерпака [HotCherry](https://t.me/addemoji/HotCherry) ссылка будет выглядеть `tg://addemoji?set=HotCherry`.
+- Для кнопки со стикерпаком, используйте ссылку вида tg://addemoji?set=stickers. Вместо stickers нужно подставить название стикерпака. Например, для стикерпака HotCherry ссылка будет выглядеть tg://addemoji?set=HotCherry.
 
-- Чтобы добавить кнопку с каналом в Телеграм, используйте ссылку вида `tg://resolve?domain=channel`. Вместо `channel` нужно подставить ID канала. Его можно найти в профиле канала в разделе «ссылка». Например, для канала [Полезный Маркетинг | Sendsay](https://t.me/sendsay_ru) ссылка будет выглядеть `tg://resolve?domain=sendsay_ru`.
+- Чтобы добавить кнопку с каналом в Телеграм, используйте ссылку вида tg://resolve?domain=channel. Вместо channel нужно подставить ID канала. Его можно найти в профиле канала в разделе «ссылка». Например, для канала Полезный Маркетинг | Sendsay ссылка будет выглядеть tg://resolve?domain=sendsay_ru.
 
-- Для кнопки с профилем контакта в Телеграм используйте ссылку вида `tg://user?id=1234567890`. Вместо `1234567890` нужно подставить ID контакта. Его можно найти в Sendsay в разделе **Подписчики**. Например, для ID `tg1111111111` ссылка будет выглядеть `tg://user?id=1111111111`. Если в Sendsay нужного контакта нет, узнать его ID можно, написав боту [https://t.me/userinfobot](https://t.me/userinfobot).
-
-  \</Details>
+- Для кнопки с профилем контакта в Телеграм используйте ссылку вида tg://user?id=1234567890. Вместо 1234567890 нужно подставить ID контакта. Его можно найти в Sendsay в разделе Подписчики. Например, для ID tg1111111111 ссылка будет выглядеть tg://user?id=1111111111. Если в Sendsay нужного контакта нет, узнать его ID можно, написав боту https://t.me/userinfobot.
+</Details>
+```
 
 ### Быстрые ответы
 
@@ -137,7 +137,7 @@ import Details from '@theme/Details';
 
 - **Удалить из чата предыдущее меню быстрых ответов** — если на момент выпуска в чате есть меню быстрых ответов, оно будет удалено.
 
-![](/img/other-channels/telegram/how-to-create-a-telegram-campaign/options.jpg)
+![Options](/img/other-channels/telegram/how-to-create-a-telegram-campaign/options.jpg)
 
 ## 3. Протестируйте рассылку (опционально)
 
