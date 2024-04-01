@@ -40,7 +40,7 @@ sidebar_label: 'Шаблонизатор PROScript'
 		Цена: [% item.product.price %] руб.<br>
 		Количество: [% item.product.qnt %] шт<br>
 		Стоимость: [% item.product.price*item.product.qnt %] руб.<br>
-		<a href="[% item.product.url %]">Купить</a><br>
+		<a href="[% t.product.url %]">Купить</a><br>
 [% END %]
 ```
 
@@ -52,9 +52,7 @@ sidebar_label: 'Шаблонизатор PROScript'
 [% product_view_list = ssecquery('product_view') %]
 ```
 
-Данные о каждом товаре придут в виде объекта, содержащего все поля.
-Если вы передаете метаданные о товаре (название, ссылка и т.д.) в событии, то вам не нужно использовать данные о товарах из вашего YML-файла.
-В результате работы функции вы получите 100 последних событий. Вы можете задать временные рамки запрашиваемых событий:
+Данные о каждом товаре придут в виде объекта, содержащего все поля. Если вы передаете метаданные о товаре (название, ссылка и т.д.) в событии, то вам не нужно использовать данные о товарах из вашего YML-файла. В результате работы функции вы получите 100 последних событий. Вы можете задать временные рамки запрашиваемых событий:
 
 ```
 [% ssecquery('product_view','dt','>','current - 2 hours') %]
@@ -84,8 +82,7 @@ sidebar_label: 'Шаблонизатор PROScript'
 [% category_view_list = ssecquery('category_view') %]
 ```
 
-Данные о каждой категории придут в виде объекта, содержащего все поля, которые вы передавали в событии.
-В результате работы функции вы получите 100 последних событий. Вы можете задать временные рамки запрашиваемых событий:
+Данные о каждой категории придут в виде объекта, содержащего все поля, которые вы передавали в событии. В результате работы функции вы получите 100 последних событий. Вы можете задать временные рамки запрашиваемых событий:
 
 ```
 [% ssecquery('category_view','dt','>','current - 1 day') %]
@@ -108,47 +105,6 @@ sidebar_label: 'Шаблонизатор PROScript'
 [% LAST IF loop.count() == 6 %]
 [% END %]
 [% END %]
-```
-
-## Товары последнего заказа
-
-Для вывода данных последнего заказа используйте следующий код:
-
-```
-[% order_list = ssecquery('order_item', 'transaction.id', ssecquery('order')[0].transaction_id) %]
-Заказ № [% order_list[0].transaction.id %]<br>
-[% FOREACH item in order_list %]
-		<a href="[% item.product.url %]"><img src="[% item.product.picture[0] %]"></a><br>
-		<a href="[% item.product.url %]">[% item.product.name %]</a><br>
-		Цена: [% item.product.price %] руб.<br>
-		Количество: [% item.product.qnt %] шт<br>
-		Стоимость: [% item.product.price*item.product.qnt %] руб.<br>
-[% END %]
-
-```
-
-## Товары в избранном
-
-Для вывода всех товаров, добавленных клиентом в избранное, используем данные событий «добавление в избранное». Если вы передаете метаданные о товаре (название, ссылка и т.д.) в событии, то вам не нужно использовать данные о товарах из вашего YML-файла.
-
-```
-[% favorite_list = ssecquery('product_favorite') %]
-[% FOREACH item in favorite_list %]
-		<a href="[% item.product.url %]"><img src="[% item.product.picture[0] %]"></a><br>
-		<a href="[% item.product.url %]">[% item.product.name %]</a><br>
-		Цена: [% item.product.price %] руб.<br>
-		<a href="[% item.product.url %]">Купить</a><br>
-[% END %]
-```
-
-Если нужно вывести только последний добавленный в избранное товар, то используйте следующий код:
-
-```
-[% item = ssecquery('product_favorite')[0] %]
-<a href="[% item.product.url %]"><img src="[% item.product.picture[0] %]"></a><br>
-<a href="[% item.product.url %]">[% item.product.name %]</a><br>
-Цена: [% item.product.price %] руб.<br>
-<a href="[% item.product.url %]">Купить</a>
 ```
 
 ## Товарные блоки
@@ -179,8 +135,7 @@ sidebar_label: 'Шаблонизатор PROScript'
 [% END %]
 ```
 
-Функция поддерживает фильтры по любым доступным полям в данных о товаре.
-С фильтром по периоду расчета:
+Функция поддерживает фильтры по любым доступным полям в данных о товаре. С фильтром по периоду расчета:
 
 ```
 [% bestseller_count = ssecquery('bestseller_count','dt','>','current - 180 days') %]
