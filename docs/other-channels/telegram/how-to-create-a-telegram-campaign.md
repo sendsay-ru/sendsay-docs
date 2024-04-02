@@ -85,8 +85,6 @@ import Details from '@theme/Details';
 
   ![https key](/img/other-channels/telegram/how-to-create-a-telegram-campaign/https-key.jpg)
 
-<!---->
-
 - чтобы добавить ссылку внутри Телеграм, выберите `tg`.
 
 [Описание ссылок в Телеграм](https://core.telegram.org/api/links#public-username-links)
