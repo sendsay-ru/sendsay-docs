@@ -11,6 +11,7 @@ const yandexVerificationCode = process.env.YANDEX_VERIFICATION_CODE;
 const baseGTM = process.env.GTM_SCRIPTS_ID;
 const landingGA = process.env.GTM_LANDING_GROUP_COUNTER_ID;
 const noIndex = process.env.NO_PAGE_INDEXING === 'true';
+const algoliaSearhAppId = process.env.ALGOLIA_SEARCH_APP_ID;
 
 const config: Config = {
   title: 'База знаний Sendsay',
@@ -142,6 +143,19 @@ const config: Config = {
       footer: {
         style: 'light',
         copyright: `Copyright © ${new Date().getFullYear()} Sendsay.`,
+      },
+      algolia: {
+        appId: algoliaSearhAppId,
+        // Public API key: it is safe to commit it
+        apiKey: 'd933c0a19d40169c5048d4dc21237f3b',
+        indexName: 'sendsay',
+        contextualSearch: true,
+        replaceSearchResultPathname: {
+          from: '/docs/',
+          to: '/',
+        },
+        searchParameters: {},
+        searchPagePath: 'search',
       },
       prism: {
         theme: themes.github,

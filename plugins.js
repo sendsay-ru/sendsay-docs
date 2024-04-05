@@ -4,13 +4,13 @@ const yandexMetricaCounter = process.env.YANDEX_METRICA_COUNTER_ID;
 const plugins = [
   './src/plugins/iframe-detected',
   './src/plugins/tailwind',
-  [
-    'docusaurus-lunr-search',
-    {
-      languages: ['ru', 'en'],
-      excludeRoutes: require('./config/searchExcludeRoutes.json'),
-    },
-  ],
+  // [
+  //   'docusaurus-lunr-search',
+  //   {
+  //     languages: ['ru', 'en'],
+  //     excludeRoutes: require('./config/searchExcludeRoutes.json'),
+  //   },
+  // ],
   [
     '@docusaurus/plugin-client-redirects',
     {
