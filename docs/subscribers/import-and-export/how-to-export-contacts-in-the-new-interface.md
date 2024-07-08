@@ -18,7 +18,7 @@ import filePath from '/img/subscribers/import-and-export/how-to-export-contacts-
 - настроить регулярную выгрузку контактов по шаблону.
 
 :::tip Важно
-При экспорте контактов и данных подписчиков в файл формата XLSX стоит учитывать, что такой формат поддерживает 1 048 576 строк на лист.
+При экспорте контактов и данных подписчиков в файл формата XLSX стоит учитывать, что такой файл поддерживает 1 048 576 строк на лист.
 :::
 
 ## Как выгрузить контакты одного типа из списка или сегмента​
@@ -81,6 +81,8 @@ import filePath from '/img/subscribers/import-and-export/how-to-export-contacts-
 
    ![Result retention](/img/subscribers/import-and-export/how-to-export-contacts-in-the-new-interface/result-retention.gif)
 
+   Имя файла должно быть уникальным, поэтому рекомендуем использовать дату и время экспорта в названии файла. В противном случае последующие экспорты будут сохраняться с этим же названием, перезаписывая предыдущий файл.
+
 5. Когда оба шага заполнены, нажмите «Экспортировать»:
 
    ![How to export](/img/subscribers/import-and-export/how-to-export-contacts-in-the-new-interface/how-to-export.png)
@@ -126,7 +128,7 @@ import filePath from '/img/subscribers/import-and-export/how-to-export-contacts-
    <img width="60%" src={filePath} alt="File path" />
    </p>
 
-   Затем нажмите «Сохранить».
+   Имя файла должно быть уникальным, поэтому рекомендуем использовать дату и время экспорта в названии файла. В противном случае последующие экспорты будут сохраняться с этим же названием, перезаписывая предыдущий файл.
 
 6. Когда все шаги заполнены, для запуска автоматизации нажмите «Активировать»:
 
