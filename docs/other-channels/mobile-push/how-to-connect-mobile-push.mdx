@@ -153,22 +153,22 @@ import TabItem from '@theme/TabItem';
 
 ```
 {
-  "action": "authext.create",
+   "action": "authext.create",
    "login": "AUTH_NAME",
    "type": 16,
    "auth": {
-          "apns" :
-      {
-          "topic" : topic приложения iOS
-          "production" : true / false
-          "key" : сертификат или authkey в Base64
-          "key_type" : "pem", "p12" или "p8"
-          "key_id" : key_id // только для "key_type": "p8"
-          "team_id" : team_id // только для "key_type": "p8"
-          "password" : пароль к сертификату // кроме "key_type": "p8"
+     "apns": {
+        "topic": topic приложения iOS
+        "production": true / false
+        "key": сертификат или authkey в Base64
+        "key_type": "pem", "p12" или "p8"
+        "key_id": key_id // только для "key_type": "p8"
+        "team_id": team_id // только для "key_type": "p8"
+        "password": пароль к сертификату // кроме "key_type": "p8"
       }
     }
 }
+
 ```
 
 где `AUTH_NAME` — название внешней аутентификации в Sendsay. В ответе вы получите `id` — идентификатор созданной внешней аутентификации.
@@ -182,11 +182,11 @@ import TabItem from '@theme/TabItem';
    "login": "AUTH_NAME",
    "type": 16,
    "auth": {
-      "hms" :
-      {
-          "hms_app_id" : App_id
-          "key" :  Client secret      }
-}
+      "hms": {
+          "hms_app_id": App_id
+          "key":  Client secret
+      }
+   }
 }
 ```
 
@@ -264,10 +264,10 @@ import TabItem from '@theme/TabItem';
 {
   "action": "authext.set",
    "auth": {
-      "hms" :
+      "hms":
       {
-          "hms_app_id" : App_id
-          "key" :  Client secret
+          "hms_app_id": App_id
+          "key":  Client secret
       }
    },
    "id": authext_id
