@@ -158,13 +158,13 @@ import TabItem from '@theme/TabItem';
    "type": 16,
    "auth": {
      "apns": {
-        "topic": topic приложения iOS
-        "production": true / false
-        "key": сертификат или authkey в Base64
-        "key_type": "pem", "p12" или "p8"
-        "key_id": key_id // только для "key_type": "p8"
-        "team_id": team_id // только для "key_type": "p8"
-        "password": пароль к сертификату // кроме "key_type": "p8"
+        "topic": topic приложения iOS,
+        "production": true / false,
+        "key": сертификат или authkey в Base64,
+        "key_type": "pem" | "p12" | "p8",
+        "key_id": key_id, // только для "key_type": "p8"
+        "team_id": team_id, // только для "key_type": "p8"
+        "password": пароль к сертификату, // кроме "key_type": "p8"
       }
     }
 }
