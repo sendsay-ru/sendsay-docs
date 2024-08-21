@@ -83,4 +83,3 @@ sidebar_label: 'Как создать письмо'
 **Читайте также:**<br/>
 [Прехедер письма: что это, какие бывают и как их создать](https://docs.sendsay.ru/email-campaigns/create-your-campaign/preheader)<br/>
 [Футер в письме](https://docs.sendsay.ru/email-campaigns/settings/campaign-footer)
-

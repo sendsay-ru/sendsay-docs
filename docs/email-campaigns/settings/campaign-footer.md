@@ -16,7 +16,7 @@ import templateId from '/img/email-campaigns/settings/campaign-footer/template-i
 
 При нажатии на ссылку открывается страница отписки:<br/>
 
-![Unsubscribe page](/img/email-campaigns/settings\campaign-footer/unsubscribe-page.png) 
+![Unsubscribe page](/img/email-campaigns/settings\campaign-footer/unsubscribe-page.png)
 
 Если подписчик нажмёт «Отписаться», его адрес попадёт в [стоп-лист](https://docs.sendsay.ru/subscribers/contacts/stop-lists) «Отписавшиеся самостоятельно» и будет исключаться из будущих рассылок.
 
