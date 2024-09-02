@@ -420,8 +420,8 @@
     "from": "/ru/articles/2439889-как-импортировать-подписчиков"
   },
   {
-    "to": "automations/autoimport/how-to-set-autoimport",
-    "from": "videolessons/automations/how-to-set-autoimport"
+    "to": "/automations/autoimport/how-to-set-autoimport",
+    "from": "/videolessons/automations/how-to-set-autoimport"
   },
   {
     "to": "/videolessons/subscribers/signup-forms",
