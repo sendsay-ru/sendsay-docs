@@ -420,10 +420,6 @@
     "from": "/ru/articles/2439889-как-импортировать-подписчиков"
   },
   {
-    "to": "/automations/autoimport/how-to-set-autoimport",
-    "from": "/videolessons/automations/how-to-set-autoimport"
-  },
-  {
     "to": "/videolessons/subscribers/signup-forms",
     "from": "/ru/articles/2439891-формы-сбора-подписчиков"
   },
@@ -454,22 +450,6 @@
   {
     "to": "/videolessons/email-campaigns/how-to-create-a-campaign-with-attachment",
     "from": "/ru/articles/2439867-как-сделать-рассылку-с-вложением"
-  },
-  {
-    "to": "/videolessons/automations/how-to-create-welcome-series",
-    "from": "/ru/articles/2439900-как-настроить-приветственную-серию-писем"
-  },
-  {
-    "to": "/videolessons/automations/how-to-set-autoimport",
-    "from": "/ru/articles/2439876-как-настроить-автоматический-импорт-из-файла-по-расписанию"
-  },
-  {
-    "to": "/videolessons/automations/how-to-automate-birthday-emails",
-    "from": "/ru/articles/2439928-как-автоматически-поздравлять-подписчиков-с-днём-рождения"
-  },
-  {
-    "to": "/videolessons/automations/how-to-create-birthday-series",
-    "from": "/ru/articles/2439927-как-настроить-автоматическую-цепочку-из-писем-на-день-рождения"
   },
   {
     "to": "/sendsay-api",
