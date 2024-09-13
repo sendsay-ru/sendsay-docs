@@ -1,10 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import styles from './SupportLink.module.css';
 
-interface SupportLinkProps {
-  text: string | undefined;
-}
-
 declare global {
   interface Window {
     carrotquest?: {
@@ -13,7 +9,7 @@ declare global {
   }
 }
 
-const SupportLink = ({ text = '', children }: PropsWithChildren<SupportLinkProps>) => {
+const SupportLink = ({ children }: PropsWithChildren) => {
   const handleChatLinkClick = () => {
     if (window.carrotquest !== undefined) {
       window.carrotquest.open();
@@ -25,7 +21,7 @@ const SupportLink = ({ text = '', children }: PropsWithChildren<SupportLinkProps
 
   return (
     <button onClick={handleChatLinkClick} className={styles.supportLink} tabIndex={0} type="button">
-      {children ?? text}
+      {children}
     </button>
   );
 };

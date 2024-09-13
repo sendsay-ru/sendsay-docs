@@ -5,11 +5,10 @@ sidebar_label: 'Начало работы'
 ---
 
 import Details from '@theme/Details';
-import SupportLink from '@site/src/components/SupportLink';
 
 # Начало работы в Sendsay
 
-<SupportLink>Sendsay</SupportLink> — маркетинговая CDP для коммуникации с клиентами. <SupportLink text="Здесь" /> можно:
+Sendsay — маркетинговая CDP для коммуникации с клиентами. Здесь можно:
 
 - создавать и отправлять красивые письма клиентам без ручной вёрстки и программирования,
 - следить за статистикой и улучшать показатели,
