@@ -141,7 +141,7 @@ import SupportLink from '@site/src/components/SupportLink';
 
 [Как импортировать подписчиков](https://docs.sendsay.ru/subscribers/import-and-export/how-to-import-subscribers)
 
-Подтверждения также потребуют ролевые адреса (например, info@, list@, hello@, support@, sales@). Если это список ваших B2B-клиентов, <SupportLink>напишите в чат техподдержки</SupportLink> &mdash; вам помогут их&nbsp;активировать.
+Подтверждения также потребуют ролевые адреса (например, info@, list@, hello@, support@, sales@). Если это список ваших B2B-клиентов, <SupportLink>напишите в чат поддержки</SupportLink> &mdash; вам помогут их&nbsp;активировать.
 
 [Как активировать неподтверждённые адреса](https://docs.sendsay.ru/subscribers/contacts/how-to-activate-inactive-contacts)
 
