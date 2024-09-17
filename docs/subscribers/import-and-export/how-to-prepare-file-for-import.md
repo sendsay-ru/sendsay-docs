@@ -26,7 +26,7 @@ import SupportLink from '@site/src/components/SupportLink';
     <img src={fieldCode} alt="Field code" />
 </p>
 
-При автоимпорте у подписчиков может быть только основной контакт (чтобы загружать дополнительные контакты, <SupportLink>напишите нам в чат</SupportLink>). Весь файл будет выглядеть вот так:
+При автоимпорте у подписчиков может быть только основной контакт. Чтобы загружать дополнительные контакты, <SupportLink>напишите в чат поддержки</SupportLink>. Весь файл будет выглядеть вот так:
 
 <p align="center">
     <img src={fileForAutoimport} alt="File for autoimport" />
