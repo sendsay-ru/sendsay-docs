@@ -17,50 +17,50 @@ sidebar_label: 'Инструкция для разработчиков'
 
 ### Список клиентских ssec-событий
 
-| ID  | Константа события       | Событие                                       | Область в stat.uni    |
-| :-- | :---------------------- | :-------------------------------------------- | :-------------------- |
-| 0   | VIEW_PRODUCT            | Просмотр карточки товара                      | ssec_product_view     |
-| 1   | ORDER                   | Заказ                                         | ssec_order            |
-| 2   | VIEW_CATEGORY           | Просмотр категории товара                     | ssec_category_view    |
-| 3   | BASKET_ADD              | Добавление товаров в корзину                  | ssec_basket           |
-| 4   | BASKET_CLEAR            | Очистка корзины                               | ssec_basket_clear     |
-| 5   | SEARCH_PRODUCT          | Поиск товара                                  | ssec_product_search   |
-| 6   | SUBSCRIBE_PRODUCT_PRICE | Подписка на изменение стоимости товара        | ssec_product_price    |
-| 7   | SUBSCRIBE_PRODUCT_ISA   | Подписка на пинг о появлении товара в продаже | ssec_product_isa      |
-| 8   | FAVORITE                | Добавление товара в избранное                 | ssec_product_favorite |
-| 12  | PREORDER                | Предварительный заказ                         | ssec_product_preorder |
-| 13  | PRODUCT_ISA             | Товар появился                                | ssec_product_isa      |
-| 15  | PRODUCT_PRICE_CHANGED   | Стоимость товара изменилась                   | ssec_product_price_changed   |
-| 28  | REGISTRATION            | Регистрация на сайте                          | ssec_registration                     |
-| 29  | AUTHORIZATION           | Авторизация на сайте                          | ssec_authorization                      |
+| ID  | Константа события       | Событие                                       | Область в stat.uni         |
+| :-- | :---------------------- | :-------------------------------------------- | :------------------------- |
+| 0   | VIEW_PRODUCT            | Просмотр карточки товара                      | ssec_product_view          |
+| 1   | ORDER                   | Заказ                                         | ssec_order                 |
+| 2   | VIEW_CATEGORY           | Просмотр категории товара                     | ssec_category_view         |
+| 3   | BASKET_ADD              | Добавление товаров в корзину                  | ssec_basket                |
+| 4   | BASKET_CLEAR            | Очистка корзины                               | ssec_basket_clear          |
+| 5   | SEARCH_PRODUCT          | Поиск товара                                  | ssec_product_search        |
+| 6   | SUBSCRIBE_PRODUCT_PRICE | Подписка на изменение стоимости товара        | ssec_product_price         |
+| 7   | SUBSCRIBE_PRODUCT_ISA   | Подписка на пинг о появлении товара в продаже | ssec_product_isa           |
+| 8   | FAVORITE                | Добавление товара в избранное                 | ssec_product_favorite      |
+| 12  | PREORDER                | Предварительный заказ                         | ssec_product_preorder      |
+| 13  | PRODUCT_ISA             | Товар появился                                | ssec_product_isa           |
+| 15  | PRODUCT_PRICE_CHANGED   | Стоимость товара изменилась                   | ssec_product_price_changed |
+| 28  | REGISTRATION            | Регистрация на сайте                          | ssec_registration          |
+| 29  | AUTHORIZATION           | Авторизация на сайте                          | ssec_authorization         |
 
 ### Набор доступных полей
 
-| Имя поля при внесении (JS & API) | Имя поля в stat.uni    | Тип значения                          | Доступность    | Аналог в YML |
-| :------------------------------- | :--------------------- | :------------------------------------ | :------------- | :----------- |
-| id                               | product.id             | String                                |                |              |
-| name                             | product.name           | String                                |                |              |
-| picture                          | product.picture        | Array(String)<br/>(абсолютная ссылка) |                |              |
-| url                              | product.url            | String<br/>(абсолютная ссылка)        |                |              |
-| available                        | product.available      | UInt8                                 |                |              |
-| category_paths                   | product.category_paths | Array(String)                         |                |              |
-| category_id                      | product.category_id    | Int64                                 |                |              |
-| category                         | category               | String                                |                |              |
-| description                      | product.description    | String                                |                |              |
-| vendor                           | product.vendor         | String                                |                |              |
-| model                            | product.model          | String                                |                |              |
-| type                             | product.type           | String                                |                |              |
-| price                            | product.price          | Decimal64(2)                |                |              |
-| old_price                        | product.old_price      | Decimal64(2)                |                |              |
-| transaction_id                   | transaction.id         | String                                | Заказ, корзина |              |
-| transaction_dt                   | transaction.dt         | DateTime                              | Заказ, корзина |              |
-| transaction_status               | transaction.status     | Int64 (1-12)                       | Заказ, корзина |              |
-| transaction_discount             | transaction.discount   | Decimal64(2)               | Заказ, корзина |              |
-| transaction_sum                  | transaction.sum        | Decimal64(2)                | Заказ, корзина |              |
-| delivery_dt                      | delivery.dt            | DateTime                              | Заказ          |              |
-| delivery_price                   | delivery.price         | Decimal64(2)                | Заказ          |              |
-| payment_dt                       | payment.dt             | DateTime                              | Заказ          |              |
-| cp1…cp20                         | cp1…cp20               | String                                | Поля для дополнительных параметров               |              |
+| Имя поля при внесении (JS & API) | Имя поля в stat.uni    | Тип значения                          | Доступность                        | Аналог в YML |
+| :------------------------------- | :--------------------- | :------------------------------------ | :--------------------------------- | :----------- |
+| id                               | product.id             | String                                |                                    |              |
+| name                             | product.name           | String                                |                                    |              |
+| picture                          | product.picture        | Array(String)<br/>(абсолютная ссылка) |                                    |              |
+| url                              | product.url            | String<br/>(абсолютная ссылка)        |                                    |              |
+| available                        | product.available      | UInt8                                 |                                    |              |
+| category_paths                   | product.category_paths | Array(String)                         |                                    |              |
+| category_id                      | product.category_id    | Int64                                 |                                    |              |
+| category                         | category               | String                                |                                    |              |
+| description                      | product.description    | String                                |                                    |              |
+| vendor                           | product.vendor         | String                                |                                    |              |
+| model                            | product.model          | String                                |                                    |              |
+| type                             | product.type           | String                                |                                    |              |
+| price                            | product.price          | Decimal64(2)                          |                                    |              |
+| old_price                        | product.old_price      | Decimal64(2)                          |                                    |              |
+| transaction_id                   | transaction.id         | String                                | Заказ, корзина                     |              |
+| transaction_dt                   | transaction.dt         | DateTime                              | Заказ, корзина                     |              |
+| transaction_status               | transaction.status     | Int64 (1-12)                          | Заказ, корзина                     |              |
+| transaction_discount             | transaction.discount   | Decimal64(2)                          | Заказ, корзина                     |              |
+| transaction_sum                  | transaction.sum        | Decimal64(2)                          | Заказ, корзина                     |              |
+| delivery_dt                      | delivery.dt            | DateTime                              | Заказ                              |              |
+| delivery_price                   | delivery.price         | Decimal64(2)                          | Заказ                              |              |
+| payment_dt                       | payment.dt             | DateTime                              | Заказ                              |              |
+| cp1…cp20                         | cp1…cp20               | String                                | Поля для дополнительных параметров |              |
 
 #### Статусы заказа
 
